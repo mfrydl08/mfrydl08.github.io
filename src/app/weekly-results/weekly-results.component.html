@@ -1,0 +1,29 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let result of weeklyResults">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week {{result.week}} Results</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card>
+      <mat-card-content>
+        <div class="col-3">
+          <table class="table table-striped" id="resultsTable">
+            <thead>
+            <tr>
+              <th scope="col">Home</th>
+              <th scope="col">Away</th>
+              <th scope="col">Score</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let score of result.gameScores">
+                <td>{{score.homeTeam}}</td>
+                <td>{{score.awayTeam}}</td>
+                <td>{{score.homeScore + " - " + score.awayScore}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

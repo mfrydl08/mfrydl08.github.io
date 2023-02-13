@@ -1,0 +1,37 @@
+.md-button.left {
+  border-radius: 10px 0 0 10px;
+}
+
+.md-button.middle {
+  border-radius: 0;
+  border-left: 1px solid rgba(230, 230, 230, 0.96);
+  border-right: 1px solid rgba(230, 230, 230, 0.96);
+}
+
+.md-button.right {
+  border-radius: 0 10px 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: lightgray;
+}

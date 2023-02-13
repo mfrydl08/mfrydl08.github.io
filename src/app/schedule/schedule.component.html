@@ -1,0 +1,84 @@
+<div class="row">
+  <mat-card>
+    <mat-card-header style="background-color: blue">
+      <h1 class="card-title" style="color:white">Schedule for Spring '23 Session</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Type here to filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
+        <ng-container matColumnDef="week">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gameDate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["gameDate"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gameTime">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["gameTime"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="homeTeam">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["homeTeam"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="awayTeam">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["awayTeam"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="field">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["field"]}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </table>
+      <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!--// Bootstrap version below...
+<div class="row">
+  <div class="row">
+    <div class="card col-6">
+      <div class="card-header" style="background-color: blue">
+        <h5 class="card-title" style="color: white">Schedule Spring '23 Session</h5>
+      </div>
+      <div class="card-body">
+        <div>
+          <table class="table table-striped" id="scheduleTable">
+            <thead>
+            <th scope="row">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Home</th>
+            <th scope="col">Away</th>
+            <th scope="col">Field</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let game of games">
+              <td>{{game.gameDate}}</td>
+              <td>{{game.gameTime}}</td>
+              <td>{{game.homeTeam}}</td>
+              <td>{{game.awayTeam}}</td>
+              <td>{{game.field}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      &lt;!&ndash;<div class="card-footer">
+        <button class="btn btn-secondary" id="backButton" (click)="goBack()">Back</button>
+      </div>&ndash;&gt;
+    </div>
+  </div>
+</div>-->
+
+
+
+
+
+
