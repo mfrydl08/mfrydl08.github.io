@@ -7,7 +7,7 @@ import {RosterComponent} from "./roster/roster.component";
 import {RosterService} from "./roster/roster.service";
 import {ScheduleService} from "./schedule/schedule.service";
 import {ScheduleComponent} from "./schedule/schedule.component";
-import {CommonModule} from "@angular/common";
+import {APP_BASE_HREF, CommonModule} from "@angular/common";
 import {AppRoutingModule} from "./app-routing.module";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {ResultsComponent} from './results/results.component';
@@ -24,6 +24,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {WeeklyResultsComponent} from './weekly-results/weekly-results.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatRadioModule} from "@angular/material/radio";
+import { TeamDetailComponent } from './team-detail/team-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,28 +38,33 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     RosterComponent,
     ScheduleComponent,
     StandingsComponent,
-    WeeklyResultsComponent
+    WeeklyResultsComponent,
+    TeamDetailComponent
   ],
-    imports: [
-      AppRoutingModule,
-      BrowserAnimationsModule,
-      BrowserModule,
-      CommonModule,
-      FontAwesomeModule,
-      FormsModule,
-      MatCheckboxModule,
-      MatExpansionModule,
-      MatIconModule,
-      MatListModule,
-      MatMenuModule,
-      MatSidenavModule,
-      MatTableFilterModule,
-      MatToolbarModule,
-      MaterialComponentsModule
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    CommonModule,
+    FontAwesomeModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatTableFilterModule,
+    MatToolbarModule,
+    MaterialComponentsModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatRadioModule
+  ],
   providers: [
     RosterService,
-    ScheduleService
+    ScheduleService,
+    {provide: APP_BASE_HREF, useValue : '/' }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

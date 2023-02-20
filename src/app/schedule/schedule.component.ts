@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ScheduleService} from "./schedule.service";
 import {Game} from "../models/game";
 import {Subject} from "rxjs";
@@ -11,12 +11,13 @@ import {MatSort} from "@angular/material/sort";
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
-export class ScheduleComponent implements OnInit, OnDestroy {
-  destroy$: Subject<boolean> = new Subject<boolean>();
+export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
+  private destroy$: Subject<boolean> = new Subject<boolean>();
+  private ROADKILL = "ROADKILL";
   public games: Game[] = [];
   public dataSource = new MatTableDataSource(this.scheduleService.gameData);
 
-  initColumns: any[] = [
+  initColumns = [
     { name: 'week', display: 'Week' },
     { name: 'gameDate', display: 'Game Date' },
     { name: 'gameTime', display: 'Game Time' },
@@ -25,10 +26,10 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     { name: 'field', display: 'Field' },
   ];
 
-  public displayedColumns: any[] = this.initColumns.map((col) => col.name);
-  public pageSizes = [5, 10, 20, 50, 100];
+  public displayedColumns = this.initColumns.map((col) => col.name);
+  public pageSizes = [10, 20, 50, 100];
 
-  @ViewChild(MatPaginator) paginator: any = MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(private scheduleService : ScheduleService) {

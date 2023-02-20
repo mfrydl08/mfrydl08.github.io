@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ResultsService} from "./results.service";
 import {Result} from "../models/result";
 import {Subject} from "rxjs";
@@ -14,18 +14,21 @@ import {MatSort} from "@angular/material/sort";
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent implements OnInit, OnDestroy {
-  destroy$: Subject<boolean> = new Subject<boolean>();
+export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
+  private destroy$: Subject<boolean> = new Subject<boolean>();
+  private ROADKILL = "ROADKILL";
   public results: Result[] = [];
-  public wins: number = 0;
-  public draws: number = 0;
-  public losses: number = 0;
+  public wins = 0;
+  public draws = 0;
+  public losses = 0;
+  public points = 0;
+
   public filterEntity: Game = new Game();
 
-  public filterType: any = MatTableFilter;
+  public filterType = MatTableFilter.ANYWHERE;
   public dataSource = new MatTableDataSource(this.scheduleService.gameData);
 
-  initColumns: any[] = [
+  initColumns = [
     { name: 'week', display: 'Week' },
     { name: 'gameDate', display: 'Game Date' },
     { name: 'homeTeam', display: 'Home Team' },
@@ -34,10 +37,10 @@ export class ResultsComponent implements OnInit, OnDestroy {
     { name: 'awayScore', display: 'Away Score' },
   ];
 
-  public displayedColumns: any[] = this.initColumns.map((col) => col.name);
+  public displayedColumns = this.initColumns.map((col) => col.name);
   public pageSizes = [10, 20, 50, 100];
 
-  @ViewChild(MatPaginator) paginator: any = MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(public resultsService : ResultsService,
@@ -56,15 +59,18 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.results = this.resultsService.getAllResults();
 
     this.results.forEach(result => {
-      if (result.win) {
-        this.wins++;
-      } else if (result.draw) {
-        this.draws++;
-      } else {
-        this.losses++;
+      if (result.gameInfo.homeTeam.toUpperCase() == this.ROADKILL || result.gameInfo.awayTeam.toUpperCase() == this.ROADKILL) {
+        if (result.win) {
+          this.wins++;
+        } else if (result.draw) {
+          this.draws++;
+        } else {
+          this.losses++;
+        }
       }
     });
 
+    this.points = 3 * this.wins + this.draws;
     this.dataSource.sort = this.sort;
   }
 
@@ -79,5 +85,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  public getColor(): boolean {
+    return true;
   }
 }

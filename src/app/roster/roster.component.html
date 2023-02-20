@@ -1,3 +1,4 @@
+<!--suppress JSUnusedGlobalSymbols -->
 <div class="row">
   <mat-card>
     <mat-card-header style="background-color: blue">
@@ -6,7 +7,7 @@
     <mat-card-content>
       <mat-form-field appearance="fill">
         <mat-label >Type here to filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" #input>
+        <input matInput (keyup)="applyFilter($event)">
       </mat-form-field>
       <table mat-table [dataSource]="dataSource" matSort matSortActive="fullName" matSortDirection="asc" matSortDisableClear>
         <ng-container matColumnDef="fullName">
@@ -22,7 +23,7 @@
           <mat-cell *matCellDef="let element"> {{element["number"]}} </mat-cell>
           </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>
       </table>
     </mat-card-content>
   </mat-card>

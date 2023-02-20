@@ -1,0 +1,11 @@
+.gray { background-color: #f5f5f5 }
+
+.highlighted {
+  background-color: lightblue;
+  color: white;
+}
+
+.make-bold {
+  font-weight: bold;
+}
+

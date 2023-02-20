@@ -1,3 +1,4 @@
 export class Teams {
-  public teamName: string = "";
+  public id = 0;
+  public teamName = "";
 }

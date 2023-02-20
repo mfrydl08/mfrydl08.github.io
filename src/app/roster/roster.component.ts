@@ -1,4 +1,4 @@
-import {Component, inject, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {RosterService} from "./roster.service";
 import {Player} from "../models/player";
 import {MatTableDataSource} from "@angular/material/table";
@@ -10,21 +10,20 @@ import {MatSort} from "@angular/material/sort";
   styleUrls: ['./roster.component.css']
 })
 export class RosterComponent implements OnInit {
-  private rosterService = inject(RosterService);
   public players: Player[] = [];
   public dataSource = new MatTableDataSource(this.rosterService.playerData);
 
-  initColumns: any[] = [
+  initColumns = [
     { name: 'fullName', display: 'Name' },
     { name: 'position', display: 'Position' },
     { name: 'number', display: 'Jersey Number' },
   ];
 
-  public displayedColumns: any[] = this.initColumns.map((col) => col.name);
+  public displayedColumns = this.initColumns.map((col) => col.name);
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort
 
-  constructor() {}
+  constructor(private rosterService: RosterService) {}
 
   public ngOnInit() {
     this.players = this.rosterService.getPlayers();

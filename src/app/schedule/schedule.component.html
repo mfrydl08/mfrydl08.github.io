@@ -1,3 +1,4 @@
+<!--suppress JSUnusedGlobalSymbols -->
 <div class="row">
   <mat-card>
     <mat-card-header style="background-color: blue">
@@ -6,35 +7,40 @@
     <mat-card-content>
       <mat-form-field appearance="fill">
         <mat-label>Type here to filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" #input>
+        <input matInput (keyup)="applyFilter($event)">
       </mat-form-field>
       <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
         <ng-container matColumnDef="week">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["week"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="gameDate">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element["gameDate"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["gameDate"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="gameTime">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element["gameTime"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["gameTime"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="homeTeam">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element["homeTeam"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill'}">{{element["homeTeam"]}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="awayTeam">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element["awayTeam"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}">{{element["awayTeam"]}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="field">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element["field"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["field"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <mat-cell *matCellDef="let detail">
+            Maaz
+          </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even, 'highlighted': (row.homeTeam==='Roadkill' || row.awayTeam==='Roadkill')}"></mat-row>
       </table>
       <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
     </mat-card-content>

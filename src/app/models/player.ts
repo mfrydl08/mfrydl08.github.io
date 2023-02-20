@@ -1,8 +1,7 @@
 export class Player {
-  public id: number = 0;
-  public fullName: string = "";
-  public firstName: string = "";
-  public lastName: string = "";
-  public position: string = "";
-  public number: number = 0;
+  public fullName = "";
+  public firstName = "";
+  public lastName = "";
+  public position = "";
+  public number = 0;
 }

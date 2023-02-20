@@ -1,0 +1,23 @@
+.mat-button-toggle-group {
+  height: 28px;
+  align-items: center;
+}
+
+.make-green {
+  background-color: green;
+}
+
+.make-red {
+  background-color: red;
+}
+
+.make-gray {
+  background-color: gray;
+}
+
+.make-bold {
+  font-weight: bold;
+}
+
+
+

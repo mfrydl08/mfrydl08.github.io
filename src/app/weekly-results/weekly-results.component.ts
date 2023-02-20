@@ -9,7 +9,7 @@ import {GameScore} from "../models/gameScore";
   styleUrls: ['./weekly-results.component.css']
 })
 export class WeeklyResultsComponent implements OnInit {
-  public results: any = [];
+  public results = [];
   public weeklyResults: WeeklyResult[] = [];
   public gameData = this.scheduleService.getGames();
 
@@ -23,11 +23,11 @@ export class WeeklyResultsComponent implements OnInit {
 
   private buildResults() {
     for (let i = 1; i <= this.scheduleService.numberOfWeeks; i++) {
-      let weekResults = new WeeklyResult();
-      let gameScores: GameScore[] = [];
+      const weekResults = new WeeklyResult();
+      const gameScores: GameScore[] = [];
 
       this.gameData.forEach(game => {
-        let gameScore = new GameScore();
+        const gameScore = new GameScore();
         if (game.week == i && game.isScoreFinal) {
           gameScore.homeTeam = game.homeTeam;
           gameScore.awayTeam = game.awayTeam;
@@ -41,6 +41,5 @@ export class WeeklyResultsComponent implements OnInit {
       weekResults.gameScores = gameScores;
       this.weeklyResults.push(weekResults);
     }
-    console.log("weeklyResults: " + JSON.stringify(this.weeklyResults));
   }
 }
