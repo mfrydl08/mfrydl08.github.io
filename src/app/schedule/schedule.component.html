@@ -11,8 +11,8 @@
       </mat-form-field>
       <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
         <ng-container matColumnDef="week">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-right'">Week</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill', 'mat-cell-right'}"> {{element["week"]}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill'}"> {{element["week"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="gameDate">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>

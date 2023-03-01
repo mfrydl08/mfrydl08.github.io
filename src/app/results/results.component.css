@@ -1,4 +1,6 @@
-.gray { background-color: #f5f5f5 }
+.gray {
+  background-color: #f5f5f5
+}
 
 .make-green {
   background-color: green;
@@ -14,14 +16,6 @@
 
 .make-bold {
   font-weight: bold;
-}
-
-.mat-header-cell-right {
-  justify-content: right;
-}
-
-.mat-cell-right {
-  justify-content: right;
 }
 
 

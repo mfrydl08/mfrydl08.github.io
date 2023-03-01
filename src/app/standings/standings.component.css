@@ -16,7 +16,6 @@
   background-color: green;
   color: white;
   font-family: monospace;
-  /*font-size: small;*/
   font-weight: bold;
   border: 0;
   border-radius: 100%;
@@ -27,7 +26,6 @@
   background-color: gray;
   color: white;
   font-family: monospace;
-  /*font-size: small;*/
   font-weight: bold;
   border: 0;
   border-radius: 100%;
@@ -37,57 +35,9 @@
 .loss {
   background-color: red;
   color: white;
-  font-family: monospace;
-  /*font-size: small;*/
   font-weight: bold;
   border: 0;
   border-radius: 100%;
-  margin-right: 2px;
-}
-
-.mat-header-cell-center {
-  justify-content: center;
-}
-
-.mat-cell-center {
-  justify-content: center;
-}
-
-.mat-header-cell-right {
-  justify-content: right;
-}
-
-.mat-cell-right {
-  justify-content: right;
-}
-
-.mat-icon-green {
-  background-color: green;
-  color: white;
-  border-radius: 100%;
-  font-size: 16px;
-  display:flex;
-  align-items: center;
-  margin-right: 2px;
-}
-
-.mat-icon-gray {
-  background-color: gray;
-  color: white;
-  border-radius: 100%;
-  font-size: 16px;
-  display:flex;
-  align-items: center;
-  margin-right: 2px;
-}
-
-.mat-icon-red {
-  background-color: red;
-  color: white;
-  border-radius: 100%;
-  font-size: 16px;
-  display:flex;
-  align-items: center;
   margin-right: 2px;
 }
 

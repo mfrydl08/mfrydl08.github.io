@@ -3,3 +3,72 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-header-cell-center {
+  justify-content: center;
+}
+
+.mat-cell-center {
+  justify-content: center;
+}
+
+.mat-header-cell-right {
+  justify-content: right;
+}
+
+.mat-cell-right {
+  justify-content: right;
+}
+
+.mat-icon-green {
+  background-color: green;
+  color: white;
+  border-radius: 100%;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.mat-icon-gray {
+  background-color: gray;
+  color: white;
+  border-radius: 100%;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.mat-icon-red {
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.gray {
+  background-color: #f5f5f5
+}
+
+.make-green {
+  background-color: green;
+}
+
+.make-red {
+  background-color: red;
+}
+
+.make-gray {
+  background-color: gray;
+}
+
+.make-white {
+  color: white;
+}
+
+.make-bold {
+  font-weight: bold;
+}

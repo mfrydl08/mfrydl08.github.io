@@ -14,8 +14,8 @@
           <td mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'">{{ element[column.name] }}</td>
         </ng-container>-->
         <ng-container matColumnDef="week">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-right'">Week</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'"> {{element["week"]}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="gameDate">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
