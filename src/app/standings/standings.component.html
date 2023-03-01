@@ -15,7 +15,7 @@
       <ng-container matColumnDef="teamName">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Team</mat-header-cell>
         <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.teamName==='Roadkill'}">
-          <a [routerLink]="['/detail', element.id]">{{element.teamName}}</a>
+<!--           <a [routerLink]="['/detail', element.id]">{{element.teamName}}</a> -->
         </mat-cell>
       </ng-container>
       <!--<ng-container matColumnDef="teamName">
