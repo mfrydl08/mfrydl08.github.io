@@ -9,3 +9,11 @@
   font-weight: bold;
 }
 
+.mat-header-cell-right {
+  justify-content: right;
+}
+
+.mat-cell-right {
+  justify-content: right;
+}
+
