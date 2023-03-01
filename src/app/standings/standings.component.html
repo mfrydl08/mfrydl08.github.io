@@ -1,4 +1,3 @@
-<!--suppress ALL -->
 <mat-card>
   <mat-card-header style="background-color: blue">
     <h1 class="card-title" style="color:white">Standings for Spring '23 Session</h1>
@@ -8,7 +7,7 @@
       <mat-label>Type here to filter</mat-label>
       <input matInput (keyup)="applyFilter($event)">
     </mat-form-field>
-    <mat-table #table matSort matSortActive="points" matSortDirection="desc" matSortDisableClear [dataSource]="dataSource">
+    <mat-table matSort matSortActive="points" matSortDirection="desc" matSortDisableClear [dataSource]="dataSource">
       <!--<ng-container [matColumnDef]="column.name" *ngFor="let column of initColumns">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.display }}</th>
         <td mat-cell *matCellDef="let element">{{ element[column.name] }}</td>
@@ -53,26 +52,33 @@
           {{element.goalDiff}}
         </mat-cell>
       </ng-container>
-      <!--Add last 5
-      <ng-container matColumnDef="goalDiff">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GD</mat-header-cell>
-        <mat-cell *matCellDef="let element" [ngClass]="{'positive' : element.goalDiff > 0, 'negative' : element.goalDiff < 0, 'mat-cell-center':element}">
-          {{element.goalDiff}}
-        </mat-cell>
-      </ng-container>-->
       <ng-container matColumnDef="points">
         <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">Pts</mat-header-cell>
         <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.points}} </mat-cell>
       </ng-container>
+      <ng-container matColumnDef="last5">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Last 5</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span *ngFor="let results of element.lastFive">
+            <span *ngIf="results==='+'" class="mat-icon-green"><mat-icon inline="true">check</mat-icon></span>
+            <span *ngIf="results==='-'" class="mat-icon-gray"><mat-icon inline="true">remove</mat-icon></span>
+            <span *ngIf="results==='x'" class="mat-icon-red"><mat-icon inline="true">clear</mat-icon></span>
+          </span>
+<!--          <span *ngFor="let results of element.lastFive">-->
+<!--            <button *ngIf="results==='+'" class="win">{{results}}</button>-->
+<!--            <button *ngIf="results==='-'" class="draw">{{results}}</button>-->
+<!--            <button *ngIf="results==='x'" class="loss">{{results}}</button>-->
+<!--          </span>-->
+        </mat-cell>
+      </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even, 'highlighted': row.teamName==='Roadkill'}" (click)="openDetail(row.id)"></mat-row>
+      <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even, 'highlighted': row.teamName==='Roadkill'}"></mat-row>
     </mat-table>
     <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
   </mat-card-content>
 </mat-card>
 <br>
 <app-weekly-results></app-weekly-results>
-<!--</div>-->
 
 <!--// Bootstrap version below...
 <div class="row">

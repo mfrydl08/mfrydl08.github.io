@@ -86,8 +86,4 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  public getColor(): boolean {
-    return true;
-  }
 }
