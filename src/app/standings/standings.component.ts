@@ -8,7 +8,6 @@ import {MatSort} from "@angular/material/sort";
 import {Teams} from "../models/teams";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {StandingsService} from "./standings.service";
-import {LastFive} from "../models/lastFive";
 
 @Component({
   selector: 'app-standings',
@@ -51,6 +50,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     {name: 'goalsConceded', display: 'GA'},
     {name: 'goalDiff', display: 'GD'},
     {name: 'points', display: 'Pts'},
+    {name: 'last5', display: 'Last 5'},
   ];
 
   public dataSource = new MatTableDataSource(this.standings);
@@ -135,6 +135,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       this.standings.push(teamInfo);
       console.log("teamInfo: " + JSON.stringify(teamInfo));
     });
+    console.log("lastFiveMap: " + JSON.stringify(this.lastFiveMap.get("Roadkill")));
   }
 
   public getGameResults() {
@@ -209,12 +210,21 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   }
 
   public getAwayResult(homeScore: number, awayScore: number, teamName: string) {
+    let lastFive: string[] = [];
     if (awayScore > homeScore) {
       if (this.winMap.has(teamName)) {
         const wins = <number> this.winMap.get(teamName);
         this.winMap.set(teamName, wins + 1);
       } else {
         this.winMap.set(teamName, 1);
+      }
+      if (this.lastFiveMap.has(teamName)) {
+        lastFive = <string[]>this.lastFiveMap.get(teamName);
+        lastFive.push("+");
+        this.lastFiveMap.set(teamName, lastFive);
+      } else {
+        lastFive.push("+");
+        this.lastFiveMap.set(teamName, lastFive);
       }
     } else if (awayScore == homeScore) {
       if (this.drawMap.has(teamName)) {
@@ -223,12 +233,28 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.drawMap.set(teamName, 1);
       }
+      if (this.lastFiveMap.has(teamName)) {
+        lastFive = <string[]>this.lastFiveMap.get(teamName);
+        lastFive.push("-");
+        this.lastFiveMap.set(teamName, lastFive);
+      } else {
+        lastFive.push("-");
+        this.lastFiveMap.set(teamName, lastFive);
+      }
     } else if (awayScore < homeScore) {
       if (this.loseMap.has(teamName)) {
         const losses = <number> this.loseMap.get(teamName);
         this.loseMap.set(teamName, losses + 1);
       } else {
         this.loseMap.set(teamName, 1);
+      }
+      if (this.lastFiveMap.has(teamName)) {
+        lastFive = <string[]>this.lastFiveMap.get(teamName);
+        lastFive.push("x");
+        this.lastFiveMap.set(teamName, lastFive);
+      } else {
+        lastFive.push("x");
+        this.lastFiveMap.set(teamName, lastFive);
       }
     }
   }
@@ -244,10 +270,10 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       }
       if (this.lastFiveMap.has(teamName)) {
         lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("win");
+        lastFive.push("+");
         this.lastFiveMap.set(teamName, lastFive);
       } else {
-        lastFive.push("win");
+        lastFive.push("+");
         this.lastFiveMap.set(teamName, lastFive);
       }
     } else if (homeScore == awayScore) {
@@ -259,10 +285,10 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       }
       if (this.lastFiveMap.has(teamName)) {
         lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("draw");
+        lastFive.push("-");
         this.lastFiveMap.set(teamName, lastFive);
       } else {
-        lastFive.push("draw");
+        lastFive.push("-");
         this.lastFiveMap.set(teamName, lastFive);
       }
     } else if (homeScore < awayScore) {
@@ -274,15 +300,112 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       }
       if (this.lastFiveMap.has(teamName)) {
         lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("loss");
+        lastFive.push("x");
         this.lastFiveMap.set(teamName, lastFive);
       } else {
-        lastFive.push("loss");
+        lastFive.push("x");
         this.lastFiveMap.set(teamName, lastFive);
       }
     }
   }
 
-  public openDetail(id: number) {
-  }
+  // public getAwayResult(homeScore: number, awayScore: number, teamName: string) {
+  //   let lastFive: string[] = [];
+  //   if (awayScore > homeScore) {
+  //     if (this.winMap.has(teamName)) {
+  //       const wins = <number> this.winMap.get(teamName);
+  //       this.winMap.set(teamName, wins + 1);
+  //     } else {
+  //       this.winMap.set(teamName, 1);
+  //     }
+  //     if (this.lastFiveMap.has(teamName)) {
+  //       lastFive = <string[]>this.lastFiveMap.get(teamName);
+  //       lastFive.push("W");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     } else {
+  //       lastFive.push("W");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     }
+  //   } else if (awayScore == homeScore) {
+  //     if (this.drawMap.has(teamName)) {
+  //       const draws = <number> this.drawMap.get(teamName);
+  //       this.drawMap.set(teamName, draws + 1);
+  //     } else {
+  //       this.drawMap.set(teamName, 1);
+  //     }
+  //     if (this.lastFiveMap.has(teamName)) {
+  //       lastFive = <string[]>this.lastFiveMap.get(teamName);
+  //       lastFive.push("D");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     } else {
+  //       lastFive.push("D");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     }
+  //   } else if (awayScore < homeScore) {
+  //     if (this.loseMap.has(teamName)) {
+  //       const losses = <number> this.loseMap.get(teamName);
+  //       this.loseMap.set(teamName, losses + 1);
+  //     } else {
+  //       this.loseMap.set(teamName, 1);
+  //     }
+  //     if (this.lastFiveMap.has(teamName)) {
+  //       lastFive = <string[]>this.lastFiveMap.get(teamName);
+  //       lastFive.push("L");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     } else {
+  //       lastFive.push("L");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     }
+  //   }
+  // }
+
+  // public getHomeResult(homeScore: number, awayScore: number, teamName: string) {
+  //   let lastFive: string[] = [];
+  //   if (homeScore > awayScore) {
+  //     if (this.winMap.has(teamName)) {
+  //       const wins = <number> this.winMap.get(teamName);
+  //       this.winMap.set(teamName, wins + 1);
+  //     } else {
+  //       this.winMap.set(teamName, 1);
+  //     }
+  //     if (this.lastFiveMap.has(teamName)) {
+  //       lastFive = <string[]>this.lastFiveMap.get(teamName);
+  //       lastFive.push("W");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     } else {
+  //       lastFive.push("W");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     }
+  //   } else if (homeScore == awayScore) {
+  //     if (this.drawMap.has(teamName)) {
+  //       const draws = <number> this.drawMap.get(teamName);
+  //       this.drawMap.set(teamName, draws + 1);
+  //     } else {
+  //       this.drawMap.set(teamName, 1);
+  //     }
+  //     if (this.lastFiveMap.has(teamName)) {
+  //       lastFive = <string[]>this.lastFiveMap.get(teamName);
+  //       lastFive.push("D");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     } else {
+  //       lastFive.push("D");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     }
+  //   } else if (homeScore < awayScore) {
+  //     if (this.loseMap.has(teamName)) {
+  //       const losses = <number> this.loseMap.get(teamName);
+  //       this.loseMap.set(teamName, losses + 1);
+  //     } else {
+  //       this.loseMap.set(teamName, 1);
+  //     }
+  //     if (this.lastFiveMap.has(teamName)) {
+  //       lastFive = <string[]>this.lastFiveMap.get(teamName);
+  //       lastFive.push("L");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     } else {
+  //       lastFive.push("L");
+  //       this.lastFiveMap.set(teamName, lastFive);
+  //     }
+  //   }
+  // }
 }

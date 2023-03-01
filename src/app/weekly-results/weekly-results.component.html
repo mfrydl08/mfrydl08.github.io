@@ -1,3 +1,58 @@
+<div class="row">
+  <div class="col-6">
+    <mat-button-toggle-group appearance="standard">
+      <mat-button-toggle class="ms-3" style="background-color: green; color: white" (click)="accordion.openAll()">Expand All </mat-button-toggle>
+      <mat-button-toggle class="ms-1" style="background-color: red; color: white" (click)="accordion.closeAll()">Collapse All </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="col-4"></div>
+  <div class="shadow bg-warning rounded col-2 float-end">
+    <span class="float-end me-2">Loss</span>
+    <span class="mat-icon-red float-end ms-2"><mat-icon inline="true">clear</mat-icon></span>
+    <span class="float-end">Draw</span>
+    <span class="mat-icon-gray float-end ms-2"><mat-icon inline="true">remove</mat-icon></span>
+    <span class="float-end">Win</span>
+    <span class="mat-icon-green float-end"><mat-icon inline="true">check</mat-icon></span>
+    <span class="float-end me-3"><b>Last 5 Matches:</b></span>
+  </div>
+</div>
+<br>
+<mat-accordion #accordion="matAccordion" [multi]="true" [togglePosition]="'before'">
+  <mat-expansion-panel *ngFor="let result of weeklyResults">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week {{result.week}} Results</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card>
+      <mat-card-content>
+        <div class="col-3">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Home</th>
+              <th scope="col">Away</th>
+              <th scope="col">Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let score of result.gameScores" [ngClass]="{'make-bold': score.homeScore > score.awayScore,
+                    'make-green': (score.homeTeam ==='Roadkill' && score.homeScore > score.awayScore) || (score.awayTeam==='Roadkill' && score.awayScore > score.homeScore),
+                    'make-red': (score.homeTeam==='Roadkill' && score.homeScore < score.awayScore) || (score.awayTeam==='Roadkill' && score.awayScore < score.homeScore),
+                    'make-gray': score.homeTeam==='Roadkill' && score.homeScore === score.awayScore}">
+              <td>{{score.homeTeam}}</td>
+              <td>{{score.awayTeam}}</td>
+              <td>{{score.homeScore + " - " + score.awayScore}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+<!--
 <mat-button-toggle-group appearance="standard">
   <mat-button-toggle style="background-color: green; color: white" (click)="accordion.openAll()">Expand All </mat-button-toggle>
   <mat-button-toggle style="background-color: red; color: white" (click)="accordion.closeAll()">Collapse All </mat-button-toggle>
@@ -35,3 +90,4 @@
     </mat-card>
   </mat-expansion-panel>
 </mat-accordion>
+-->

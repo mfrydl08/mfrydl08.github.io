@@ -19,5 +19,35 @@
   font-weight: bold;
 }
 
+.mat-icon-green {
+  background-color: green;
+  color: white;
+  border-radius: 100%;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.mat-icon-gray {
+  background-color: gray;
+  color: white;
+  border-radius: 100%;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.mat-icon-red {
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
 
 

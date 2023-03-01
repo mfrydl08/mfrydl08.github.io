@@ -1,5 +1,3 @@
-import {LastFive} from "./lastFive";
-
 export class Standing {
   public id = 0
   public teamName = "";
@@ -11,6 +9,5 @@ export class Standing {
   public goalsConceded = 0;
   public goalDiff = 0;
   public matchesPlayed = 0;
-  // public lastFive: LastFive = new LastFive();
   public lastFive: string[] = [];
 }
