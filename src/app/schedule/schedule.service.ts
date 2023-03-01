@@ -8,7 +8,7 @@ export class ScheduleService {
   public numberOfWeeks = 0;
   public gameData = this.getGames();
 
-  public getGames(): Game[] {
+ /* public getGames(): Game[] {
     return [
       {homeTeam:"Roadkill", awayTeam:"Internationals", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 7, awayScore: 2, week: 1},
       {homeTeam:"Jolly Green Giants", awayTeam:"Blue City", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 3, awayScore: 4, week: 1},
@@ -23,11 +23,11 @@ export class ScheduleService {
       {homeTeam:"Rusty Knights", awayTeam:"Roadkill", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 2, awayScore: 7, week: 5},
       {homeTeam:"Blue City", awayTeam:"Rusty Knights", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 10, awayScore: 0, week: 5}
     ];
-  }
+  }*/
 
-  // public getGames(): Game[] {
-  //   return new Array<Game>();
-  // }
+  public getGames(): Game[] {
+    return new Array<Game>();
+  }
 
   public getNumberOfWeeks() {
     this.gameData.forEach(game => {
