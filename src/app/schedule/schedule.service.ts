@@ -10,7 +10,7 @@ export class ScheduleService {
 
   public getGames(): Game[] {
     return [
-      {homeTeam:"Roadkill", awayTeam:"Internationals", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 7, awayScore: 7, week: 1},
+      {homeTeam:"Internationals", awayTeam:"Roadkill", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 7, awayScore: 8, week: 1},
       {homeTeam:"Jolly Green Giants", awayTeam:"Blue City", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 3, awayScore: 4, week: 1},
       {homeTeam:"Absinthe Minded", awayTeam:"Agony of Da Feet", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 7, awayScore: 2, week: 1},
       {homeTeam:"KMP", awayTeam:"Rusty Knights", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 3, awayScore: 2, week: 1},
