@@ -29,8 +29,9 @@ export class StandingsService {
       {id: 4, teamName:"Internationals"},
       {id: 5, teamName:"Jolly Green Giants"},
       {id: 6, teamName:"KMP"},
-      {id: 7, teamName:"Roadkill"},
-      {id: 8, teamName:"Rusty Knights"}
+      {id: 7, teamName:"Not Fast, But Furious"},
+      {id: 8, teamName:"Roadkill"},
+      {id: 9, teamName:"Rusty Knights"}
     );
 
     this.teamList.sort((a,b) => a.teamName.localeCompare(b.teamName));
