@@ -24,7 +24,7 @@
         </ng-container>
         <ng-container matColumnDef="homeTeam">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill'}">{{element["homeTeam"]}}</mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill'}">{{element["homeTeam"]}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="awayTeam">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
