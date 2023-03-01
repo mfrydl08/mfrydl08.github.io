@@ -11,16 +11,16 @@
       </mat-form-field>
       <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
         <ng-container matColumnDef="week">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["week"]}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-right'">Week</mat-header-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill', 'mat-cell-right'}"> {{element["week"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="gameDate">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["gameDate"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill'}"> {{element["gameDate"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="gameTime">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["gameTime"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill'}"> {{element["gameTime"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="homeTeam">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
@@ -28,11 +28,11 @@
         </ng-container>
         <ng-container matColumnDef="awayTeam">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}">{{element["awayTeam"]}}</mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill'}">{{element["awayTeam"]}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="field">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' ||element.awayTeam==='Roadkill'}"> {{element["field"]}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam==='Roadkill' || element.awayTeam==='Roadkill'}"> {{element["field"]}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="expandedDetail">
           <mat-cell *matCellDef="let detail">
