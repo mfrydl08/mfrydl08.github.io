@@ -5,7 +5,6 @@ import {Game} from "../models/game";
   providedIn: 'root'
 })
 export class ScheduleService {
-  public numberOfWeeks = 0;
   public gameData = this.getGames();
 
   public getGames(): Game[] {
@@ -20,9 +19,10 @@ export class ScheduleService {
       {homeTeam:"Jolly Green Giants", awayTeam:"Rusty Knights", field:"6A", gameDate: "04-21-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 5, awayScore: 1, week: 2},
       {homeTeam:"KMP", awayTeam:"Roadkill", field:"6B", gameDate: "04-28-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 0, awayScore: 2, week: 3},
       {homeTeam:"Roadkill", awayTeam:"Jolly Green Giants", field:"7A", gameDate: "05-05-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 2, awayScore: 3, week: 4},
+      {homeTeam:"KMP", awayTeam:"Blue City", field:"7A", gameDate: "05-05-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 1, awayScore: 10, week: 4},
       {homeTeam:"Rusty Knights", awayTeam:"Roadkill", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 2, awayScore: 7, week: 5},
       {homeTeam:"Blue City", awayTeam:"Rusty Knights", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 10, awayScore: 0, week: 5},
-      {homeTeam:"Blue City", awayTeam:"Not Fast, But Furious", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 6, awayScore: 5, week: 3}
+      {homeTeam:"Blue City", awayTeam:"Not Fast, But Furious", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 6, awayScore: 5, week: 6}
     ];
   }
 
@@ -30,11 +30,14 @@ export class ScheduleService {
  //   return new Array<Game>();
  // }
 
-  public getNumberOfWeeks() {
+  public getNumberOfWeeks(): number {
+    let numberOfWeeks = 0;
     this.gameData.forEach(game => {
-      if (game.week != this.numberOfWeeks) {
-        this.numberOfWeeks++;
+      if (game.week != numberOfWeeks) {
+        numberOfWeeks++;
       }
     });
+
+    return numberOfWeeks;
   }
 }
