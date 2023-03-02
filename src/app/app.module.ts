@@ -7,7 +7,7 @@ import {RosterComponent} from "./roster/roster.component";
 import {RosterService} from "./roster/roster.service";
 import {ScheduleService} from "./schedule/schedule.service";
 import {ScheduleComponent} from "./schedule/schedule.component";
-import {APP_BASE_HREF, CommonModule} from "@angular/common";
+import {APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {AppRoutingModule} from "./app-routing.module";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {ResultsComponent} from './results/results.component';
@@ -64,7 +64,8 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
   providers: [
     RosterService,
     ScheduleService,
-    {provide: APP_BASE_HREF, useValue : '/' }
+    {provide: APP_BASE_HREF, useValue : '/' },
+    {provide : LocationStrategy , useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
