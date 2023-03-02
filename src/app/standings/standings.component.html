@@ -60,57 +60,13 @@
             <span *ngIf="results==='-'" class="mat-icon-gray"><mat-icon inline="true">remove</mat-icon></span>
             <span *ngIf="results==='x'" class="mat-icon-red"><mat-icon inline="true">clear</mat-icon></span>
           </span>
-<!--          <span *ngFor="let results of element.lastFive">-->
-<!--            <button *ngIf="results==='+'" class="win">{{results}}</button>-->
-<!--            <button *ngIf="results==='-'" class="draw">{{results}}</button>-->
-<!--            <button *ngIf="results==='x'" class="loss">{{results}}</button>-->
-<!--          </span>-->
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even, 'highlighted': row.teamName==='Roadkill'}"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
+<!--    <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>-->
   </mat-card-content>
 </mat-card>
 <br>
 <app-weekly-results></app-weekly-results>
-
-<!--// Bootstrap version below...
-<div class="row">
-  <div class="row">
-    <div class="card col-6">
-      <div class="card-header" style="background-color: blue">
-        <h5 class="card-title" style="color:white">Standings Spring '23 Session</h5>
-      </div>
-      <div class="card-body">
-        <div>
-          <table class="table table-striped" id="resultsTable">
-            <thead>
-            <th scope="row">Team</th>
-            <th scope="col">Record</th>
-            <th scope="col">Points</th>
-            <th scope="col">Goals Scored</th>
-            </thead>
-            <tbody>
-            &lt;!&ndash;<tr *ngFor="let result of results">
-              <td>{{result.gameInfo.gameDate}}</td>
-              <td>{{result.gameInfo.homeTeam}}</td>
-              <td>{{result.gameInfo.awayTeam}}</td>
-              <td>{{result.gameInfo.homeScore + " - " + result.gameInfo.awayScore}}</td>
-            </tr>&ndash;&gt;
-            </tbody>
-          </table>
-        </div>
-      </div>
-      &lt;!&ndash;<div class="card-footer">
-        <button class="btn btn-secondary" id="backButton" (click)="goBack()">Back</button>
-      </div>&ndash;&gt;
-    </div>
-  </div>
-</div>-->
-
-
-
-
-
