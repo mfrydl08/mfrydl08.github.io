@@ -35,8 +35,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let score of result.gameScores"
-                [ngClass]="
-                {
+                [ngClass]="{
                   'make-green': (score.homeTeam === 'Roadkill' && score.homeScore > score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore > score.homeScore),
                   'make-red': (score.homeTeam === 'Roadkill' && score.homeScore < score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore < score.homeScore),
                   'make-gray': (score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill') && score.homeScore === score.awayScore

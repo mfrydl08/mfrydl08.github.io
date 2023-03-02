@@ -22,7 +22,7 @@ export class WeeklyResultsComponent implements OnInit {
   }
 
   private buildResults() {
-    for (let i = 1; i <= this.scheduleService.numberOfWeeks; i++) {
+    for (let i = 1; i < this.scheduleService.numberOfWeeks; i++) {
       const weekResults = new WeeklyResult();
       const gameScores: GameScore[] = [];
 
