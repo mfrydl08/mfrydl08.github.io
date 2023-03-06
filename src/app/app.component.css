@@ -1,23 +1,28 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+nav{
+  float:left;
+  width:100%;
+}
+
+nav ul{
+  list-style-type:none;
+  padding:0;
+}
+
+nav ul li{
 
 }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
+nav ul li a{
+  border:thin solid #fff;
   color: black;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
+  display:block;
+  height:3em;
+  line-height:3em;
+  text-align:center;
+  text-decoration:none;
+  width:100%;
 }
 
-li a:hover {
+nav ul li a:hover{
   background-color: lightgray;
 }

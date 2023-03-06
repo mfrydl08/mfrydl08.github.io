@@ -59,10 +59,6 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
 
-  test() {
-    console.log('test');
-  }
-
   constructor(public scheduleService: ScheduleService,
               public standingsService: StandingsService) {
   }

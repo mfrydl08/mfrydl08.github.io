@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <mat-card>
   <mat-card-header style="background-color: blue">
@@ -52,44 +53,3 @@
     </div>
   </mat-card-content>
 </mat-card>
-
-
-<!--// Bootstrap version below...
-<div class="row">
-  <div class="row">
-    <div class="card col-6">
-      <div class="card-header" style="background-color: blue">
-        <h5 class="card-title" style="color:white">Results Spring '23 Session ({{wins + "-" + draws + "-" + losses}})</h5>
-      </div>
-      <div class="card-body">
-        <div>
-          <table class="table table-striped" id="resultsTable">
-            <thead>
-            <th scope="row">Date</th>
-            <th scope="col">Home</th>
-            <th scope="col">Away</th>
-            <th scope="col">Score</th>
-            </thead>
-            <tbody>
-            <tr *ngFor="let result of results">
-              <td>{{result.gameInfo.gameDate}}</td>
-              <td>{{result.gameInfo.homeTeam}}</td>
-              <td>{{result.gameInfo.awayTeam}}</td>
-              <td>{{result.gameInfo.homeScore + " - " + result.gameInfo.awayScore}}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      &lt;!&ndash;<div class="card-footer">
-        <button class="btn btn-secondary" id="backButton" (click)="goBack()">Back</button>
-      </div>&ndash;&gt;
-    </div>
-  </div>
-</div>
-
-
-
-
-
--->
