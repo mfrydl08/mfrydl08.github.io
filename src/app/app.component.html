@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="row">
   <div>
     <nav class="navbar navbar-expand-md">
@@ -5,7 +6,6 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" routerLink="/home"><fa-icon [icon]="homeIcon"></fa-icon></a>
-<!--            <a class="nav-link" routerLink="/home">Home</a>-->
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/roster">Roster</a>
@@ -25,31 +25,3 @@
   </div>
 </div>
 <router-outlet></router-outlet>
-
-<!--<mat-toolbar color="secondary">
-  <mat-toolbar-row>
-    <section layout="row" layout-align="center center">
-      <md-button class="left" [routerLink]="'/home'"> Home </md-button>
-      <md-button class="middle" [routerLink]="'/roster'"> Roster </md-button>
-      <md-button class="middle" [routerLink]="'/schedule'"> Schedule </md-button>
-      <md-button class="middle" [routerLink]="'/results'"> Results </md-button>
-      <md-button class="right"[routerLink]="'/standings'"> Standings </md-button>
-    </section>
-  </mat-toolbar-row>
-</mat-toolbar>-->
-
-<!--<md-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></md-button>
-<mat-menu #menu="matMenu">
-  <md-button mat-menu-item [routerLink]="'/home'">Home</md-button>
-  <md-button mat-menu-item routerLink="/roster">Roster</md-button>
-  <md-button mat-menu-item routerLink="/schedule">Schedule</md-button>
-  <md-button mat-menu-item [matMenuTriggerFor]="results">Results</md-button>
-
-</mat-menu>
-<mat-menu #results="matMenu">
-  <md-button mat-menu-item [routerLink]="'/results'">Roadkill3</md-button>
-  <md-button mat-menu-item [routerLink]="'/results'">All</md-button>
-</mat-menu>-->
-
-
-

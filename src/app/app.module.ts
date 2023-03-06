@@ -28,6 +28,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatRadioModule} from "@angular/material/radio";
 import { TeamDetailComponent } from './team-detail/team-detail.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     MaterialComponentsModule,
     MatButtonToggleModule,
     MatChipsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonModule
   ],
   providers: [
     RosterService,
