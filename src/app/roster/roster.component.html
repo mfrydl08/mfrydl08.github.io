@@ -11,9 +11,9 @@
         <mat-label >Type here to filter</mat-label>
         <input matInput (keyup)="applyFilter($event)">
       </mat-form-field>
-      <div class="mat-elevation-z8">
+      <div class="horiz-scroll">
         <table mat-table [dataSource]="dataSource" matSort matSortActive="fullName" matSortDirection="asc" matSortDisableClear>
-          <ng-container matColumnDef="fullName">
+          <ng-container matColumnDef="fullName" sticky>
             <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element["fullName"]}} </mat-cell>
           </ng-container>
@@ -32,35 +32,3 @@
     </mat-card-content>
   </mat-card>
 </div>
-
-<!--// Bootstrap version below...
-<div class="row">
-  <div class="row">
-    <div class="card col-6">
-      <div class="card-header" style="background-color: blue">
-        <h5 class="card-title" style="color:white">Roster for Spring '23 Session</h5>
-      </div>
-      <div class="card-body">
-        <div>
-          <table class="table table-striped" id="rosterTable">
-            <thead>
-              <th scope="row">Name</th>
-              <th scope="col">Position</th>
-              <th scope="col">Jersey Number</th>
-            </thead>
-            <tbody>
-              <tr *ngFor="let player of players">
-                <td>{{player.lastName + ", " + player.firstName}}</td>
-                <td>{{player.position}}</td>
-                <td>{{player.number}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      &lt;!&ndash;<div class="card-footer">
-        <button class="btn btn-secondary" id="backButton" (click)="goBack()">Back</button>
-      </div>&ndash;&gt;
-    </div>
-  </div>
-</div>-->
