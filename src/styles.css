@@ -1,5 +1,11 @@
 @import '~bootstrap/dist/css/bootstrap.css'; /* You can add global styles to this file, and also import other style files */
 
+.main-div {
+  height: min-content;
+  display: flex;
+  justify-content: center;
+}
+
 .mat-header-cell-center {
   justify-content: center;
 }

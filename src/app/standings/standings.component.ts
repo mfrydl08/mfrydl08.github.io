@@ -129,9 +129,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       teamInfo.matchesPlayed = wins + draws + losses;
       teamInfo.lastFive = lastFive;
       this.standings.push(teamInfo);
-      console.log("teamInfo: " + JSON.stringify(teamInfo));
     });
-    console.log("lastFiveMap: " + JSON.stringify(this.lastFiveMap.get("Roadkill")));
   }
 
   public getGameResults() {

@@ -1,47 +1,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<mat-card class="col-11">
-  <mat-card-content>
-    <div class="row">
-      <div class="col-lg-1 float-start">
-        <mat-button-toggle-group appearance="standard">
-          <mat-button-toggle style="background-color: green; color: white" (click)="accordion.openAll()"><mat-icon inline="true">arrow_drop_down</mat-icon>Expand All</mat-button-toggle>
-          <mat-button-toggle style="background-color: red; color: white" (click)="accordion.closeAll()"><mat-icon inline="true">arrow_drop_up</mat-icon>Collapse All</mat-button-toggle>
-        </mat-button-toggle-group>
+<div class="main-div">
+  <mat-card class="col-10">
+    <mat-card-content>
+      <div class="row">
+        <div class="col-lg-1 float-start">
+          <mat-button-toggle-group appearance="standard">
+            <mat-button-toggle style="background-color: green; color: white" (click)="accordion.openAll()"><mat-icon inline="true">expand_more</mat-icon>Expand All</mat-button-toggle>
+            <mat-button-toggle style="background-color: red; color: white" (click)="accordion.closeAll()"><mat-icon inline="true">expand_less</mat-icon>Collapse All</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
       </div>
-    </div>
-    <mat-accordion #accordion="matAccordion" [multi]="true" [togglePosition]="'before'">
-      <mat-expansion-panel *ngFor="let result of weeklyResults">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Week {{result.week}} Results</mat-panel-title>
-        </mat-expansion-panel-header>
-        <mat-card>
-          <mat-card-content>
-            <div>
-              <table class="table">
-                <thead>
-                <tr>
-                  <th scope="col">Home</th>
-                  <th scope="col">Away</th>
-                  <th scope="col">Score</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let score of result.gameScores"
-                    [ngClass]="{
-                      'make-green': (score.homeTeam === 'Roadkill' && score.homeScore > score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore > score.homeScore),
-                      'make-red': (score.homeTeam === 'Roadkill' && score.homeScore < score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore < score.homeScore),
-                      'make-gray': (score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill') && score.homeScore === score.awayScore
-                    }">
-                  <td [ngClass]="{'make-bold': score.homeScore > score.awayScore}">{{score.homeTeam}}</td>
-                  <td [ngClass]="{'make-bold': score.awayScore > score.homeScore}">{{score.awayTeam}}</td>
-                  <td>{{score.homeScore + " - " + score.awayScore}}</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </mat-card-content>
-</mat-card>
+      <mat-accordion #accordion="matAccordion" [multi]="true" [togglePosition]="'before'">
+        <mat-expansion-panel *ngFor="let result of weeklyResults">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Week {{result.week}} Results</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content>
+              <div>
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col">Home</th>
+                    <th scope="col">Away</th>
+                    <th scope="col">Score</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let score of result.gameScores"
+                      [ngClass]="{
+                        'make-green': (score.homeTeam === 'Roadkill' && score.homeScore > score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore > score.homeScore),
+                        'make-red': (score.homeTeam === 'Roadkill' && score.homeScore < score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore < score.homeScore),
+                        'make-gray': (score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill') && score.homeScore === score.awayScore
+                      }">
+                    <td [ngClass]="{'make-bold': score.homeScore > score.awayScore}">{{score.homeTeam}}</td>
+                    <td [ngClass]="{'make-bold': score.awayScore > score.homeScore}">{{score.awayTeam}}</td>
+                    <td>{{score.homeScore + " - " + score.awayScore}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>

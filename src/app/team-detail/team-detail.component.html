@@ -1,6 +1,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<p>Team: {{teamName}}</p>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<div class="main-div">
+  <mat-card class="col-6">
+    <app-roster [teamName]="teamName"></app-roster>
+  </mat-card>
+</div>
 <div class="example-button-row">
   <button type="button" class="btn btn-warning" (click)="goBack()">Back</button>
 </div>

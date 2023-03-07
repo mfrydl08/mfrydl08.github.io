@@ -1,88 +1,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<mat-card class="col-11">
-  <mat-card-header style="background-color: blue">
-    <h1 class="card-title" style="color:white">Standings for Spring '23 Session</h1>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-form-field appearance="fill">
-      <mat-label>Type here to filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)">
-    </mat-form-field>
-    <div class="horiz-scroll">
-      <table mat-table matSort matSortActive="points" matSortDirection="desc" matSortDisableClear id="app-table" [dataSource]="dataSource">
-        <!--<ng-container [matColumnDef]="column.name" *ngFor="let column of initColumns">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.display }}</th>
-          <td mat-cell *matCellDef="let element">{{ element[column.name] }}</td>
-        </ng-container>-->
-        <ng-container matColumnDef="teamName" sticky>
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Team</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.teamName==='Roadkill'}">{{element.teamName}}
-  <!--           <a [routerLink]="['/detail', element.id]">{{element.teamName}}</a> -->
-          </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="matchesPlayed">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">MP</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}">{{element.matchesPlayed}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="wins">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">W</mat-header-cell>
-        <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}">{{element.wins}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="draws">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">D</mat-header-cell>
-            <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}">{{element.draws}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="losses">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">L</mat-header-cell>
-          <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.losses}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="goalsScored">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GF</mat-header-cell>
-          <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.goalsScored}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="goalsConceded">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GA</mat-header-cell>
-          <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.goalsConceded}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="goalDiff">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GD</mat-header-cell>
-          <mat-cell *matCellDef="let element" [ngClass]="{'positive' : element.goalDiff > 0, 'negative' : element.goalDiff < 0, 'mat-cell-center':element}">
-            {{element.goalDiff}}
-          </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="points">
-          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">Pts</mat-header-cell>
-          <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.points}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="last5">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Last 5</mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <span *ngFor="let results of element.lastFive">
-              <span *ngIf="results==='+'" class="mat-icon-green"><mat-icon inline="true">check</mat-icon></span>
-              <span *ngIf="results==='-'" class="mat-icon-gray"><mat-icon inline="true">remove</mat-icon></span>
-              <span *ngIf="results==='x'" class="mat-icon-red"><mat-icon inline="true">clear</mat-icon></span>
-            </span>
-          </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="last5Key">
-          <td mat-footer-cell *matFooterCellDef>
-            <div class="shadow bg-warning rounded float-end">
-                  <span class="float-start ms-1 me-1"><b>Last 5 Matches:</b></span>
-                  <span class="float-end me-1">Loss</span>
-                  <span class="mat-icon-red float-end ms-2"><mat-icon inline="true">clear</mat-icon></span>
-                  <span class="float-end">Draw</span>
-                  <span class="mat-icon-gray float-end ms-2"><mat-icon inline="true">remove</mat-icon></span>
-                  <span class="float-end">Win</span>
-                  <span class="mat-icon-green float-end"><mat-icon inline="true">check</mat-icon></span>
-            </div>
-          </td>
-        </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even, 'highlighted': row.teamName==='Roadkill'}"></mat-row>
-        <tr mat-footer-row *matFooterRowDef="['last5Key']"></tr>
-      </table>
-    </div>
-<!--    <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>-->
-  </mat-card-content>
-</mat-card>
+<div class="main-div">
+  <mat-card class="col-10">
+<!--  <mat-card style="text-align: center;">-->
+    <mat-card-header style="background-color: blue">
+      <h1 class="card-title" style="color:white">Standings for Spring '23 Session</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Type here to filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+      </mat-form-field>
+      <div class="horiz-scroll">
+        <table mat-table matSort matSortActive="points" matSortDirection="desc" matSortDisableClear id="app-table" [dataSource]="dataSource">
+          <!--<ng-container [matColumnDef]="column.name" *ngFor="let column of initColumns">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.display }}</th>
+            <td mat-cell *matCellDef="let element">{{ element[column.name] }}</td>
+          </ng-container>-->
+          <ng-container matColumnDef="teamName" sticky>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Team</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.teamName==='Roadkill'}">
+              {{element.teamName}}
+            </mat-cell>
+<!--            <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.teamName==='Roadkill'}">-->
+<!--               <a [routerLink]="['/detail', element.id]">{{element.teamName}}</a>-->
+<!--            </mat-cell>-->
+          </ng-container>
+          <ng-container matColumnDef="matchesPlayed">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">MP</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}">{{element.matchesPlayed}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="wins">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">W</mat-header-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}">{{element.wins}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="draws">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">D</mat-header-cell>
+              <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}">{{element.draws}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="losses">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">L</mat-header-cell>
+            <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.losses}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="goalsScored">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GF</mat-header-cell>
+            <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.goalsScored}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="goalsConceded">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GA</mat-header-cell>
+            <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.goalsConceded}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="goalDiff">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">GD</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="{'positive' : element.goalDiff > 0, 'negative' : element.goalDiff < 0, 'mat-cell-center':element}">
+              {{element.goalDiff}}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="points">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">Pts</mat-header-cell>
+            <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.points}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="last5">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Last 5</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <span *ngFor="let results of element.lastFive">
+                <span *ngIf="results==='+'" class="mat-icon-green"><mat-icon inline="true">check</mat-icon></span>
+                <span *ngIf="results==='-'" class="mat-icon-gray"><mat-icon inline="true">remove</mat-icon></span>
+                <span *ngIf="results==='x'" class="mat-icon-red"><mat-icon inline="true">clear</mat-icon></span>
+              </span>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="last5Key">
+            <td mat-footer-cell *matFooterCellDef>
+              <div class="shadow bg-warning rounded float-end">
+                    <span class="float-start ms-1 me-1"><b>Last 5 Matches:</b></span>
+                    <span class="float-end me-1">Loss</span>
+                    <span class="mat-icon-red float-end ms-2"><mat-icon inline="true">clear</mat-icon></span>
+                    <span class="float-end">Draw</span>
+                    <span class="mat-icon-gray float-end ms-2"><mat-icon inline="true">remove</mat-icon></span>
+                    <span class="float-end">Win</span>
+                    <span class="mat-icon-green float-end"><mat-icon inline="true">check</mat-icon></span>
+              </div>
+            </td>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even, 'highlighted': row.teamName==='Roadkill'}"></mat-row>
+          <tr mat-footer-row *matFooterRowDef="['last5Key']"></tr>
+        </table>
+      </div>
+  <!--    <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>-->
+    </mat-card-content>
+  </mat-card>
+</div>
 <app-weekly-results></app-weekly-results>
+
