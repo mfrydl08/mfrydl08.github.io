@@ -1,5 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<mat-card>
+<mat-card class="col-11">
   <mat-card-header style="background-color: blue">
     <h1 class="card-title" style="color:white">Standings for Spring '23 Session</h1>
   </mat-card-header>
@@ -64,8 +64,22 @@
             </span>
           </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="last5Key">
+          <td mat-footer-cell *matFooterCellDef>
+            <div class="shadow bg-warning rounded float-end">
+                  <span class="float-start ms-1 me-1"><b>Last 5 Matches:</b></span>
+                  <span class="float-end me-1">Loss</span>
+                  <span class="mat-icon-red float-end ms-2"><mat-icon inline="true">clear</mat-icon></span>
+                  <span class="float-end">Draw</span>
+                  <span class="mat-icon-gray float-end ms-2"><mat-icon inline="true">remove</mat-icon></span>
+                  <span class="float-end">Win</span>
+                  <span class="mat-icon-green float-end"><mat-icon inline="true">check</mat-icon></span>
+            </div>
+          </td>
+        </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even, 'highlighted': row.teamName==='Roadkill'}"></mat-row>
+        <tr mat-footer-row *matFooterRowDef="['last5Key']"></tr>
       </table>
     </div>
 <!--    <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>-->
