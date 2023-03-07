@@ -8,14 +8,14 @@ export class RosterService {
   public players: Array<Player> = [];
   public playerData = data;
 
-  public getPlayers(teamName: string) {
-    this.players = [];
-    data.forEach(player => {
-      if (player.teamName.toLowerCase() === teamName.toLowerCase()) {
-        this.players.push(player);
-      }
-    });
-  }
+  // public getPlayers(teamName: string) {
+  //   this.players = [];
+  //   data.forEach(player => {
+  //     if (player.teamName.toLowerCase() === teamName.toLowerCase()) {
+  //       this.players.push(player);
+  //     }
+  //   });
+  // }
 }
 
 export const data = [
