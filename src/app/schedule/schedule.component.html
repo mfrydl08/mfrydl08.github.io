@@ -1,5 +1,5 @@
-<!--Roadkill-->
-<!--suppress JSUnusedGlobalSymbols -->
+<!--&lt;!&ndash;Roadkill&ndash;&gt;
+&lt;!&ndash;suppress JSUnusedGlobalSymbols &ndash;&gt;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="main-div">
   <mat-card class="col-10">
@@ -44,57 +44,57 @@
       <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
     </mat-card-content>
   </mat-card>
-</div>
+</div>-->
 
-<!--&lt;!&ndash;All Teams&ndash;&gt;-->
-<!--&lt;!&ndash;suppress JSUnusedGlobalSymbols &ndash;&gt;-->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--<div class="main-div">-->
-<!--  <mat-card class="col-10">-->
-<!--    <mat-card-header style="background-color: darkgreen">-->
-<!--      <h1 class="card-title" style="color:white">Schedule for Spring '23 Session</h1>-->
-<!--    </mat-card-header>-->
-<!--    <mat-card-content>-->
-<!--      <mat-form-field appearance="fill">-->
-<!--        <mat-label>Type here to filter</mat-label>-->
-<!--        <input matInput (keyup)="applyFilter($event)">-->
-<!--      </mat-form-field>-->
-<!--      <div class="horiz-scroll">-->
-<!--        <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>-->
-<!--          <ng-container matColumnDef="week" sticky>-->
-<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>-->
-<!--            <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>-->
-<!--          </ng-container>-->
-<!--          <ng-container matColumnDef="gameDate">-->
-<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>-->
-<!--            <mat-cell *matCellDef="let element"> {{element["gameDate"]}} </mat-cell>-->
-<!--          </ng-container>-->
-<!--          <ng-container matColumnDef="gameTime">-->
-<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>-->
-<!--            <mat-cell *matCellDef="let element"> {{element["gameTime"]}} </mat-cell>-->
-<!--          </ng-container>-->
-<!--          <ng-container matColumnDef="homeTeam">-->
-<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>-->
-<!--            <mat-cell *matCellDef="let element">{{element["homeTeam"]}}</mat-cell>-->
-<!--          </ng-container>-->
-<!--          <ng-container matColumnDef="awayTeam">-->
-<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>-->
-<!--            <mat-cell *matCellDef="let element">{{element["awayTeam"]}}</mat-cell>-->
-<!--          </ng-container>-->
-<!--          <ng-container matColumnDef="field">-->
-<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>-->
-<!--            <mat-cell *matCellDef="let element"> {{element["field"]}} </mat-cell>-->
-<!--          </ng-container>-->
-<!--          <ng-container matColumnDef="expandedDetail">-->
-<!--            <mat-cell *matCellDef="let detail">-->
-<!--              Maaz-->
-<!--            </mat-cell>-->
-<!--          </ng-container>-->
-<!--          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
-<!--          <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--      <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-<!--</div>-->
+<!--All Teams-->
+<!--suppress JSUnusedGlobalSymbols -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="main-div">
+  <mat-card class="col-10">
+    <mat-card-header style="background-color: darkgreen">
+      <h1 class="card-title" style="color:white">Schedule for Spring '23 Session</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Type here to filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+      </mat-form-field>
+      <div class="horiz-scroll">
+        <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
+          <ng-container matColumnDef="week" sticky>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="gameDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["gameDate"]}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="gameTime">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["gameTime"]}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="homeTeam">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element["homeTeam"]}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="awayTeam">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element["awayTeam"]}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="field">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["field"]}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="expandedDetail">
+            <mat-cell *matCellDef="let detail">
+              Maaz
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>
