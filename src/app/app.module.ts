@@ -1,7 +1,7 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from './home/home.component';
 import {RosterComponent} from "./roster/roster.component";
 import {ScheduleService} from "./schedule/schedule.service";
@@ -42,28 +42,29 @@ import {HttpClientModule} from "@angular/common/http";
     WeeklyResultsComponent,
     TeamDetailComponent
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    CommonModule,
-    FontAwesomeModule,
-    FormsModule,
-    HttpClientModule,
-    MatCheckboxModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatListModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatTableFilterModule,
-    MatToolbarModule,
-    MaterialComponentsModule,
-    MatButtonToggleModule,
-    MatChipsModule,
-    MatRadioModule,
-    MatButtonModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        CommonModule,
+        FontAwesomeModule,
+        FormsModule,
+        HttpClientModule,
+        MatCheckboxModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatListModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatTableFilterModule,
+        MatToolbarModule,
+        MaterialComponentsModule,
+        MatButtonToggleModule,
+        MatChipsModule,
+        MatRadioModule,
+        MatButtonModule,
+        ReactiveFormsModule
+    ],
   providers: [
     ScheduleService,
     {provide: APP_BASE_HREF, useValue : '/' },

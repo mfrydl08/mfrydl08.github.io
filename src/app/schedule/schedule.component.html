@@ -37,11 +37,6 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
             <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeTeam === 'Roadkill' || element.awayTeam === 'Roadkill'}"> {{element["field"]}} </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="expandedDetail">
-            <mat-cell *matCellDef="let detail">
-              Maaz
-            </mat-cell>
-          </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even, 'highlighted': (row.homeTeam === 'Roadkill' || row.awayTeam === 'Roadkill')}"></mat-row>
         </table>
