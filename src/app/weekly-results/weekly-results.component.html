@@ -20,7 +20,7 @@
             <mat-card-content>
               <div>
                 <table class="table">
-                  <thead>
+                  <thead style="background-color: lightgray">
                   <tr>
                     <th class="col-4" scope="col">Home</th>
                     <th class="col-4" scope="col">Away</th>
@@ -34,9 +34,20 @@
                         'make-red': (score.homeTeam === 'Roadkill' && score.homeScore < score.awayScore) || (score.awayTeam === 'Roadkill' && score.awayScore < score.homeScore),
                         'make-gray': (score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill') && score.homeScore === score.awayScore
                       }">
-                    <td [ngClass]="{'make-bold': score.homeScore > score.awayScore}">{{score.homeTeam}}</td>
-                    <td [ngClass]="{'make-bold': score.awayScore > score.homeScore}">{{score.awayTeam}}</td>
-                    <td>{{score.homeScore + " - " + score.awayScore}}</td>
+                    <td [ngClass]="{
+                      'make-bold': score.homeScore > score.awayScore,
+                      'make-text-white': score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill'}">
+                      {{score.homeTeam}}
+                    </td>
+                    <td [ngClass]="{
+                      'make-bold': score.awayScore > score.homeScore,
+                      'make-text-white': score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill'}">
+                      {{score.awayTeam}}
+                    </td>
+                    <td [ngClass]="{
+                      'make-text-white': score.homeTeam === 'Roadkill' || score.awayTeam === 'Roadkill'}">
+                      {{score.homeScore + " - " + score.awayScore}}
+                    </td>
                   </tr>
                   </tbody>
                 </table>

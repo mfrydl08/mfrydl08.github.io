@@ -20,35 +20,61 @@
             </ng-container>-->
             <ng-container matColumnDef="week" sticky>
               <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>
+              <mat-cell *matCellDef="let element"
+                        [ngClass]="{
+                          'make-bold': element.homeScore > element.awayScore,
+                          'make-text-white': element.homeTeam ==='Roadkill' || element.awayTeam ==='Roadkill'}">{{element["week"]}}
+              </mat-cell>
             </ng-container>
             <ng-container matColumnDef="gameDate">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element["gameDate"]}} </mat-cell>
+              <mat-cell *matCellDef="let element"
+                        [ngClass]="{
+                          'make-bold': element.homeScore > element.awayScore,
+                          'make-text-white': element.homeTeam ==='Roadkill' || element.awayTeam ==='Roadkill'}">{{element["gameDate"]}}
+              </mat-cell>
             </ng-container>
             <ng-container matColumnDef="homeTeam">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
-              <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeScore > element.awayScore}">{{element["homeTeam"]}}</mat-cell>
+              <mat-cell *matCellDef="let element"
+                        [ngClass]="{
+                          'make-bold': element.homeScore > element.awayScore,
+                          'make-text-white': element.homeTeam ==='Roadkill' || element.awayTeam ==='Roadkill'}">{{element["homeTeam"]}}
+              </mat-cell>
             </ng-container>
             <ng-container matColumnDef="awayTeam">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
-              <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.homeScore < element.awayScore}"> {{element["awayTeam"]}} </mat-cell>
+              <mat-cell *matCellDef="let element"
+                        [ngClass]="{
+                          'make-bold': element.awayScore > element.homeScore,
+                          'make-text-white': element.homeTeam ==='Roadkill' || element.awayTeam ==='Roadkill'}">{{element["awayTeam"]}}
+              </mat-cell>
             </ng-container>
             <ng-container matColumnDef="homeScore">
               <mat-header-cell *matHeaderCellDef [ngClass]="'mat-header-cell-right'">Home Score</mat-header-cell>
-              <mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'"> {{element["homeScore"]}} </mat-cell>
+              <mat-cell *matCellDef="let element"
+                        [ngClass]="{
+                          'mat-cell-right': true,
+                          'make-bold': element.homeScore > element.awayScore,
+                          'make-text-white': element.homeTeam ==='Roadkill' || element.awayTeam ==='Roadkill'}">{{element["homeScore"]}}
+              </mat-cell>
             </ng-container>
             <ng-container matColumnDef="awayScore">
               <mat-header-cell *matHeaderCellDef [ngClass]="'mat-header-cell-right'">Away Score</mat-header-cell>
-              <mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'"> {{element["awayScore"]}} </mat-cell>
+              <mat-cell *matCellDef="let element"
+                        [ngClass]="{
+                          'mat-cell-right': true,
+                          'make-bold': element.homeScore > element.awayScore,
+                          'make-text-white': element.homeTeam ==='Roadkill' || element.awayTeam ==='Roadkill'}">{{element["awayScore"]}}
+              </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; let even = even; columns: displayedColumns"
                      [ngClass] = "{
                      gray: even,
-                     'make-green': (row.homeTeam==='Roadkill' && row.homeScore > row.awayScore) || (row.awayTeam==='Roadkill' && row.awayScore > row.homeScore),
-                     'make-red': (row.homeTeam==='Roadkill' && row.homeScore < row.awayScore) || (row.awayTeam==='Roadkill' && row.awayScore < row.homeScore),
-                     'make-gray': row.homeTeam==='Roadkill' && row.homeScore === row.awayScore
+                     'make-green': (row.homeTeam === 'Roadkill' && row.homeScore > row.awayScore) || (row.awayTeam === 'Roadkill' && row.awayScore > row.homeScore),
+                     'make-red': (row.homeTeam === 'Roadkill' && row.homeScore < row.awayScore) || (row.awayTeam === 'Roadkill' && row.awayScore < row.homeScore),
+                     'make-gray': (row.homeTeam === 'Roadkill' || row.awayTeam === 'Roadkill') && row.homeScore === row.awayScore
                       }">
             </mat-row>
           </table>
