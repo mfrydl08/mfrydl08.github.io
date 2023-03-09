@@ -1,8 +1,11 @@
+//Roadkill Version
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {RosterService} from "./roster.service";
 import {Player} from "../models/player";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
+import {ActivatedRoute} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import {StandingsService} from "../standings/standings.service";
 
 @Component({
   selector: 'app-roster',
@@ -13,7 +16,7 @@ export class RosterComponent implements OnInit {
   @Input() teamName!: string;
 
   public players: Array<Player> = [];
-  public dataSource = new MatTableDataSource(this.rosterService.playerData);
+  public dataSource = new MatTableDataSource();
 
   initColumns = [
     { name: 'fullName', display: 'Name' },
@@ -25,9 +28,18 @@ export class RosterComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort
 
-  constructor(private rosterService: RosterService) {}
+    constructor(private route: ActivatedRoute,
+                private httpClient: HttpClient,
+                public standingsService: StandingsService) {
+  }
 
   public ngOnInit() {
+    this.httpClient.get("assets/rosterData.json").subscribe(data =>{
+      const players = <Player[]>data;
+      const filteredData = players.filter((player) => player.teamName === "Roadkill");
+      this.dataSource.data = filteredData;
+    });
+
     this.dataSource.sort = this.sort;
   }
 
@@ -42,12 +54,15 @@ export class RosterComponent implements OnInit {
   }
 }
 
-// //All Teams
+// //All Teams Version
 // import {Component, Input, OnInit, ViewChild} from '@angular/core';
-// import {RosterService} from "./roster.service";
 // import {Player} from "../models/player";
 // import {MatTableDataSource} from "@angular/material/table";
 // import {MatSort} from "@angular/material/sort";
+// import {HttpClient} from "@angular/common/http";
+// import {Location} from "@angular/common";
+// import {ActivatedRoute} from "@angular/router";
+// import {StandingsService} from "../standings/standings.service";
 //
 // @Component({
 //   selector: 'app-roster',
@@ -58,7 +73,7 @@ export class RosterComponent implements OnInit {
 //   @Input() teamName!: string;
 //
 //   public players: Array<Player> = [];
-//   public dataSource = new MatTableDataSource(this.rosterService.playerData);
+//   public dataSource = new MatTableDataSource();
 //
 //   initColumns = [
 //     { name: 'fullName', display: 'Name' },
@@ -70,9 +85,24 @@ export class RosterComponent implements OnInit {
 //
 //   @ViewChild(MatSort, { static: true }) sort!: MatSort
 //
-//   constructor(private rosterService: RosterService) {}
+//   constructor(private location: Location,
+//               private route: ActivatedRoute,
+//               private httpClient: HttpClient,
+//               public standingsService: StandingsService) {
+//   }
 //
 //   public ngOnInit() {
+//     const id = parseInt(<string>this.route.snapshot.paramMap.get('id'), 10);
+//
+//     this.teamName = this.standingsService.getTeamNameById(id);
+//
+//     this.httpClient.get("assets/rosterData.json").subscribe(data =>{
+//       const players = <Player[]>data;
+//       const filteredData = players.filter((player) => player.teamName === this.teamName);
+//
+//       this.dataSource.data = filteredData;
+//     });
+//
 //     this.dataSource.sort = this.sort;
 //     this.dataSource.filter = this.teamName.trim().toLowerCase();
 //   }
@@ -91,5 +121,9 @@ export class RosterComponent implements OnInit {
 //     if (this.dataSource.paginator) {
 //       this.dataSource.paginator.firstPage();
 //     }
+//   }
+//
+//   public goBack(): void {
+//     this.location.back();
 //   }
 // }

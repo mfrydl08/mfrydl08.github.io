@@ -1,9 +1,10 @@
+<!--Roadkill version-->
 <!--suppress JSUnusedGlobalSymbols -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="main-div">
   <mat-card class="col-10">
-    <mat-card-header style="background-color: blue">
+    <mat-card-header style="background-color: darkblue">
       <h1 class="card-title" style="color:white">{{teamName}} Roster for Spring '23 Session</h1>
     </mat-card-header>
     <mat-card-content>
@@ -24,11 +25,67 @@
           <ng-container matColumnDef="number">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Jersey Number</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element["number"]}} </mat-cell>
-            </ng-container>
+          </ng-container>
+          <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">
+              No records found
+            </mat-footer-cell>
+          </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>
+          <mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource && dataSource.data.length > 0"></mat-footer-row>
         </table>
       </div>
     </mat-card-content>
   </mat-card>
 </div>
+
+<!--&lt;!&ndash;All teams version&ndash;&gt;-->
+<!--&lt;!&ndash;suppress JSUnusedGlobalSymbols &ndash;&gt;-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--<div class="main-div">-->
+<!--  <mat-card class="col-10">-->
+<!--    <mat-card-header style="background-color: darkgreen">-->
+<!--      <h1 class="card-title" style="color:white">{{teamName}} Roster for Spring '23 Session</h1>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label >Type here to filter</mat-label>-->
+<!--        <input matInput (keyup)="applyFilter($event)">-->
+<!--      </mat-form-field>-->
+<!--      <div class="horiz-scroll">-->
+<!--        <table mat-table [dataSource]="dataSource" matSort matSortActive="fullName" matSortDirection="asc" matSortDisableClear>-->
+<!--          <ng-container matColumnDef="fullName" sticky>-->
+<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>-->
+<!--            <mat-cell *matCellDef="let element"> {{element["fullName"]}} </mat-cell>-->
+<!--          </ng-container>-->
+<!--          <ng-container matColumnDef="position">-->
+<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Position</mat-header-cell>-->
+<!--            <mat-cell *matCellDef="let element"> {{element["position"]}} </mat-cell>-->
+<!--          </ng-container>-->
+<!--          <ng-container matColumnDef="number">-->
+<!--            <mat-header-cell *matHeaderCellDef mat-sort-header>Jersey Number</mat-header-cell>-->
+<!--            <mat-cell *matCellDef="let element"> {{element["number"]}} </mat-cell>-->
+<!--          </ng-container>-->
+<!--          <ng-container matColumnDef="noData">-->
+<!--            <mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">-->
+<!--              No records found-->
+<!--            </mat-footer-cell>-->
+<!--          </ng-container>-->
+<!--          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+<!--          <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>-->
+<!--          <mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource && dataSource.data.length > 0"></mat-footer-row>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-footer>-->
+<!--      <br>-->
+<!--      <div class="example-button-row">-->
+<!--        <button type="button" class="btn btn-warning ms-2" (click)="goBack()">Back</button>-->
+<!--      </div>-->
+<!--      <br>-->
+<!--    </mat-card-footer>-->
+<!--  </mat-card>-->
+<!--</div>-->
+

@@ -4,7 +4,6 @@ import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {HomeComponent} from './home/home.component';
 import {RosterComponent} from "./roster/roster.component";
-import {RosterService} from "./roster/roster.service";
 import {ScheduleService} from "./schedule/schedule.service";
 import {ScheduleComponent} from "./schedule/schedule.component";
 import {APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy} from "@angular/common";
@@ -27,8 +26,9 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatRadioModule} from "@angular/material/radio";
-import { TeamDetailComponent } from './team-detail/team-detail.component';
+import {TeamDetailComponent} from './team-detail/team-detail.component';
 import {MatButtonModule} from "@angular/material/button";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     FontAwesomeModule,
     FormsModule,
+    HttpClientModule,
     MatCheckboxModule,
     MatExpansionModule,
     MatIconModule,
@@ -64,7 +65,6 @@ import {MatButtonModule} from "@angular/material/button";
     MatButtonModule
   ],
   providers: [
-    RosterService,
     ScheduleService,
     {provide: APP_BASE_HREF, useValue : '/' },
     {provide : LocationStrategy , useClass: HashLocationStrategy}
