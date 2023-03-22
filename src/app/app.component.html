@@ -1,3 +1,18 @@
+<!--All teams version-->
+<div class="main-div">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <div class="menu-center">
+        <a mat-button [routerLink]="'/home'"><fa-icon [icon]="homeIcon"></fa-icon></a>
+        <a mat-button [routerLink]="'/schedule'">Schedule</a>
+        <a mat-button [routerLink]="'/standings'">Standings</a>
+        <a mat-button [routerLink]="'/results'">Results</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<router-outlet></router-outlet>
+
 <!--&lt;!&ndash;Roadkill version&ndash;&gt;-->
 <!--<div class="main-div">-->
 <!--  <mat-toolbar>-->
@@ -13,18 +28,3 @@
 <!--  </mat-toolbar>-->
 <!--</div>-->
 <!--<router-outlet></router-outlet>-->
-
-<!--All teams version-->
-<div class="main-div">
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <div class="menu-center">
-        <a mat-button [routerLink]="'/home'"><fa-icon [icon]="homeIcon"></fa-icon></a>
-        <a mat-button [routerLink]="'/schedule'">Schedule</a>
-        <a mat-button [routerLink]="'/standings'">Standings</a>
-        <a mat-button [routerLink]="'/results'">Results</a>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
-<router-outlet></router-outlet>

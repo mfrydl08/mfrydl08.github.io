@@ -17,7 +17,7 @@ export class ResultsService implements OnDestroy {
 
   public getGames() {
     this.games = [];
-    this.games = this.scheduleService.getGames();
+    this.games = this.scheduleService.gameData;
   }
 
   public getAllResults(): Result[] {

@@ -12,5 +12,6 @@
   {"teamName": "Roadkill", "fullName": "Sommer, Tony", "firstName": "Tony", "lastName": "Sommer", "position": "Forward/Midfield", "number": 13},
   {"teamName": "Roadkill", "fullName": "Switzer, Carol", "firstName": "Carol", "lastName": "Switzer", "position": "Goalkeeper", "number": 1},
   {"teamName": "Blue City", "fullName": "Martinez, Jose", "firstName": "Jose", "lastName": "Martinez", "position": "Defender", "number": 1},
-  {"teamName": "Blue City", "fullName": "Rodriguez, Jesus", "firstName": "Jesus", "lastName": "Rodriguez", "position": "Forward", "number": 2}
+  {"teamName": "Blue City", "fullName": "Rodriguez, Jesus", "firstName": "Jesus", "lastName": "Rodriguez", "position": "Forward", "number": 2},
+  {"teamName": "Absinthe Minded", "fullName": "Thayl, Johnathan", "firstName": "Johnathan", "lastName": "Thayl"}
 ]

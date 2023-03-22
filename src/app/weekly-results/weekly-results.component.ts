@@ -11,7 +11,7 @@ import {GameScore} from "../models/gameScore";
 export class WeeklyResultsComponent implements OnInit {
   public results = [];
   public weeklyResults: WeeklyResult[] = [];
-  public gameData = this.scheduleService.getGames();
+  public gameData = this.scheduleService.gameData;
 
   constructor(public scheduleService: ScheduleService) {
   }

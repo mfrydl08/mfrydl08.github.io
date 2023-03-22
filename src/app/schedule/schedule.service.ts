@@ -26,10 +26,6 @@ export class ScheduleService {
     ];
   }
 
- // public getGames(): Game[] {
- //   return new Array<Game>();
- // }
-
   public getNumberOfWeeks(): number {
     let numberOfWeeks = 0;
     this.gameData.forEach(game => {
