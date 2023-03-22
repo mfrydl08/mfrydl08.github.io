@@ -5,7 +5,7 @@
     <mat-card-content>
       <div class="row">
         <div class="col-lg-1 float-start">
-          <mat-button-toggle-group appearance="standard">
+          <mat-button-toggle-group appearance="legacy">
             <mat-button-toggle style="background-color: green; color: white" (click)="accordion.openAll()"><mat-icon inline="true">expand_more</mat-icon>Expand All</mat-button-toggle>
             <mat-button-toggle style="background-color: red; color: white" (click)="accordion.closeAll()"><mat-icon inline="true">expand_less</mat-icon>Collapse All</mat-button-toggle>
           </mat-button-toggle-group>
@@ -24,7 +24,7 @@
                   <tr>
                     <th class="col-4" scope="col">Home</th>
                     <th class="col-4" scope="col">Away</th>
-                    <th class="col-4" scope="col">Score</th>
+                    <th class="col-3" scope="col">Score</th>
                   </tr>
                   </thead>
                   <tbody>

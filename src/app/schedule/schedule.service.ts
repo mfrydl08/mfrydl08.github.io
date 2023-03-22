@@ -22,7 +22,7 @@ export class ScheduleService {
       {homeTeam:"KMP", awayTeam:"Blue City", field:"7A", gameDate: "05-05-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 1, awayScore: 10, week: 4},
       {homeTeam:"Rusty Knights", awayTeam:"Roadkill", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 2, awayScore: 7, week: 5},
       {homeTeam:"Blue City", awayTeam:"Rusty Knights", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 10, awayScore: 0, week: 5},
-      {homeTeam:"Blue City", awayTeam:"Not Fast, But Furious", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 6, awayScore: 5, week: 6}
+      {homeTeam:"Not Fast, But Furious", awayTeam:"Blue City", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 6, awayScore: 5, week: 6}
     ];
   }
 
