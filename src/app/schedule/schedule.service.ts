@@ -13,6 +13,7 @@ export class ScheduleService {
       {homeTeam:"Jolly Green Giants", awayTeam:"Blue City", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 3, awayScore: 4, week: 1},
       {homeTeam:"Absinthe Minded", awayTeam:"Agony of Da Feet", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 7, awayScore: 2, week: 1},
       {homeTeam:"KMP", awayTeam:"Rusty Knights", field:"6A", gameDate: "04-14-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 10, awayScore: 2, week: 1},
+      {homeTeam:"KMP", awayTeam:"Not Fast, But Furious", field:"6A", gameDate: "05-12-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 2, awayScore: 8, week: 1},
       {homeTeam:"Roadkill", awayTeam:"Absinthe Minded", field:"6A", gameDate: "04-21-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 6, awayScore: 5, week: 2},
       {homeTeam:"Blue City", awayTeam:"Internationals", field:"6A", gameDate: "04-21-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 6, awayScore: 6, week: 2},
       {homeTeam:"Agony of Da Feet", awayTeam:"KMP", field:"6A", gameDate: "04-21-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 6, awayScore: 5, week: 2},
