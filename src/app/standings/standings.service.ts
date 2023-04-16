@@ -29,7 +29,7 @@ export class StandingsService {
       {id: 4, teamName:"Internationals"},
       {id: 5, teamName:"Jolly Green Giants"},
       {id: 6, teamName:"KMP"},
-      {id: 7, teamName:"Not Fast, But Furious"},
+      {id: 7, teamName:"Mustangs FC"},
       {id: 8, teamName:"Roadkill"},
       {id: 9, teamName:"Rusty Knights"}
     );

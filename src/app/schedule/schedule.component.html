@@ -46,7 +46,9 @@
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>
         </table>
       </div>
-      <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageSizeOptions]="pageSizes"
+                     [pageSize]="defaultPageSize"
+                     showFirstLastButtons></mat-paginator>
     </mat-card-content>
   </mat-card>
 </div>

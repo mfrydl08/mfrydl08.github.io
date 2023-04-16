@@ -29,7 +29,8 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   ];
 
   public displayedColumns = this.initColumns.map((col) => col.name);
-  public pageSizes = [20, 50, 100];
+  public pageSizes = [20, 50, 75, 100];
+  public defaultPageSize = 50;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
@@ -100,6 +101,7 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
 //
 //   public displayedColumns = this.initColumns.map((col) => col.name);
 //   public pageSizes = [10, 20, 50, 100];
+//   public defaultPageSize = 50;
 //
 //   @ViewChild(MatPaginator) paginator!: MatPaginator;
 //   @ViewChild(MatSort, { static: true }) sort!: MatSort;

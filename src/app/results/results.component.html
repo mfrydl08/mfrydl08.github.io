@@ -42,8 +42,14 @@
               <mat-header-cell *matHeaderCellDef [ngClass]="'mat-header-cell-right'">Away Score</mat-header-cell>
               <mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'"> {{element["awayScore"]}} </mat-cell>
             </ng-container>
+            <ng-container matColumnDef="noData">
+              <mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">
+                No records found
+              </mat-footer-cell>
+            </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass] = "{gray: even}"></mat-row>
+            <mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource && dataSource.data.length > 0"></mat-footer-row>
           </table>
         </div>
         <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
