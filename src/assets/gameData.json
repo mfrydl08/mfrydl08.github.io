@@ -1,6 +1,6 @@
 [
   {"homeTeam":"Jolly Green Giants", "awayTeam":"Absinthe Minded", "field":"6B", "gameDate": "04-21-2023", "gameTime": "6:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 1},
-  {"homeTeam":"KMP", "awayTeam":"Roadkill", "field":"6B", "gameDate": "04-21-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 1},
+  {"homeTeam":"KMP", "awayTeam":"Roadkill", "field":"6B", "gameDate": "04-21-2023", "gameTime": "7:00", "isScoreFinal": true, "homeScore": 3, "awayScore": 4, "week": 1},
   {"homeTeam":"Mustangs FC", "awayTeam":"Blue City", "field":"6B", "gameDate": "04-21-2023", "gameTime": "8:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 1},
   {"homeTeam":"Rusty Knights", "awayTeam":"Blue City", "field":"6B", "gameDate": "04-21-2023", "gameTime": "9:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 1},
   {"homeTeam":"Agony of Da Feet", "awayTeam":"Internationals", "field":"7B", "gameDate": "04-21-2023", "gameTime": "9:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 1},
