@@ -26,6 +26,7 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
     { name: 'homeTeam', display: 'Home Team' },
     { name: 'awayTeam', display: 'Away Team' },
     { name: 'field', display: 'Field' },
+    { name: 'status', display: '' },
   ];
 
   public displayedColumns = this.initColumns.map((col) => col.name);

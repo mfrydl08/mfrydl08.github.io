@@ -15,32 +15,61 @@
         <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
           <ng-container matColumnDef="week" sticky>
             <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element["week"]}} </mat-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["week"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="gameDate">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element["gameDate"]}} </mat-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["gameDate"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="gameTime">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element["gameTime"]}} </mat-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["gameTime"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="homeTeam">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element["homeTeam"]}}</mat-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["homeTeam"]}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="awayTeam">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element["awayTeam"]}}</mat-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["awayTeam"]}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="field">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element["field"]}} </mat-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["field"]}} </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="expandedDetail">
-            <mat-cell *matCellDef="let detail">
-              Maaz
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element"
+                      [ngClass]="{
+                      'make-bold': element.status === 'Cancelled',
+                      'make-text-red': element.status === 'Cancelled'}">
+              {{element["status"]}}
             </mat-cell>
+            <!--            <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.status === 'Cancelled'}">{{element["status"]}}-->
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>

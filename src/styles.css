@@ -68,6 +68,10 @@
   background-color: gray;
 }
 
+.make-text-red {
+  color: red;
+}
+
 .make-text-white {
   color: white;
 }
