@@ -10,11 +10,11 @@ export class ScheduleService {
   public getGames(): Game[] {
     const games: Game[] = [];
     const gameData = [
-      {homeTeam:"Jolly Green Giants", awayTeam:"Absinthe Minded", field:"6B", gameDate: "04-21-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 1, status: ""},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Absinthe Minded", field:"6B", gameDate: "04-21-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 8, awayScore: 4, week: 1, status: ""},
       {homeTeam:"KMP", awayTeam:"Roadkill", field:"6B", gameDate: "04-21-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 3, awayScore: 4, week: 1, status: ""},
-      {homeTeam:"Mustangs FC", awayTeam:"Blue City", field:"6B", gameDate: "04-21-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 1, status: ""},
-      {homeTeam:"Rusty Knights", awayTeam:"Blue City", field:"6B", gameDate: "04-21-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 1, status: ""},
-      {homeTeam:"Agony of Da Feet", awayTeam:"Internationals", field:"7B", gameDate: "04-21-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 1, status: ""},
+      {homeTeam:"Mustangs FC", awayTeam:"Blue City", field:"6B", gameDate: "04-21-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 1, awayScore: 2, week: 1, status: ""},
+      {homeTeam:"Rusty Knights", awayTeam:"Blue City", field:"6B", gameDate: "04-21-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 4, awayScore: 9, week: 1, status: ""},
+      {homeTeam:"Agony of Da Feet", awayTeam:"Internationals", field:"7B", gameDate: "04-21-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 2, awayScore: 6, week: 1, status: ""},
 
       {homeTeam:"Blue City", awayTeam:"Jolly Green Giants", field:"6B", gameDate: "04-28-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Cancelled"},
       {homeTeam:"Jolly Green Giants", awayTeam:"Agony of Da Feet", field:"6B", gameDate: "04-28-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Cancelled"},
