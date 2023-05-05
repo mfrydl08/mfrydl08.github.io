@@ -12,64 +12,64 @@
         <input matInput (keyup)="applyFilter($event)">
       </mat-form-field>
       <div class="horiz-scroll">
-        <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
+        <table mat-table [dataSource]="dataSource" matSort matSortActive="gameDate" matSortDirection="asc" matSortDisableClear>
           <ng-container matColumnDef="week" sticky>
             <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["week"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="gameDate">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Game Date</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["gameDate"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="gameTime">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Game Time</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["gameTime"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="homeTeam">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["homeTeam"]}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="awayTeam">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["awayTeam"]}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="field">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Field</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["field"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="status">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
-                      'make-bold': element.status === 'Cancelled',
-                      'make-text-red': element.status === 'Cancelled'}">
+                      'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
+                      'make-text-red': element.status === 'Cancelled' || element.status === 'Rescheduled'}">
               {{element["status"]}}
             </mat-cell>
-            <!--            <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.status === 'Cancelled'}">{{element["status"]}}-->
+            <!--            <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled'}">{{element["status"]}}-->
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>
