@@ -17,12 +17,13 @@ export class WeeklyResultsComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.scheduleService.getNumberOfWeeks();
+    // this.scheduleService.getNumberOfWeeks();
     this.buildResults();
   }
 
   private buildResults() {
     const numberOfWeeks =  this.scheduleService.getNumberOfWeeks();
+    console.log("numberOfWeeks: " + numberOfWeeks);
 
     for (let i = 1; i <= numberOfWeeks; i++) {
       const weekResults = new WeeklyResult();

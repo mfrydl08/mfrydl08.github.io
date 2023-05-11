@@ -12,11 +12,11 @@
   {"homeTeam":"Internationals", "awayTeam":"KMP", "field":"Ballenger Creek Park: Foreman Field B", "gameDate": "06-09-2023", "gameTime": "8:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 2, "status": "Rescheduled"},
   {"homeTeam":"Roadkill", "awayTeam":"Absinthe Minded", "field":"Ballenger Creek Park: Foreman Field B", "gameDate": "06-09-2023", "gameTime": "9:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 2, "status": "Rescheduled"},
 
-  {"homeTeam":"Roadkill", "awayTeam":"Blue City", "field":"6B", "gameDate": "05-05-2023", "gameTime": "6:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 3, "status": ""},
-  {"homeTeam":"Jolly Green Giants", "awayTeam":"Rusty Knights", "field":"6B", "gameDate": "05-05-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 3, "status": ""},
-  {"homeTeam":"Absinthe Minded", "awayTeam":"Internationals", "field":"6B", "gameDate": "05-05-2023", "gameTime": "8:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 3, "status": ""},
-  {"homeTeam":"Mustangs FC", "awayTeam":"Absinthe Minded", "field":"6B", "gameDate": "05-05-2023", "gameTime": "9:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 3, "status": ""},
-  {"homeTeam":"KMP", "awayTeam":"Agony of Da Feet", "field":"7A", "gameDate": "05-05-2023", "gameTime": "9:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 3, "status": ""},
+  {"homeTeam":"Roadkill", "awayTeam":"Blue City", "field":"6B", "gameDate": "05-05-2023", "gameTime": "6:00", "isScoreFinal": true, "homeScore": 4, "awayScore": 8, "week": 3, "status": ""},
+  {"homeTeam":"Jolly Green Giants", "awayTeam":"Rusty Knights", "field":"6B", "gameDate": "05-05-2023", "gameTime": "7:00", "isScoreFinal": true, "homeScore": 6, "awayScore": 2, "week": 3, "status": ""},
+  {"homeTeam":"Absinthe Minded", "awayTeam":"Internationals", "field":"6B", "gameDate": "05-05-2023", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 3, "awayScore": 4, "week": 3, "status": ""},
+  {"homeTeam":"Mustangs FC", "awayTeam":"Absinthe Minded", "field":"6B", "gameDate": "05-05-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 4, "awayScore": 3, "week": 3, "status": ""},
+  {"homeTeam":"KMP", "awayTeam":"Agony of Da Feet", "field":"7A", "gameDate": "05-05-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 4, "awayScore": 6, "week": 3, "status": ""},
 
   {"homeTeam":"Rusty Knights", "awayTeam":"Roadkill", "field":"6B", "gameDate": "05-12-2023", "gameTime": "6:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 4, "status": ""},
   {"homeTeam":"Internationals", "awayTeam":"Blue City", "field":"6B", "gameDate": "05-12-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "week": 4, "status": ""},
