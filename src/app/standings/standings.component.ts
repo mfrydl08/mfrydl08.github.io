@@ -127,7 +127,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       teamInfo.goalsScored = goalsScored;
       teamInfo.goalDiff = goalsScored - goalsConceded;
       teamInfo.matchesPlayed = wins + draws + losses;
-      teamInfo.lastFive = lastFive;
+      teamInfo.lastFive = lastFive.reverse();
       this.standings.push(teamInfo);
     });
   }
