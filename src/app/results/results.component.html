@@ -36,11 +36,11 @@
             </ng-container>
             <ng-container matColumnDef="homeScore">
               <mat-header-cell *matHeaderCellDef [ngClass]="'mat-header-cell-right'">Home Score</mat-header-cell>
-              <mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'"> {{element["homeScore"]}} </mat-cell>
+              <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-right': true, 'make-bold': element.homeScore > element.awayScore}"> {{element["homeScore"]}} </mat-cell>
             </ng-container>
             <ng-container matColumnDef="awayScore">
               <mat-header-cell *matHeaderCellDef [ngClass]="'mat-header-cell-right'">Away Score</mat-header-cell>
-              <mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'"> {{element["awayScore"]}} </mat-cell>
+              <mat-cell *matCellDef="let element" [ngClass]="{'mat-cell-right': true, 'make-bold': element.awayScore > element.homeScore}"> {{element["awayScore"]}} </mat-cell>
             </ng-container>
             <ng-container matColumnDef="noData">
               <mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">
