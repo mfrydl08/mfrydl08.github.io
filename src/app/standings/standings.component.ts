@@ -4,7 +4,7 @@ import {Game} from "../models/game";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {ScheduleService} from "../schedule/schedule.service";
-import {MatSort} from "@angular/material/sort";
+import {MatSort, MatSortable} from "@angular/material/sort";
 import {Teams} from "../models/teams";
 import {StandingsService} from "./standings.service";
 
@@ -65,12 +65,28 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+
   public ngOnInit() {
     this.dataSource.sort = this.sort;
     this.teamList = this.standingsService.teamList;
     this.getGameResults();
     this.getPoints();
     this.buildStandings();
+
+    this.sortDataSource('goalDiff', 'desc');
+  }
+
+  public sortDataSource(id: string, start: string) {
+    this.dataSource.sort!.sort(<MatSortable>({ id: id, start: start }));
+    this.dataSource.data.sort((a: any, b: any) => {
+      if (a.id < b.id) {
+        return -1;
+      } else if (a.id > b.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
 
   public applyFilter(event: Event) {
