@@ -76,19 +76,6 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     this.sortDataSource('goalDiff', 'desc');
   }
 
-  public sortDataSource(id: string, start: string) {
-    this.dataSource.sort!.sort(<MatSortable>({ id: id, start: start }));
-    this.dataSource.data.sort((a: any, b: any) => {
-      if (a.id < b.id) {
-        return -1;
-      } else if (a.id > b.id) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-  }
-
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
 
@@ -316,5 +303,18 @@ export class StandingsComponent implements AfterViewInit, OnInit {
         this.lastFiveMap.set(teamName, lastFive);
       }
     }
+  }
+
+  public sortDataSource(id: string, start: string) {
+    this.dataSource.sort!.sort(<MatSortable>({ id: id, start: start }));
+    this.dataSource.data.sort((a: any, b: any) => {
+      if (a.id < b.id) {
+        return -1;
+      } else if (a.id > b.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
 }
