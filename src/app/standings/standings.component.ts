@@ -73,7 +73,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     this.getPoints();
     this.buildStandings();
 
-    this.sortDataSource('goalDiff', 'desc');
+    this.sortDataSource('points', 'desc');
   }
 
   public applyFilter(event: Event) {
