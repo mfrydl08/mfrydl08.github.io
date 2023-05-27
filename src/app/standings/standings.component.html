@@ -55,20 +55,20 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'mat-header-cell-center'">Pts</mat-header-cell>
             <mat-cell *matCellDef="let element"  [ngClass]="{'mat-cell-center': true, 'make-bold': element.teamName==='Roadkill'}"> {{element.points}} </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="last5">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Last 5</mat-header-cell>
+          <ng-container matColumnDef="form">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Form</mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <span *ngFor="let results of element.lastFive">
+              <span *ngFor="let results of element.form">
                 <span *ngIf="results==='+'" class="mat-icon-green"><mat-icon inline="true">check</mat-icon></span>
                 <span *ngIf="results==='-'" class="mat-icon-gray"><mat-icon inline="true">remove</mat-icon></span>
                 <span *ngIf="results==='x'" class="mat-icon-red"><mat-icon inline="true">clear</mat-icon></span>
               </span>
             </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="last5Key">
+          <ng-container matColumnDef="formKey">
             <td mat-footer-cell *matFooterCellDef>
               <div class="shadow bg-warning rounded float-end">
-                <span class="float-start ms-1 me-1"><b>Last 5 Matches:</b></span>
+                <span class="float-start ms-1 me-1"><b>Form:</b></span>
                 <span class="float-end me-1">Loss</span>
                 <span class="mat-icon-red float-end ms-2"><mat-icon inline="true">clear</mat-icon></span>
                 <span class="float-end">Draw</span>
@@ -80,7 +80,7 @@
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></mat-row>
-          <tr mat-footer-row *matFooterRowDef="['last5Key']"></tr>
+          <tr mat-footer-row *matFooterRowDef="['formKey']"></tr>
         </table>
       </div>
       <!--    <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>-->

@@ -9,5 +9,5 @@ export class Standing {
   public goalsConceded = 0;
   public goalDiff = 0;
   public matchesPlayed = 0;
-  public lastFive: string[] = [];
+  public form: string[] = [];
 }

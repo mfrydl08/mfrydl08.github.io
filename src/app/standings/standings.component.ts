@@ -25,13 +25,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   public pointsMap: Map<string, number> = new Map<string, number>();
   public goalsScoredMap: Map<string, number> = new Map<string, number>();
   public goalsConcededMap: Map<string, number> = new Map<string, number>();
-  public lastFiveMap: Map<string, string[]> = new Map<string, string[]>();
+  public formMap: Map<string, string[]> = new Map<string, string[]>();
 
   public teamList: Teams[] = [];
   public standings: Standing[] = [];
   public games: Game[] = this.scheduleService.gameData;
   public pageSizes = [10, 20, 50, 100];
-  public lastFive: string[] = [];
+  public form: string[] = [];
 
   initColumns = [
     {name: 'teamName', display: 'Club'},
@@ -43,7 +43,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     {name: 'goalsConceded', display: 'GA'},
     {name: 'goalDiff', display: 'GD'},
     {name: 'points', display: 'Pts'},
-    {name: 'last5', display: 'Last 5'},
+    {name: 'form', display: 'Form'},
   ];
 
   public dataSource = new MatTableDataSource(this.standings);
@@ -88,8 +88,8 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       let points = 0;
       let goalsConceded = 0;
       let goalsScored = 0;
-      let lastFive: string[] = [];
-      this.lastFive = [];
+      let form: string[] = [];
+      this.form = [];
 
       if (this.winMap.has(team.teamName)) {
         wins = <number> this.winMap.get(team.teamName);
@@ -109,8 +109,8 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       if (this.goalsConcededMap.has(team.teamName)) {
         goalsConceded = <number> this.goalsConcededMap.get(team.teamName);
       }
-      if (this.lastFiveMap.has(team.teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(team.teamName);
+      if (this.formMap.has(team.teamName)) {
+        form = <string[]>this.formMap.get(team.teamName);
       }
 
       teamInfo.id = team.id;
@@ -123,7 +123,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       teamInfo.goalsScored = goalsScored;
       teamInfo.goalDiff = goalsScored - goalsConceded;
       teamInfo.matchesPlayed = wins + draws + losses;
-      teamInfo.lastFive = lastFive.reverse();
+      teamInfo.form = form.reverse();
       this.standings.push(teamInfo);
     });
   }
@@ -200,7 +200,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   }
 
   public getAwayResult(homeScore: number, awayScore: number, teamName: string) {
-    let lastFive: string[] = [];
+    let form: string[] = [];
     if (awayScore > homeScore) {
       if (this.winMap.has(teamName)) {
         const wins = <number> this.winMap.get(teamName);
@@ -208,13 +208,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.winMap.set(teamName, 1);
       }
-      if (this.lastFiveMap.has(teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("+");
-        this.lastFiveMap.set(teamName, lastFive);
+      if (this.formMap.has(teamName)) {
+        form = <string[]>this.formMap.get(teamName);
+        form.push("+");
+        this.formMap.set(teamName, form);
       } else {
-        lastFive.push("+");
-        this.lastFiveMap.set(teamName, lastFive);
+        form.push("+");
+        this.formMap.set(teamName, form);
       }
     } else if (awayScore == homeScore) {
       if (this.drawMap.has(teamName)) {
@@ -223,13 +223,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.drawMap.set(teamName, 1);
       }
-      if (this.lastFiveMap.has(teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("-");
-        this.lastFiveMap.set(teamName, lastFive);
+      if (this.formMap.has(teamName)) {
+        form = <string[]>this.formMap.get(teamName);
+        form.push("-");
+        this.formMap.set(teamName, form);
       } else {
-        lastFive.push("-");
-        this.lastFiveMap.set(teamName, lastFive);
+        form.push("-");
+        this.formMap.set(teamName, form);
       }
     } else if (awayScore < homeScore) {
       if (this.loseMap.has(teamName)) {
@@ -238,19 +238,19 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.loseMap.set(teamName, 1);
       }
-      if (this.lastFiveMap.has(teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("x");
-        this.lastFiveMap.set(teamName, lastFive);
+      if (this.formMap.has(teamName)) {
+        form = <string[]>this.formMap.get(teamName);
+        form.push("x");
+        this.formMap.set(teamName, form);
       } else {
-        lastFive.push("x");
-        this.lastFiveMap.set(teamName, lastFive);
+        form.push("x");
+        this.formMap.set(teamName, form);
       }
     }
   }
 
   public getHomeResult(homeScore: number, awayScore: number, teamName: string) {
-    let lastFive: string[] = [];
+    let form: string[] = [];
     if (homeScore > awayScore) {
       if (this.winMap.has(teamName)) {
         const wins = <number> this.winMap.get(teamName);
@@ -258,13 +258,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.winMap.set(teamName, 1);
       }
-      if (this.lastFiveMap.has(teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("+");
-        this.lastFiveMap.set(teamName, lastFive);
+      if (this.formMap.has(teamName)) {
+        form = <string[]>this.formMap.get(teamName);
+        form.push("+");
+        this.formMap.set(teamName, form);
       } else {
-        lastFive.push("+");
-        this.lastFiveMap.set(teamName, lastFive);
+        form.push("+");
+        this.formMap.set(teamName, form);
       }
     } else if (homeScore == awayScore) {
       if (this.drawMap.has(teamName)) {
@@ -273,13 +273,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.drawMap.set(teamName, 1);
       }
-      if (this.lastFiveMap.has(teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("-");
-        this.lastFiveMap.set(teamName, lastFive);
+      if (this.formMap.has(teamName)) {
+        form = <string[]>this.formMap.get(teamName);
+        form.push("-");
+        this.formMap.set(teamName, form);
       } else {
-        lastFive.push("-");
-        this.lastFiveMap.set(teamName, lastFive);
+        form.push("-");
+        this.formMap.set(teamName, form);
       }
     } else if (homeScore < awayScore) {
       if (this.loseMap.has(teamName)) {
@@ -288,13 +288,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       } else {
         this.loseMap.set(teamName, 1);
       }
-      if (this.lastFiveMap.has(teamName)) {
-        lastFive = <string[]>this.lastFiveMap.get(teamName);
-        lastFive.push("x");
-        this.lastFiveMap.set(teamName, lastFive);
+      if (this.formMap.has(teamName)) {
+        form = <string[]>this.formMap.get(teamName);
+        form.push("x");
+        this.formMap.set(teamName, form);
       } else {
-        lastFive.push("x");
-        this.lastFiveMap.set(teamName, lastFive);
+        form.push("x");
+        this.formMap.set(teamName, form);
       }
     }
   }
@@ -349,13 +349,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //   public pointsMap: Map<string, number> = new Map<string, number>();
 //   public goalsScoredMap: Map<string, number> = new Map<string, number>();
 //   public goalsConcededMap: Map<string, number> = new Map<string, number>();
-//   public lastFiveMap: Map<string, string[]> = new Map<string, string[]>();
+//   public formMap: Map<string, string[]> = new Map<string, string[]>();
 //
 //   public teamList: Teams[] = [];
 //   public standings: Standing[] = [];
 //   public games: Game[] = this.scheduleService.gameData;
 //   public pageSizes = [10, 20, 50, 100];
-//   public lastFive: string[] = [];
+//   public form: string[] = [];
 //
 //   initColumns = [
 //     {name: 'teamName', display: 'Club'},
@@ -415,8 +415,8 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       let points = 0;
 //       let goalsConceded = 0;
 //       let goalsScored = 0;
-//       let lastFive: string[] = [];
-//       this.lastFive = [];
+//       let form: string[] = [];
+//       this.form = [];
 //
 //       if (this.winMap.has(team.teamName)) {
 //         wins = <number> this.winMap.get(team.teamName);
@@ -436,8 +436,8 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       if (this.goalsConcededMap.has(team.teamName)) {
 //         goalsConceded = <number> this.goalsConcededMap.get(team.teamName);
 //       }
-//       if (this.lastFiveMap.has(team.teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(team.teamName);
+//       if (this.formMap.has(team.teamName)) {
+//         form = <string[]>this.formMap.get(team.teamName);
 //       }
 //
 //       teamInfo.id = team.id;
@@ -450,7 +450,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       teamInfo.goalsScored = goalsScored;
 //       teamInfo.goalDiff = goalsScored - goalsConceded;
 //       teamInfo.matchesPlayed = wins + draws + losses;
-//       teamInfo.lastFive = lastFive.reverse();
+//       teamInfo.form = form.reverse();
 //       this.standings.push(teamInfo);
 //     });
 //   }
@@ -527,7 +527,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //   }
 //
 //   public getAwayResult(homeScore: number, awayScore: number, teamName: string) {
-//     let lastFive: string[] = [];
+//     let form: string[] = [];
 //     if (awayScore > homeScore) {
 //       if (this.winMap.has(teamName)) {
 //         const wins = <number> this.winMap.get(teamName);
@@ -535,13 +535,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       } else {
 //         this.winMap.set(teamName, 1);
 //       }
-//       if (this.lastFiveMap.has(teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(teamName);
-//         lastFive.push("+");
-//         this.lastFiveMap.set(teamName, lastFive);
+//       if (this.formMap.has(teamName)) {
+//         form = <string[]>this.formMap.get(teamName);
+//         form.push("+");
+//         this.formMap.set(teamName, form);
 //       } else {
-//         lastFive.push("+");
-//         this.lastFiveMap.set(teamName, lastFive);
+//         form.push("+");
+//         this.formMap.set(teamName, form);
 //       }
 //     } else if (awayScore == homeScore) {
 //       if (this.drawMap.has(teamName)) {
@@ -550,13 +550,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       } else {
 //         this.drawMap.set(teamName, 1);
 //       }
-//       if (this.lastFiveMap.has(teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(teamName);
-//         lastFive.push("-");
-//         this.lastFiveMap.set(teamName, lastFive);
+//       if (this.formMap.has(teamName)) {
+//         form = <string[]>this.formMap.get(teamName);
+//         form.push("-");
+//         this.formMap.set(teamName, form);
 //       } else {
-//         lastFive.push("-");
-//         this.lastFiveMap.set(teamName, lastFive);
+//         form.push("-");
+//         this.formMap.set(teamName, form);
 //       }
 //     } else if (awayScore < homeScore) {
 //       if (this.loseMap.has(teamName)) {
@@ -565,19 +565,19 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       } else {
 //         this.loseMap.set(teamName, 1);
 //       }
-//       if (this.lastFiveMap.has(teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(teamName);
-//         lastFive.push("x");
-//         this.lastFiveMap.set(teamName, lastFive);
+//       if (this.formMap.has(teamName)) {
+//         form = <string[]>this.formMap.get(teamName);
+//         form.push("x");
+//         this.formMap.set(teamName, form);
 //       } else {
-//         lastFive.push("x");
-//         this.lastFiveMap.set(teamName, lastFive);
+//         form.push("x");
+//         this.formMap.set(teamName, form);
 //       }
 //     }
 //   }
 //
 //   public getHomeResult(homeScore: number, awayScore: number, teamName: string) {
-//     let lastFive: string[] = [];
+//     let form: string[] = [];
 //     if (homeScore > awayScore) {
 //       if (this.winMap.has(teamName)) {
 //         const wins = <number> this.winMap.get(teamName);
@@ -585,13 +585,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       } else {
 //         this.winMap.set(teamName, 1);
 //       }
-//       if (this.lastFiveMap.has(teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(teamName);
-//         lastFive.push("+");
-//         this.lastFiveMap.set(teamName, lastFive);
+//       if (this.formMap.has(teamName)) {
+//         form = <string[]>this.formMap.get(teamName);
+//         form.push("+");
+//         this.formMap.set(teamName, form);
 //       } else {
-//         lastFive.push("+");
-//         this.lastFiveMap.set(teamName, lastFive);
+//         form.push("+");
+//         this.formMap.set(teamName, form);
 //       }
 //     } else if (homeScore == awayScore) {
 //       if (this.drawMap.has(teamName)) {
@@ -600,13 +600,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       } else {
 //         this.drawMap.set(teamName, 1);
 //       }
-//       if (this.lastFiveMap.has(teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(teamName);
-//         lastFive.push("-");
-//         this.lastFiveMap.set(teamName, lastFive);
+//       if (this.formMap.has(teamName)) {
+//         form = <string[]>this.formMap.get(teamName);
+//         form.push("-");
+//         this.formMap.set(teamName, form);
 //       } else {
-//         lastFive.push("-");
-//         this.lastFiveMap.set(teamName, lastFive);
+//         form.push("-");
+//         this.formMap.set(teamName, form);
 //       }
 //     } else if (homeScore < awayScore) {
 //       if (this.loseMap.has(teamName)) {
@@ -615,13 +615,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 //       } else {
 //         this.loseMap.set(teamName, 1);
 //       }
-//       if (this.lastFiveMap.has(teamName)) {
-//         lastFive = <string[]>this.lastFiveMap.get(teamName);
-//         lastFive.push("x");
-//         this.lastFiveMap.set(teamName, lastFive);
+//       if (this.formMap.has(teamName)) {
+//         form = <string[]>this.formMap.get(teamName);
+//         form.push("x");
+//         this.formMap.set(teamName, form);
 //       } else {
-//         lastFive.push("x");
-//         this.lastFiveMap.set(teamName, lastFive);
+//         form.push("x");
+//         this.formMap.set(teamName, form);
 //       }
 //     }
 //   }
