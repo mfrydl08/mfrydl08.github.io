@@ -58,6 +58,12 @@ export class ScheduleService {
       {homeTeam:"Blue City", awayTeam:"Winner Game 1", field:"7A", gameDate: "06-16-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
       {homeTeam:"Internationals", awayTeam:"Agony of Da Feet", field:"7B", gameDate: "06-16-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
       {homeTeam:"Jolly Green Giants", awayTeam:"Roadkill", field:"7A", gameDate: "06-16-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
+
+      {homeTeam:"TBD", awayTeam:"TBD", field:"6A", gameDate: "06-23-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 9, status: "Semifinal"},
+      {homeTeam:"TBD", awayTeam:"TBD", field:"6b", gameDate: "06-23-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 9, status: "Semifinal"},
+
+      {homeTeam:"TBD", awayTeam:"TBD", field:"68", gameDate: "06-23-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 9, status: "Final"},
+
     ];
 
     gameData.forEach(game => {
