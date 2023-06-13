@@ -16,12 +16,12 @@ export class ScheduleService {
       {homeTeam:"Rusty Knights", awayTeam:"Blue City", field:"6B", gameDate: "04-21-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 4, awayScore: 9, week: 1, status: ""},
       {homeTeam:"Agony of Da Feet", awayTeam:"Internationals", field:"7B", gameDate: "04-21-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 2, awayScore: 6, week: 1, status: ""},
 
-      {homeTeam:"Blue City", awayTeam:"Jolly Green Giants", field:"Ballenger Creek Park: Foreman Field A", gameDate: "06-09-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Rescheduled"},
-      {homeTeam:"Jolly Green Giants", awayTeam:"Agony of Da Feet", field:"Ballenger Creek Park: Foreman Field A", gameDate: "06-09-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Rescheduled"},
-      {homeTeam:"Rusty Knights", awayTeam:"Mustangs FC", field:"Ballenger Creek Park: Foreman Field B", gameDate: "06-09-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Rescheduled"},
-      {homeTeam:"Agony of Da Feet", awayTeam:"Roadkill", field:"Ballenger Creek Park: Foreman Field A", gameDate: "06-09-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Rescheduled"},
-      {homeTeam:"Internationals", awayTeam:"KMP", field:"Ballenger Creek Park: Foreman Field B", gameDate: "06-09-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Rescheduled"},
-      {homeTeam:"Roadkill", awayTeam:"Absinthe Minded", field:"Ballenger Creek Park: Foreman Field B", gameDate: "06-09-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 2, status: "Rescheduled"},
+      {homeTeam:"Blue City", awayTeam:"Jolly Green Giants", field:"Ballenger Creek Park: Foreman Field A", gameDate: "06-09-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 7, awayScore: 2, week: 2, status: "Rescheduled"},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Agony of Da Feet", field:"Ballenger Creek Park: Foreman Field A", gameDate: "06-09-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 3, awayScore: 5, week: 2, status: "Rescheduled"},
+      {homeTeam:"Rusty Knights", awayTeam:"Mustangs FC", field:"Ballenger Creek Park: Foreman Field B", gameDate: "06-09-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 0, awayScore: 3, week: 2, status: "Rescheduled"},
+      {homeTeam:"Agony of Da Feet", awayTeam:"Roadkill", field:"Ballenger Creek Park: Foreman Field A", gameDate: "06-09-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 2, awayScore: 3, week: 2, status: "Rescheduled"},
+      {homeTeam:"Internationals", awayTeam:"KMP", field:"Ballenger Creek Park: Foreman Field B", gameDate: "06-09-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 4, awayScore: 1, week: 2, status: "Rescheduled"},
+      {homeTeam:"Roadkill", awayTeam:"Absinthe Minded", field:"Ballenger Creek Park: Foreman Field B", gameDate: "06-09-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 2, awayScore: 0, week: 2, status: "Rescheduled"},
 
       {homeTeam:"Roadkill", awayTeam:"Blue City", field:"6B", gameDate: "05-05-2023", gameTime: "6:00", isScoreFinal: true, homeScore: 4, awayScore: 8, week: 3, status: ""},
       {homeTeam:"Jolly Green Giants", awayTeam:"Rusty Knights", field:"6B", gameDate: "05-05-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 6, awayScore: 2, week: 3, status: ""},
@@ -52,6 +52,12 @@ export class ScheduleService {
       {homeTeam:"Internationals", awayTeam:"Jolly Green Giants", field:"6B", gameDate: "06-02-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 5, awayScore: 4, week: 7, status: ""},
       {homeTeam:"Roadkill", awayTeam:"Internationals", field:"6B", gameDate: "06-02-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 2, awayScore: 7, week: 7, status: ""},
       {homeTeam:"Blue City", awayTeam:"Absinthe Minded", field:"7A", gameDate: "06-02-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 10, awayScore: 1, week: 7, status: ""},
+
+      {homeTeam:"Absinthe Minded", awayTeam:"Rusty Knights", field:"7A", gameDate: "06-16-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
+      {homeTeam:"Mustangs FC", awayTeam:"KMP", field:"7A", gameDate: "06-16-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
+      {homeTeam:"Blue City", awayTeam:"Winner Game 1", field:"7A", gameDate: "06-16-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
+      {homeTeam:"Internationals", awayTeam:"Agony of Da Feet", field:"7B", gameDate: "06-16-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Roadkill", field:"7A", gameDate: "06-16-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, week: 8, status: "Playoffs"},
     ];
 
     gameData.forEach(game => {

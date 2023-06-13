@@ -32,6 +32,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   public games: Game[] = this.scheduleService.gameData;
   public pageSizes = [10, 20, 50, 100];
   public form: string[] = [];
+  public session = "Spring '23 ";
 
   initColumns = [
     {name: 'teamName', display: 'Club'},

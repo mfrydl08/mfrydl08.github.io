@@ -1,34 +1,36 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {AppComponent} from './app.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from './home/home.component';
-import {RosterComponent} from "./roster/roster.component";
-import {ScheduleService} from "./schedule/schedule.service";
-import {ScheduleComponent} from "./schedule/schedule.component";
-import {APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy} from "@angular/common";
-import {AppRoutingModule} from "./app-routing.module";
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {ResultsComponent} from './results/results.component';
-import {StandingsComponent} from './standings/standings.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialComponentsModule} from "./material-components/material-components.module";
-import {MatTableFilterModule} from "mat-table-filter";
-import {MatMenuModule} from "@angular/material/menu";
+import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatExpansionModule} from "@angular/material/expansion";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {WeeklyResultsComponent} from './weekly-results/weekly-results.component';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatChipsModule} from "@angular/material/chips";
+import {MatMenuModule} from "@angular/material/menu";
 import {MatRadioModule} from "@angular/material/radio";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatTableFilterModule} from "mat-table-filter";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MaterialComponentsModule} from "./material-components/material-components.module";
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {ResultsComponent} from './results/results.component';
+import {RosterComponent} from "./roster/roster.component";
+import {ScheduleComponent} from "./schedule/schedule.component";
+import {ScheduleService} from "./schedule/schedule.service";
+import {StandingsComponent} from './standings/standings.component';
 import {TeamDetailComponent} from './team-detail/team-detail.component';
-import {MatButtonModule} from "@angular/material/button";
-import {HttpClientModule} from "@angular/common/http";
+import {WeeklyResultsComponent} from './weekly-results/weekly-results.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -39,8 +41,8 @@ import {HttpClientModule} from "@angular/common/http";
     RosterComponent,
     ScheduleComponent,
     StandingsComponent,
-    WeeklyResultsComponent,
-    TeamDetailComponent
+    TeamDetailComponent,
+    WeeklyResultsComponent
   ],
     imports: [
         AppRoutingModule,
@@ -50,19 +52,21 @@ import {HttpClientModule} from "@angular/common/http";
         FontAwesomeModule,
         FormsModule,
         HttpClientModule,
+        MatButtonModule,
+        MatButtonToggleModule,
         MatCheckboxModule,
+        MatChipsModule,
         MatExpansionModule,
+        MatFormFieldModule,
         MatIconModule,
         MatListModule,
         MatMenuModule,
+        MatRadioModule,
+        MatSelectModule,
         MatSidenavModule,
         MatTableFilterModule,
         MatToolbarModule,
         MaterialComponentsModule,
-        MatButtonToggleModule,
-        MatChipsModule,
-        MatRadioModule,
-        MatButtonModule,
         ReactiveFormsModule
     ],
   providers: [
