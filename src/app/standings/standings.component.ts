@@ -7,6 +7,7 @@ import {ScheduleService} from "../schedule/schedule.service";
 import {MatSort, MatSortable} from "@angular/material/sort";
 import {Teams} from "../models/teams";
 import {StandingsService} from "./standings.service";
+import {AppService} from "../app.service";
 
 @Component({
   selector: 'app-standings',
@@ -32,7 +33,6 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   public games: Game[] = this.scheduleService.gameData;
   public pageSizes = [10, 20, 50, 100];
   public form: string[] = [];
-  public session = "Spring '23 ";
 
   initColumns = [
     {name: 'teamName', display: 'Club'},
@@ -53,7 +53,8 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
 
-  constructor(public scheduleService: ScheduleService,
+  constructor(public appService:AppService,
+              public scheduleService: ScheduleService,
               public standingsService: StandingsService) {
   }
 
@@ -69,6 +70,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     this.getPoints();
     this.buildStandings();
     this.sortDataSource('points', 'desc');
+
   }
 
   public applyFilter(event: Event) {

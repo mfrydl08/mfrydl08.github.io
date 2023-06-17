@@ -8,6 +8,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import { MatTableFilter } from 'mat-table-filter';
 import {ScheduleService} from "../schedule/schedule.service";
 import {MatSort} from "@angular/material/sort";
+import {AppService} from "../app.service";
 
 @Component({
   selector: 'app-results',
@@ -43,8 +44,9 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor(public resultsService : ResultsService,
-              public scheduleService : ScheduleService) {
+  constructor(public appService: AppService,
+              public resultsService: ResultsService,
+              public scheduleService: ScheduleService) {
   }
 
  public ngAfterViewInit() {

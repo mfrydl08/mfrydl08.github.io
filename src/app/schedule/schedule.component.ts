@@ -6,6 +6,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {HttpClient} from "@angular/common/http";
+import {AppService} from "../app.service";
 
 @Component({
   selector: 'app-schedule',
@@ -33,11 +34,15 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   public pageSizes = [20, 50, 75, 100];
   public defaultPageSize = 50;
 
+
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(private scheduleService : ScheduleService,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              public appService: AppService) {
   }
 
   public ngAfterViewInit() {

@@ -3,8 +3,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="main-div">
   <mat-card class="col-10">
+    <div class="col-3">
+      <form>
+        <mat-form-field appearance="outline" style="color:white">
+          <mat-select [(ngModel)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="appService.getSession(appService.selectedSessionValue)">
+            <mat-option value="0">Spring 2023</mat-option>
+            <mat-option value="1">Summer 2023</mat-option>
+            <mat-option value="2">Fall 2023</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
     <mat-card-header style="background-color: darkgreen">
-      <h1 class="card-title" style="color:white">Results Spring '23 Session</h1>
+      <h1 class="card-title" style="color:white">Results  {{appService.session}}  Session</h1>
     </mat-card-header>
     <mat-card-content>
       <div>
