@@ -8,6 +8,7 @@ import {MatSort, MatSortable} from "@angular/material/sort";
 import {Teams} from "../models/teams";
 import {StandingsService} from "./standings.service";
 import {AppService} from "../app.service";
+import {WeeklyResultsComponent} from "../weekly-results/weekly-results.component";
 
 @Component({
   selector: 'app-standings',
@@ -20,21 +21,22 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 
   public week = 0;
 
-  public winMap: Map<string, number> = new Map<string, number>();
   public drawMap: Map<string, number> = new Map<string, number>();
+  public formMap: Map<string, string[]> = new Map<string, string[]>();
+  public goalsConcededMap: Map<string, number> = new Map<string, number>();
+  public goalsScoredMap: Map<string, number> = new Map<string, number>();
   public loseMap: Map<string, number> = new Map<string, number>();
   public pointsMap: Map<string, number> = new Map<string, number>();
-  public goalsScoredMap: Map<string, number> = new Map<string, number>();
-  public goalsConcededMap: Map<string, number> = new Map<string, number>();
-  public formMap: Map<string, string[]> = new Map<string, string[]>();
+  public winMap: Map<string, number> = new Map<string, number>();
 
-  public teamList: Teams[] = [];
-  public standings: Standing[] = [];
-  public games: Game[] = this.scheduleService.gameData;
-  public pageSizes = [10, 20, 50, 100];
   public form: string[] = [];
+  public games: Game[] = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
+  public pageSizes = [10, 20, 50, 100];
+  public standings: Standing[] = [];
+  public teamList: Teams[] = [];
 
   initColumns = [
+    {name: 'index', display: 'Pos'},
     {name: 'teamName', display: 'Club'},
     {name: 'matchesPlayed', display: 'MP'},
     {name: 'wins', display: 'W'},
@@ -55,22 +57,31 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 
   constructor(public appService:AppService,
               public scheduleService: ScheduleService,
-              public standingsService: StandingsService) {
+              public standingsService: StandingsService,
+              public weeklyResultsComponent:WeeklyResultsComponent) {
   }
 
   public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-
   public ngOnInit() {
-    this.dataSource.sort = this.sort;
-    this.teamList = this.standingsService.teamList;
+    this.initData();
+  }
+
+  private initData() {
+    this.standings = [];
+    this.winMap.clear();
+    this.loseMap.clear();
+    this.drawMap.clear();
+    this.formMap.clear();
+    this.pointsMap.clear();
+    this.goalsConcededMap.clear();
+    this.goalsScoredMap.clear();
+    this.teamList = this.standingsService.getTeamsList();
     this.getGameResults();
     this.getPoints();
     this.buildStandings();
-    this.sortDataSource('points', 'desc');
-
   }
 
   public applyFilter(event: Event) {
@@ -129,41 +140,9 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       teamInfo.form = form.reverse();
       this.standings.push(teamInfo);
     });
-  }
 
-  public getGameResults() {
-    this.teamList.forEach(team => {
-      this.games.forEach(game => {
-        if (game.isScoreFinal && game.homeTeam.toLowerCase() == team.teamName.toLowerCase()) {
-          this.getHomeResult(game.homeScore, game.awayScore, team.teamName);
-          this.getHomeGoalsScored(game.homeScore, team.teamName);
-          this.getHomeGoalsConceded(game.awayScore, team.teamName);
-        } else if (game.isScoreFinal && game.awayTeam.toLowerCase() == team.teamName.toLowerCase()) {
-          this.getAwayResult(game.homeScore, game.awayScore, team.teamName);
-          this.getAwayGoalsScored(game.awayScore, team.teamName);
-          this.getAwayGoalsConceded(game.homeScore, team.teamName);
-        }
-      });
-    });
-  }
-
-  public getPoints() {
-    this.teamList.forEach(team => {
-      if (this.winMap.has(team.teamName)) {
-        const wins = <number> this.winMap.get(team.teamName);
-        const points = <number> this.pointsMap.get(team.teamName) ? <number> this.pointsMap.get(team.teamName) : 0;
-
-        this.pointsMap.set(team.teamName, points + (wins * 3));
-      }
-
-
-      if (this.drawMap.has(team.teamName)) {
-        const draws = <number> this.drawMap.get(team.teamName);
-        const points = <number> this.pointsMap.get(team.teamName) ? <number> this.pointsMap.get(team.teamName) : 0;
-
-        this.pointsMap.set(team.teamName, points + (draws));
-      }
-    });
+    this.dataSource = new MatTableDataSource(this.standings);
+    this.dataSource.sort = this.sort;
   }
 
   public getAwayGoalsConceded(homeScore: number, teamName: string) {
@@ -181,24 +160,6 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       this.goalsScoredMap.set(teamName, goals + awayScore);
     } else {
       this.goalsScoredMap.set(teamName, awayScore);
-    }
-  }
-
-  public getHomeGoalsConceded(awayScore: number, teamName: string) {
-    if (this.goalsConcededMap.has(teamName)) {
-      const goals = <number> this.goalsConcededMap.get(teamName);
-      this.goalsConcededMap.set(teamName, goals + awayScore);
-    } else {
-      this.goalsConcededMap.set(teamName, awayScore);
-    }
-  }
-
-  public getHomeGoalsScored(homeScore: number, teamName: string) {
-    if (this.goalsScoredMap.has(teamName)) {
-      const goals = <number> this.goalsScoredMap.get(teamName);
-      this.goalsScoredMap.set(teamName, goals + homeScore);
-    } else {
-      this.goalsScoredMap.set(teamName, homeScore);
     }
   }
 
@@ -252,6 +213,60 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     }
   }
 
+  public getGameResults() {
+    this.games = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
+
+    this.teamList.forEach(team => {
+      this.games.forEach(game => {
+        if (game.session == this.appService.selectedSessionValue && game.isScoreFinal && game.homeTeam.toLowerCase() == team.teamName.toLowerCase()) {
+          this.getHomeResult(game.homeScore, game.awayScore, team.teamName);
+          this.getHomeGoalsScored(game.homeScore, team.teamName);
+          this.getHomeGoalsConceded(game.awayScore, team.teamName);
+        } else if (game.isScoreFinal && game.awayTeam.toLowerCase() == team.teamName.toLowerCase()) {
+          this.getAwayResult(game.homeScore, game.awayScore, team.teamName);
+          this.getAwayGoalsScored(game.awayScore, team.teamName);
+          this.getAwayGoalsConceded(game.homeScore, team.teamName);
+        }
+      });
+    });
+  }
+
+  public getPoints() {
+    this.teamList.forEach(team => {
+      if (this.winMap.has(team.teamName)) {
+        const wins = <number> this.winMap.get(team.teamName);
+        const points = <number> this.pointsMap.get(team.teamName) ? <number> this.pointsMap.get(team.teamName) : 0;
+
+        this.pointsMap.set(team.teamName, points + (wins * 3));
+      }
+
+      if (this.drawMap.has(team.teamName)) {
+        const draws = <number> this.drawMap.get(team.teamName);
+        const points = <number> this.pointsMap.get(team.teamName) ? <number> this.pointsMap.get(team.teamName) : 0;
+
+        this.pointsMap.set(team.teamName, points + (draws));
+      }
+    });
+  }
+
+  public getHomeGoalsConceded(awayScore: number, teamName: string) {
+    if (this.goalsConcededMap.has(teamName)) {
+      const goals = <number> this.goalsConcededMap.get(teamName);
+      this.goalsConcededMap.set(teamName, goals + awayScore);
+    } else {
+      this.goalsConcededMap.set(teamName, awayScore);
+    }
+  }
+
+  public getHomeGoalsScored(homeScore: number, teamName: string) {
+    if (this.goalsScoredMap.has(teamName)) {
+      const goals = <number> this.goalsScoredMap.get(teamName);
+      this.goalsScoredMap.set(teamName, goals + homeScore);
+    } else {
+      this.goalsScoredMap.set(teamName, homeScore);
+    }
+  }
+
   public getHomeResult(homeScore: number, awayScore: number, teamName: string) {
     let form: string[] = [];
     if (homeScore > awayScore) {
@@ -300,6 +315,15 @@ export class StandingsComponent implements AfterViewInit, OnInit {
         this.formMap.set(teamName, form);
       }
     }
+  }
+
+  public setSelectedSession(selectedSessionValue: string) {
+    this.appService.selectedSessionValue = selectedSessionValue;
+    this.appService.setSelectedSession();
+
+
+    this.weeklyResultsComponent.ngOnInit();
+    this.initData();
   }
 
   public sortDataSource(id: string, start: string) {

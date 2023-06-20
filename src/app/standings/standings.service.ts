@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Teams} from "../models/teams";
+import {AppService} from "../app.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StandingsService {
   public teamList: Teams[] = [];
-  constructor() {
-    this.getTeams();
+  constructor(public appService: AppService) {
+    this.getTeamsList();
   }
 
   public getTeamNameById(id: number): string {
@@ -21,19 +22,27 @@ export class StandingsService {
     return teamName;
   }
 
-  public getTeams() {
-    this.teamList.push(
-      {id: 1, teamName:"Absinthe Minded"},
-      {id: 2, teamName:"Agony of Da Feet"},
-      {id: 3, teamName:"Blue City"},
-      {id: 4, teamName:"Internationals"},
-      {id: 5, teamName:"Jolly Green Giants"},
-      {id: 6, teamName:"KMP"},
-      {id: 7, teamName:"Mustangs FC"},
-      {id: 8, teamName:"Roadkill"},
-      {id: 9, teamName:"Rusty Knights"}
-    );
+  public getTeamsList(): Teams[] {
+    this.teamList = [];
 
-    this.teamList.sort((a,b) => a.teamName.localeCompare(b.teamName));
+    switch (this.appService.selectedSessionValue) {
+      case "0":
+      case '1':
+      case '2':
+        this.teamList.push(
+          {id: 1, teamName: "Absinthe Minded"},
+          {id: 2, teamName: "Agony of Da Feet"},
+          {id: 3, teamName: "Blue City"},
+          {id: 4, teamName: "Internationals"},
+          {id: 5, teamName: "Jolly Green Giants"},
+          {id: 6, teamName: "KMP"},
+          {id: 7, teamName: "Mustangs FC"},
+          {id: 8, teamName: "Roadkill"},
+          {id: 9, teamName: "Rusty Knights"}
+        );
+        break;
+    }
+
+    return this.teamList.sort((a,b) => a.teamName.localeCompare(b.teamName));
   }
 }

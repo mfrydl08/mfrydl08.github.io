@@ -5,4 +5,5 @@ export class Player {
   public lastName = "";
   public position = "";
   public number = 0;
+  public session = "";
 }

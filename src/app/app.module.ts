@@ -71,6 +71,7 @@ import {MatSelectModule} from "@angular/material/select";
     ],
   providers: [
     ScheduleService,
+    WeeklyResultsComponent,
     {provide: APP_BASE_HREF, useValue : '/' },
     {provide : LocationStrategy , useClass: HashLocationStrategy}
   ],

@@ -8,4 +8,6 @@ export class Game {
   public gameDate = "";
   public gameTime = "";
   public week = 0;
+  public status = "";
+  public session = "";
 }

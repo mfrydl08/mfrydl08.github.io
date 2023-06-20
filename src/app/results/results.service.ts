@@ -3,6 +3,7 @@ import {Game} from "../models/game";
 import {Result} from "../models/result";
 import {ScheduleService} from "../schedule/schedule.service";
 import {Subject} from "rxjs";
+import {AppService} from "../app.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,12 @@ export class ResultsService implements OnDestroy {
   private ROADKILL = 'roadkill';
   public games: Game[] = [];
 
-  constructor(public scheduleService: ScheduleService) {
+  constructor(public appService: AppService,
+              public scheduleService: ScheduleService) {
   }
 
   public getGames() {
-    this.games = [];
-    this.games = this.scheduleService.gameData;
+    this.games = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
   }
 
   public getAllResults(): Result[] {
@@ -26,7 +27,7 @@ export class ResultsService implements OnDestroy {
     this.games.forEach(game => {
       const result = new Result();
 
-      if (game.isScoreFinal) {
+      if (game.session == this.appService.selectedSessionValue && game.isScoreFinal) {
         result.win = this.isWin(game.homeTeam, game.homeScore, game.awayScore);
         result.draw = this.isDraw(game.homeScore, game.awayScore);
         result.loss = this.isLoss(game.homeTeam, game.homeScore, game.awayScore);

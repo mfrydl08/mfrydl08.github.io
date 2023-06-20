@@ -1,34 +1,43 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ScheduleService} from "../schedule/schedule.service";
 import {WeeklyResult} from "../models/weeklyResult";
 import {GameScore} from "../models/gameScore";
+import {AppService} from "../app.service";
+import {Game} from "../models/game";
 
 @Component({
   selector: 'app-weekly-results',
   templateUrl: './weekly-results.component.html',
   styleUrls: ['./weekly-results.component.css']
 })
-export class WeeklyResultsComponent implements OnInit {
+export class WeeklyResultsComponent implements OnInit, OnChanges {
+  @Input() selectedSessionValue: string | undefined;
   public results = [];
   public weeklyResults: WeeklyResult[] = [];
-  public gameData = this.scheduleService.gameData;
+  public gameData: Game[] = [];
 
-  constructor(public scheduleService: ScheduleService) {
+  constructor(public appService: AppService,
+              public scheduleService: ScheduleService) {
   }
 
   public ngOnInit() {
-    // this.scheduleService.getNumberOfWeeks();
     this.buildResults();
   }
 
-  private buildResults() {
-    const numberOfWeeks =  this.scheduleService.getNumberOfWeeks();
-    console.log("numberOfWeeks: " + numberOfWeeks);
+  public ngOnChanges(changes: SimpleChanges): void {
+    this.buildResults();
+  }
+
+  public buildResults() {
+    const numberOfWeeks =  this.scheduleService.getNumberOfWeeksBySelectedSessionValue(this.appService.selectedSessionValue);
+    this.weeklyResults = [];
+    this.gameData = [];
 
     for (let i = 1; i <= numberOfWeeks; i++) {
       const weekResults = new WeeklyResult();
       const gameScores: GameScore[] = [];
 
+      this.gameData = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
       this.gameData.forEach(game => {
         const gameScore = new GameScore();
         if (game.week == i && game.isScoreFinal) {

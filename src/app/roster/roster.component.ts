@@ -63,6 +63,7 @@ import {HttpClient} from "@angular/common/http";
 import {Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {StandingsService} from "../standings/standings.service";
+import {AppService} from "../app.service";
 
 @Component({
   selector: 'app-roster',
@@ -88,6 +89,7 @@ export class RosterComponent implements OnInit {
   constructor(private location: Location,
               private route: ActivatedRoute,
               private httpClient: HttpClient,
+              public appService:AppService,
               public standingsService: StandingsService) {
   }
 
@@ -98,7 +100,7 @@ export class RosterComponent implements OnInit {
 
     this.httpClient.get("assets/rosterData.json").subscribe(data =>{
       const players = <Player[]>data;
-      const filteredData = players.filter((player) => player.teamName === this.teamName);
+      const filteredData = players.filter((player) => player.teamName === this.teamName && player.session === this.appService.selectedSessionValue);
 
       this.dataSource.data = filteredData;
     });

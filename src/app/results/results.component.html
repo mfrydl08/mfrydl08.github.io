@@ -6,16 +6,16 @@
     <div class="col-3">
       <form>
         <mat-form-field appearance="outline" style="color:white">
-          <mat-select [(ngModel)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="appService.getSession(appService.selectedSessionValue)">
-            <mat-option value="0">Spring 2023</mat-option>
-            <mat-option value="1">Summer 2023</mat-option>
-            <mat-option value="2">Fall 2023</mat-option>
+          <mat-select [(value)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="setSelectedSession($event.value)">
+            <mat-option *ngFor="let session of appService.sessions" [value]="session.id">
+              {{session.sessionName}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </form>
     </div>
     <mat-card-header style="background-color: darkgreen">
-      <h1 class="card-title" style="color:white">Results  {{appService.session}}  Session</h1>
+      <h1 class="card-title" style="color:white">Results  {{appService.session}} Session (Roadkill: {{wins + "-" + draws + "-" + losses + " " + points + " Points " + position}})</h1>
     </mat-card-header>
     <mat-card-content>
       <div>

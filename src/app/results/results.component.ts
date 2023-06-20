@@ -9,6 +9,8 @@ import { MatTableFilter } from 'mat-table-filter';
 import {ScheduleService} from "../schedule/schedule.service";
 import {MatSort} from "@angular/material/sort";
 import {AppService} from "../app.service";
+import {Teams} from "../models/teams";
+import {StandingsService} from "../standings/standings.service";
 
 @Component({
   selector: 'app-results',
@@ -18,16 +20,27 @@ import {AppService} from "../app.service";
 export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
   private destroy$: Subject<boolean> = new Subject<boolean>();
   private ROADKILL = "ROADKILL";
-  public results: Result[] = [];
+
+  public position = "";
+
   public wins = 0;
   public draws = 0;
   public losses = 0;
   public points = 0;
 
+  public drawMap: Map<string, number> = new Map<string, number>();
+  public loseMap: Map<string, number> = new Map<string, number>();
+  public pointsMap: Map<string, number> = new Map<string, number>();
+  public winMap: Map<string, number> = new Map<string, number>();
+
   public filterEntity: Game = new Game();
 
+  public games: Game[] = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
+  public results: Result[] = [];
+  public teamList: Teams[] = [];
+
   public filterType = MatTableFilter.ANYWHERE;
-  public dataSource = new MatTableDataSource(this.scheduleService.gameData);
+  public dataSource = new MatTableDataSource(this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue));
 
   initColumns = [
     { name: 'week', display: 'Week' },
@@ -46,7 +59,8 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
 
   constructor(public appService: AppService,
               public resultsService: ResultsService,
-              public scheduleService: ScheduleService) {
+              public scheduleService: ScheduleService,
+              public standingsService: StandingsService) {
   }
 
  public ngAfterViewInit() {
@@ -54,8 +68,177 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
  }
 
   public ngOnInit() {
+    this.dataSource.sort = this.sort;
+
     this.filterEntity = new Game();
     this.filterType = MatTableFilter.ANYWHERE;
+
+    this.initData();
+  }
+
+  public ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
+
+  public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  public getAwayResult(homeScore: number, awayScore: number, teamName: string) {
+    if (awayScore > homeScore) {
+      if (this.winMap.has(teamName)) {
+        const wins = <number> this.winMap.get(teamName);
+        this.winMap.set(teamName, wins + 1);
+      } else {
+        this.winMap.set(teamName, 1);
+      }
+    } else if (awayScore == homeScore) {
+      if (this.drawMap.has(teamName)) {
+        const draws = <number> this.drawMap.get(teamName);
+        this.drawMap.set(teamName, draws + 1);
+      } else {
+        this.drawMap.set(teamName, 1);
+      }
+    } else if (awayScore < homeScore) {
+      if (this.loseMap.has(teamName)) {
+        const losses = <number> this.loseMap.get(teamName);
+        this.loseMap.set(teamName, losses + 1);
+      } else {
+        this.loseMap.set(teamName, 1);
+      }
+    }
+  }
+
+  public getHomeResult(homeScore: number, awayScore: number, teamName: string) {
+    if (homeScore > awayScore) {
+      if (this.winMap.has(teamName)) {
+        const wins = <number> this.winMap.get(teamName);
+        this.winMap.set(teamName, wins + 1);
+      } else {
+        this.winMap.set(teamName, 1);
+      }
+    } else if (homeScore == awayScore) {
+      if (this.drawMap.has(teamName)) {
+        const draws = <number> this.drawMap.get(teamName);
+        this.drawMap.set(teamName, draws + 1);
+      } else {
+        this.drawMap.set(teamName, 1);
+      }
+    } else if (homeScore < awayScore) {
+      if (this.loseMap.has(teamName)) {
+        const losses = <number> this.loseMap.get(teamName);
+        this.loseMap.set(teamName, losses + 1);
+      } else {
+        this.loseMap.set(teamName, 1);
+      }
+    }
+  }
+
+  public getGameResults() {
+    this.games = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
+
+    this.teamList.forEach(team => {
+      this.games.forEach(game => {
+        if (game.session == this.appService.selectedSessionValue && game.isScoreFinal && game.homeTeam.toLowerCase() == team.teamName.toLowerCase()) {
+          this.getHomeResult(game.homeScore, game.awayScore, team.teamName);
+        } else if (game.isScoreFinal && game.awayTeam.toLowerCase() == team.teamName.toLowerCase()) {
+          this.getAwayResult(game.homeScore, game.awayScore, team.teamName);
+        }
+      });
+    });
+  }
+
+  public getPoints() {
+    this.pointsMap.clear();
+    this.teamList.forEach(team => {
+      if (this.winMap.has(team.teamName)) {
+        const wins = <number> this.winMap.get(team.teamName);
+        const points = <number> this.pointsMap.get(team.teamName) ? <number> this.pointsMap.get(team.teamName) : 0;
+
+        this.pointsMap.set(team.teamName, points + (wins * 3));
+      }
+
+      if (this.drawMap.has(team.teamName)) {
+        const draws = <number> this.drawMap.get(team.teamName);
+        const points = <number> this.pointsMap.get(team.teamName) ? <number> this.pointsMap.get(team.teamName) : 0;
+
+        this.pointsMap.set(team.teamName, points + (draws));
+      }
+    });
+  }
+
+  public getRoadkillPosition() {
+    const mapSort1 = new Map([...this.pointsMap.entries()].sort((a, b) => b[1] - a[1]));
+    const keys = Array.from( mapSort1.keys() );
+    let count = 0;
+
+
+    for (let i = 0; i < keys.length; i++) {
+      if (keys[i] === "Roadkill") {
+        count = i + 1;
+        break;
+      }
+    }
+
+    switch (count) {
+      case 1:
+        this.position = "1st Place";
+        break;
+
+      case 2:
+        this.position = "2nd Place";
+        break;
+
+      case 3:
+        this.position = "3rd Place";
+        break;
+
+      case 4:
+        this.position = "4th Place";
+        break;
+
+      case 5:
+        this.position = "5th Place";
+        break;
+
+      case 6:
+        this.position = "6th Place";
+        break;
+
+      case 7:
+        this.position = "7th Place";
+        break;
+
+      case 8:
+        this.position = "8th Place";
+        break;
+
+      case 9:
+        this.position = "9th Place";
+        break;
+    }
+  }
+
+  public initData() {
+    this.teamList = this.standingsService.getTeamsList();
+    this.dataSource = new MatTableDataSource(this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue));
+    this.dataSource.sort = this.sort;
+
+    this.points = 0;
+    this.wins = 0;
+    this.draws = 0;
+    this.losses = 0;
+
+    this.winMap.clear();
+    this.loseMap.clear();
+    this.drawMap.clear();
+    this.pointsMap.clear();
+
     this.resultsService.getGames();
     this.results = [];
     this.results = this.resultsService.getAllResults();
@@ -73,19 +256,16 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
     });
 
     this.points = 3 * this.wins + this.draws;
-    this.dataSource.sort = this.sort;
+
+    this.getGameResults();
+    this.getPoints();
+    this.getRoadkillPosition();
   }
 
-  public ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
+  public setSelectedSession(selectedSessionValue: string) {
+    this.appService.selectedSessionValue = selectedSessionValue;
+    this.appService.setSelectedSession();
 
-  public applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    this.initData();
   }
 }

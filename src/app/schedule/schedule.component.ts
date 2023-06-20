@@ -16,9 +16,9 @@ import {AppService} from "../app.service";
 export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   private destroy$: Subject<boolean> = new Subject<boolean>();
   private ROADKILL = "ROADKILL";
+  public gameData: Game[] = [];
   public games: Game[] = [];
   public dataSource = new MatTableDataSource();
-  // public dataSource = new MatTableDataSource(this.scheduleService.gameData);
 
   initColumns = [
     { name: 'week', display: 'Week' },
@@ -34,9 +34,6 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   public pageSizes = [20, 50, 75, 100];
   public defaultPageSize = 50;
 
-
-
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
@@ -50,15 +47,7 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-    this.games = [];
-
-    this.httpClient.get("assets/gameData.json").subscribe(data => {
-      this.games = <Game[]>data;
-
-      this.dataSource.data = this.games
-      console.log("this.games: " + JSON.stringify(this.games));
-      this.dataSource.sort = this.sort;
-    });
+    this.getGameData();
   }
 
   public ngOnDestroy() {
@@ -72,6 +61,31 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  public getGameData() {
+    this.gameData = [];
+    this.games = [];
+
+    this.httpClient.get("assets/gameData.json").subscribe(data => {
+      this.gameData = <Game[]>data;
+
+      this.gameData.forEach(game => {
+        if (game.session == this.appService.selectedSessionValue) {
+          this.games.push(game);
+        }
+      })
+
+      this.dataSource.data = this.games
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  public setSelectedSession(selectedSessionValue: string) {
+    this.appService.selectedSessionValue = selectedSessionValue;
+    this.appService.setSelectedSession();
+
+    this.getGameData();
   }
 }
 
@@ -123,7 +137,6 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
 //     this.games = [];
 //     this.games = this.scheduleService.getGameData();
 //     this.dataSource.data = this.scheduleService.getGameData();
-//     console.log(JSON.stringify(this.games));
 //     this.dataSource.sort = this.sort;
 //   }
 //

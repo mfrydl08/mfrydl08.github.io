@@ -6,11 +6,17 @@
     <div class="col-3">
       <form>
         <mat-form-field appearance="outline" style="color:white">
-          <mat-select [(ngModel)]="appService.selectedSessionValue" name="appService.selectedSession" (selectionChange)="appService.getSession(appService.selectedSessionValue)">
-            <mat-option value="0">Spring 2023</mat-option>
-            <mat-option value="1">Summer 2023</mat-option>
-            <mat-option value="2">Fall 2023</mat-option>
+          <mat-select [(value)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="setSelectedSession($event.value)">
+            <mat-option *ngFor="let session of appService.sessions" [value]="session.id">
+              {{session.sessionName}}
+            </mat-option>
           </mat-select>
+<!--          <mat-select [(ngModel)]="appService.selectedSessionValue" name="appService.selectedSession" (selectionChange)="appService.setSelectedSession()">-->
+<!--&lt;!&ndash;            <mat-select [(ngModel)]="appService.selectedSessionValue" name="appService.selectedSession" (selectionChange)="appService.setSelectedSession(appService.selectedSessionValue)">&ndash;&gt;-->
+<!--            <mat-option value="0">Spring 2023</mat-option>-->
+<!--            <mat-option value="1">Summer 2023</mat-option>-->
+<!--            <mat-option value="2">Fall 2023</mat-option>-->
+<!--          </mat-select>-->
         </mat-form-field>
       </form>
     </div>
@@ -82,8 +88,14 @@
             </mat-cell>
             <!--            <mat-cell *matCellDef="let element" [ngClass]="{'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled'}">{{element["status"]}}-->
           </ng-container>
+          <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">
+              No records found
+            </mat-footer-cell>
+          </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{gray: even}"></mat-row>
+          <mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource && dataSource.data.length > 0"></mat-footer-row>
         </table>
       </div>
       <mat-paginator [pageSizeOptions]="pageSizes"
