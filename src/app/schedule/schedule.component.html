@@ -79,7 +79,7 @@
               {{element["field"]}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="status">
-            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
             <mat-cell *matCellDef="let element"
                       [ngClass]="{
                       'make-bold': element.status === 'Cancelled' || element.status === 'Rescheduled',
