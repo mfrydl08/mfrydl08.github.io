@@ -54,6 +54,19 @@ export class StandingsService {
         );
         break;
       case '2':
+        this.teamList.push(
+          {id: 1, teamName:"Absinthe Minded"},
+          {id: 2, teamName:"Agony of Da Feet"},
+          {id: 3, teamName:"Blue City"},
+          {id: 4, teamName:"Internationals"},
+          {id: 5, teamName:"Jolly Green Giants"},
+          {id: 6, teamName:"KMP"},
+          {id: 7, teamName:"Mustangs FC"},
+          {id: 8, teamName:"Roadkill"},
+          {id: 9, teamName:"Rusty Knights"},
+          {id: 10, teamName: "FC Frederick Aces"}
+        );
+        break;
 
     }
 

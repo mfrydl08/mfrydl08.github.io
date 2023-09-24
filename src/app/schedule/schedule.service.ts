@@ -127,8 +127,62 @@ export class ScheduleService {
       {homeTeam:"Winner QF 1", awayTeam:"Winner QF 2", field:"6A", gameDate: "09-15-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "1", week: 9, status: "Semi-Final 1"},
       {homeTeam:"QF 3 Winner", awayTeam:"QF 4", field:"6B", gameDate: "09-15-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "1", week: 9, status: "Semi-Final 2"},
 
-      {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"6B", gameDate: "09-15-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "1", week: 10, status: "Final"}
-    ];
+      {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"6B", gameDate: "09-15-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "1", week: 10, status: "Final"},
+
+      {homeTeam:"Rusty Knights", awayTeam:"FC Frederick Aces", field:"6A", gameDate: "09-29-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 4, awayScore: 5, session: "2", week: 1, status: ""},
+      {homeTeam:"Blue City", awayTeam:"KMP", field:"7A", gameDate: "09-29-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 13, awayScore: 4, session: "2", week: 1, status: ""},
+      {homeTeam:"Agony of Da Feet", awayTeam:"Mustangs FC", field:"6A", gameDate: "09-29-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 3, awayScore: 2, session: "2", week: 1, status: ""},
+      {homeTeam:"Roadkill", awayTeam:"Jolly Green Giants", field:"7A", gameDate: "09-29-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 4, session: "2", week: 1, status: ""},
+      {homeTeam:"Internationals", awayTeam:"Absinthe Minded", field:"6A", gameDate: "09-29-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 1, awayScore: 3, session: "2", week: 1, status: ""},
+
+      {homeTeam:"Absinthe Minded", awayTeam:"Roadkill", field:"6A", gameDate: "10-06-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 1, awayScore: 6, session: "2", week: 2, status: ""},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Rusty Knights", field:"7A", gameDate: "10-06-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 9, awayScore: 2, session: "2", week: 2, status: ""},
+      {homeTeam:"FC Frederick Aces", awayTeam:"Mustangs FC", field:"6A", gameDate: "10-06-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 3, session: "2", week: 2, status: ""},
+      {homeTeam:"Internationals", awayTeam:"Blue City", field:"7A", gameDate: "10-06-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 3, awayScore: 9, session: "2", week: 2, status: ""},
+      {homeTeam:"KMP", awayTeam:"Agony of Da Feet", field:"6A", gameDate: "10-06-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 2, awayScore: 3, session: "2", week: 2, status: ""},
+
+      {homeTeam:"Agony of Da Feet", awayTeam:"Internationals", field:"6A", gameDate: "10-13-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 2, awayScore: 1, session: "2", week: 3, status: ""},
+      {homeTeam:"Jolly Green Giants", awayTeam:"FC Frederick Aces", field:"7A", gameDate: "10-13-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 11, awayScore: 5, session: "2", week: 3, status: ""},
+      {homeTeam:"Rusty Knights", awayTeam:"Absinthe Minded", field:"6A", gameDate: "10-13-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 5, session: "2", week: 3, status: ""},
+      {homeTeam:"Mustangs FC", awayTeam:"KMP", field:"7A", gameDate: "10-13-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 14, awayScore: 1, session: "2", week: 3, status: ""},
+      {homeTeam:"Roadkill", awayTeam:"Blue City", field:"6A", gameDate: "10-13-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 1, awayScore: 9, session: "2", week: 3, status: ""},
+
+      {homeTeam:"Mustangs FC", awayTeam:"Internationals", field:"6A", gameDate: "10-20-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 4, awayScore: 4, session: "2", week: 4, status: ""},
+      {homeTeam:"Roadkill", awayTeam:"Agony of Da Feet", field:"7A", gameDate: "10-20-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 2, awayScore: 5, session: "2", week: 4, status: ""},
+      {homeTeam:"Absinthe Minded", awayTeam:"Jolly Green Giants", field:"6A", gameDate: "10-20-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 6, session: "2", week: 4, status: ""},
+      {homeTeam:"Blue City", awayTeam:"Rusty Knights", field:"7A", gameDate: "10-20-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 9, awayScore: 4, session: "2", week: 4, status: ""},
+      {homeTeam:"FC Frederick Aces", awayTeam:"KMP", field:"6A", gameDate: "10-20-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 4, awayScore: 9, session: "2", week: 4, status: ""},
+
+      {homeTeam:"Mustangs FC", awayTeam:"Roadkill", field:"6A", gameDate: "10-27-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 6, awayScore: 4, session: "2", week: 5, status: ""},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Blue City", field:"7A", gameDate: "10-27-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 2, awayScore: 7, session: "2", week: 5, status: ""},
+      {homeTeam:"Absinthe Minded", awayTeam:"FC Frederick Aces", field:"6A", gameDate: "10-27-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 6, awayScore: 3, session: "2", week: 5, status: ""},
+      {homeTeam:"KMP", awayTeam:"Internationals", field:"7A", gameDate: "10-27-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 12, session: "2", week: 5, status: ""},
+      {homeTeam:"Rusty Knights", awayTeam:"Agony of Da Feet", field:"7A", gameDate: "10-27-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 6, awayScore: 4, session: "2", week: 5, status: ""},
+
+      {homeTeam:"FC Frederick Aces", awayTeam:"Internationals", field:"6A", gameDate: "11-03-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 3, awayScore: 8, session: "2", week: 6, status: ""},
+      {homeTeam:"Blue City", awayTeam:"Absinthe Minded", field:"7A", gameDate: "11-03-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 14, awayScore: 1, session: "2", week: 6, status: ""},
+      {homeTeam:"Roadkill", awayTeam:"KMP", field:"6A", gameDate: "11-03-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 7, awayScore: 1, session: "2", week: 6, status: ""},
+      {homeTeam:"Agony of Da Feet", awayTeam:"Jolly Green Giants", field:"7A", gameDate: "11-03-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 4, session: "2", week: 6, status: ""},
+      {homeTeam:"Rusty Knights", awayTeam:"Mustangs FC", field:"6A", gameDate: "11-03-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 3, awayScore: 13, session: "2", week: 6, status: ""},
+
+      {homeTeam:"KMP", awayTeam:"Rusty Knights", field:"6A", gameDate: "11-10-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 9, awayScore: 8, session: "2", week: 7, status: ""},
+      {homeTeam:"Absinthe Minded", awayTeam:"Agony of Da Feet", field:"7A", gameDate: "11-10-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 3, awayScore: 9, session: "2", week: 7, status: ""},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Mustangs FC", field:"6A", gameDate: "11-10-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 6, session: "2", week: 7, status: ""},
+      {homeTeam:"Internationals", awayTeam:"Roadkill", field:"7A", gameDate: "11-10-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 4, session: "2", week: 7, status: ""},
+      {homeTeam:"Blue City", awayTeam:"FC Frederick Aces", field:"6A", gameDate: "11-10-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 9, awayScore: 4, session: "2", week: 7, status: ""},
+
+      {homeTeam:"Internationals", awayTeam:"Roadkill", field:"6A", gameDate: "11-17-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarter-Final 2"},
+      {homeTeam:"Mustangs FC", awayTeam:"Jolly Green Giants", field:"6B", gameDate: "11-17-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarter-Final 4"},
+      {homeTeam:"KMP", awayTeam:"Rusty Knights", field:"6A", gameDate: "11-17-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Play-in 1"},
+      {homeTeam:"Absinthe Minded", awayTeam:"FC Frederick Aces", field:"6B", gameDate: "11-17-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Play-in 2"},
+      {homeTeam:"Blue City", awayTeam:"Winner  Play-in 1", field:"6A", gameDate: "11-17-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarter-Final 1"},
+      {homeTeam:"Agony of Da Feet", awayTeam:"Winner Play-in 2", field:"6B", gameDate: "11-17-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarter-Final 3"},
+
+      {homeTeam:"Winner QF 1", awayTeam:"Winner QF 2", field:"6A", gameDate: "11-24-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Semi-Final 1"},
+      {homeTeam:"QF 3 Winner", awayTeam:"QF 4", field:"6B", gameDate: "11-24-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Semi-Final 2"},
+
+      {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"6B", gameDate: "11-24-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 10, status: "Final"}
+];
 
     gameData.forEach(game => {
       if (game.isScoreFinal && game.session == selectedSessionValue) {
