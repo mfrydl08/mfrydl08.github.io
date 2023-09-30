@@ -130,8 +130,8 @@ export class ScheduleService {
       {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"6B", gameDate: "09-15-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "1", week: 10, status: "Final"},
 
       {homeTeam:"Point of Rocks", awayTeam:"Jolly Green Giants", field:"7A", gameDate: "09-29-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 4, awayScore: 5, session: "2", week: 1, status: ""},
-      {homeTeam:"Rusty Knights", awayTeam:"Roadkill", field:"7A", gameDate: "09-29-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 13, awayScore: 4, session: "2", week: 1, status: ""},
-      {homeTeam:"KMP", awayTeam:"Frederick Aces", field:"7A", gameDate: "09-29-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 3, awayScore: 3, session: "2", week: 1, status: ""},
+      {homeTeam:"Rusty Knights", awayTeam:"Roadkill", field:"7A", gameDate: "09-29-2023", gameTime: "7:00", isScoreFinal: true, homeScore: 5, awayScore: 6, session: "2", week: 1, status: ""},
+      {homeTeam:"KMP", awayTeam:"Frederick Aces", field:"7A", gameDate: "09-29-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 3, awayScore: 3, session: "2", week: 1, status: ""},
       {homeTeam:"KMP", awayTeam:"Internationals", field:"7A", gameDate: "09-29-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 5, awayScore: 4, session: "2", week: 1, status: ""},
       {homeTeam:"Blue City", awayTeam:"Mustang", field:"7B", gameDate: "09-29-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 1, awayScore: 3, session: "2", week: 1, status: ""},
       {homeTeam:"Absinthe Minded", awayTeam:"Agony of Da Feet", field:"7B", gameDate: "09-29-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 1, awayScore: 3, session: "2", week: 1, status: ""},

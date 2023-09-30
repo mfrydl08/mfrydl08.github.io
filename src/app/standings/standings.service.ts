@@ -64,7 +64,7 @@ export class StandingsService {
           {id: 7, division: 2, teamName:"KMP"},
           {id: 8, division: 2, teamName:"Roadkill"},
           {id: 9, division: 2, teamName:"Rusty Knights"},
-          {id: 10, division: 2, teamName: "FC Frederick Aces"},
+          {id: 10, division: 2, teamName: "Frederick Aces"},
           {id: 11, division: 2, teamName: "Point of Rocks"}
         );
         break;
