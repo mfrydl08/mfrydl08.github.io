@@ -31,6 +31,8 @@ import {TeamDetailComponent} from './team-detail/team-detail.component';
 import {WeeklyResultsComponent} from './weekly-results/weekly-results.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import {MatSelectModule} from "@angular/material/select";
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,
+        MatSortModule,
         MatTableFilterModule,
+        MatTableModule,
         MatToolbarModule,
         MaterialComponentsModule,
         ReactiveFormsModule

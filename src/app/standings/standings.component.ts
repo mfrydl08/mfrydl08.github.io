@@ -4,7 +4,7 @@ import {Game} from "../models/game";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {ScheduleService} from "../schedule/schedule.service";
-import {MatSort, MatSortable} from "@angular/material/sort";
+import {MatSort} from "@angular/material/sort";
 import {Teams} from "../models/teams";
 import {StandingsService} from "./standings.service";
 import {AppService} from "../app.service";
@@ -29,6 +29,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   public pointsMap: Map<string, number> = new Map<string, number>();
   public winMap: Map<string, number> = new Map<string, number>();
 
+  public selectedDivisionValue = '2';
   public form: string[] = [];
   public games: Game[] = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
   public pageSizes = [10, 20, 50, 100];
@@ -53,7 +54,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   public displayedColumns = this.initColumns.map((col) => col.name);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort!: MatSort;
+  @ViewChild(MatSort, {static: false}) sort!: MatSort;
 
   constructor(public appService:AppService,
               public scheduleService: ScheduleService,
@@ -63,6 +64,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 
   public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   public ngOnInit() {
@@ -78,7 +80,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     this.pointsMap.clear();
     this.goalsConcededMap.clear();
     this.goalsScoredMap.clear();
-    this.teamList = this.standingsService.getTeamsList();
+
+    if (this.selectedDivisionValue==='1') {
+      this.teamList = this.standingsService.getTeamsListD1();
+    } else {
+      this.teamList = this.standingsService.getTeamsListD2();
+    }
+
     this.getGameResults();
     this.getPoints();
     this.buildStandings();
@@ -88,6 +96,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
 
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -141,6 +150,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
       this.standings.push(teamInfo);
     });
 
+    this.standings.sort((a, b) => {
+      if (a.points !== b.points) {
+        return a.points - b.points;
+      } else {
+        return b.goalDiff - a.goalDiff;
+      }
+    })
     this.dataSource = new MatTableDataSource(this.standings);
     this.dataSource.sort = this.sort;
   }
@@ -317,6 +333,13 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     }
   }
 
+  public setSelectedDivision(selectedDivisionValue: string) {
+    this.selectedDivisionValue = selectedDivisionValue;
+
+    this.weeklyResultsComponent.ngOnInit();
+    this.initData();
+  }
+
   public setSelectedSession(selectedSessionValue: string) {
     this.appService.selectedSessionValue = selectedSessionValue;
     this.appService.setSelectedSession();
@@ -324,19 +347,6 @@ export class StandingsComponent implements AfterViewInit, OnInit {
 
     this.weeklyResultsComponent.ngOnInit();
     this.initData();
-  }
-
-  public sortDataSource(id: string, start: string) {
-    this.dataSource.sort!.sort(<MatSortable>({ id: id, start: start }));
-    this.dataSource.data.sort((a: any, b: any) => {
-      if (a.id < b.id) {
-        return -1;
-      } else if (a.id > b.id) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
   }
 }
 

@@ -4,6 +4,7 @@ import {WeeklyResult} from "../models/weeklyResult";
 import {GameScore} from "../models/gameScore";
 import {AppService} from "../app.service";
 import {Game} from "../models/game";
+import {StandingsComponent} from "../standings/standings.component";
 
 @Component({
   selector: 'app-weekly-results',
@@ -11,6 +12,7 @@ import {Game} from "../models/game";
   styleUrls: ['./weekly-results.component.css']
 })
 export class WeeklyResultsComponent implements OnInit, OnChanges {
+  @Input() selectedDivisionValue: string = "";
   @Input() selectedSessionValue: string | undefined;
   public results = [];
   public weeklyResults: WeeklyResult[] = [];
@@ -36,8 +38,10 @@ export class WeeklyResultsComponent implements OnInit, OnChanges {
     for (let i = 1; i <= numberOfWeeks; i++) {
       const weekResults = new WeeklyResult();
       const gameScores: GameScore[] = [];
+      const gameScoresD1: GameScore[] = [];
+      const gameScoresD2: GameScore[] = [];
 
-      this.gameData = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
+      this.gameData = this.scheduleService.getGamesBySelectedSessionAndDivisionValue(this.appService.selectedSessionValue, this.selectedDivisionValue);
       this.gameData.forEach(game => {
         const gameScore = new GameScore();
         if (game.week == i && game.isScoreFinal) {
@@ -50,6 +54,13 @@ export class WeeklyResultsComponent implements OnInit, OnChanges {
       });
 
       weekResults.week = i;
+
+      if ( this.selectedDivisionValue === '1') {
+        weekResults.gameScores = gameScoresD1;
+      } else if (this.selectedDivisionValue === '2') {
+        weekResults.gameScores = gameScoresD2;
+      }
+
       weekResults.gameScores = gameScores;
       this.weeklyResults.push(weekResults);
     }

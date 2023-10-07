@@ -10,4 +10,5 @@ export class Game {
   public week = 0;
   public status = "";
   public session = "";
+  public division = "";
 }

@@ -7,6 +7,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {HttpClient} from "@angular/common/http";
 import {AppService} from "../app.service";
+import {Teams} from "../models/teams";
+import {StandingsService} from "../standings/standings.service";
 
 @Component({
   selector: 'app-schedule',
@@ -18,7 +20,9 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   private ROADKILL = "ROADKILL";
   public gameData: Game[] = [];
   public games: Game[] = [];
-  public dataSource = new MatTableDataSource();
+  public teamList: Teams[] = [];
+
+  public selectedDivisionValue = '2';
 
   initColumns = [
     { name: 'week', display: 'Week' },
@@ -34,12 +38,15 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   public pageSizes = [20, 50, 75, 100];
   public defaultPageSize = 50;
 
+  public dataSource = new MatTableDataSource();
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(private scheduleService : ScheduleService,
               private httpClient: HttpClient,
-              public appService: AppService) {
+              public appService: AppService,
+              public standingsService: StandingsService) {
   }
 
   public ngAfterViewInit() {
@@ -71,14 +78,27 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
       this.gameData = <Game[]>data;
 
       this.gameData.forEach(game => {
-        if (game.session == this.appService.selectedSessionValue) {
+        if (game.session == this.appService.selectedSessionValue && game.division === this.selectedDivisionValue) {
           this.games.push(game);
+        }
+      });
+
+      this.games.sort((a, b) => {
+        if (a.gameDate !== b.gameDate) {
+          return a.gameDate.localeCompare(b.gameDate);
+        } else {
+          return a.gameTime.localeCompare(b.gameTime);
         }
       })
 
       this.dataSource.data = this.games
       this.dataSource.sort = this.sort;
     });
+  }
+
+  public setSelectedDivision(selectedDivisionValue: string) {
+    this.selectedDivisionValue = selectedDivisionValue;
+    this.getGameData();
   }
 
   public setSelectedSession(selectedSessionValue: string) {

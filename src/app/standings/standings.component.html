@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="main-div">
   <mat-card class="col-10">
-    <div class="col-3">
+    <div class="col-6">
       <form>
         <mat-form-field appearance="outline" style="color:white">
           <mat-select [(value)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="setSelectedSession($event.value)">
@@ -11,10 +11,14 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-radio-group aria-label="Select an option" (change)="setSelectedDivision($event.value)">
+          <mat-radio-button value="1">Division 1</mat-radio-button>
+          <mat-radio-button value="2" [checked]=true>Division 2</mat-radio-button>
+        </mat-radio-group>
       </form>
     </div>
     <mat-card-header style="background-color: darkgreen">
-      <h1 class="card-title" style="color:white">Standings for {{appService.session}} Session</h1>
+      <h1 class="card-title" style="color:white">Standings for {{appService.session}}: Division {{selectedDivisionValue}}</h1>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field appearance="fill">
@@ -22,7 +26,7 @@
         <input matInput (keyup)="applyFilter($event)">
       </mat-form-field>
       <div class="horiz-scroll">
-        <table mat-table matSort matSortActive="points" matSortDirection="desc" id="standings-table" [dataSource]="dataSource">
+        <table mat-table matSort matSortActive="points" matSortDirection="desc" matSortDisableClear id="standings-table-D1" [dataSource]="dataSource">
           <ng-container matColumnDef="index">
             <mat-header-cell *matHeaderCellDef> Pos </mat-header-cell>
             <mat-cell *matCellDef="let element; let i = index;">{{i+1}}</mat-cell>
@@ -75,6 +79,11 @@
               </span>
             </mat-cell>
           </ng-container>
+          <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">
+              No records found
+            </mat-footer-cell>
+          </ng-container>
           <ng-container matColumnDef="formKey">
             <td mat-footer-cell *matFooterCellDef>
               <div class="shadow bg-warning rounded float-end">
@@ -90,13 +99,14 @@
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; let even = even; columns: displayedColumns; let i = index;" [ngClass]="{gray: even}"></mat-row>
+          <mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource && dataSource.data.length > 0"></mat-footer-row>
           <tr mat-footer-row *matFooterRowDef="['formKey']"></tr>
         </table>
       </div>
     </mat-card-content>
   </mat-card>
 </div>
-<app-weekly-results [selectedSessionValue]="this.appService.selectedSessionValue"></app-weekly-results>
+<app-weekly-results [selectedDivisionValue]="this.selectedDivisionValue" [selectedSessionValue]="this.appService.selectedSessionValue" *ngIf="dataSource && dataSource.data.length > 0"></app-weekly-results>
 
 <!--&lt;!&ndash;Roadkill version&ndash;&gt;-->
 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->

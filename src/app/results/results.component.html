@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="main-div">
   <mat-card class="col-10">
-    <div class="col-3">
+    <div class="col-6">
       <form>
         <mat-form-field appearance="outline" style="color:white">
           <mat-select [(value)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="setSelectedSession($event.value)">
@@ -12,10 +12,17 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-radio-group aria-label="Select an option" (change)="setSelectedDivision($event.value)">
+          <mat-radio-button value="1">Division 1</mat-radio-button>
+          <mat-radio-button value="2" [checked]=true>Division 2</mat-radio-button>
+        </mat-radio-group>
       </form>
     </div>
-    <mat-card-header style="background-color: darkgreen">
-      <h1 class="card-title" style="color:white">Results  {{appService.session}} Session (Roadkill: {{wins + "-" + draws + "-" + losses + " " + points + " Points " + position}})</h1>
+    <mat-card-header style="background-color: darkgreen" *ngIf="selectedDivisionValue==='1'">
+      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}}</h1>
+    </mat-card-header>
+    <mat-card-header style="background-color: darkgreen" *ngIf="selectedDivisionValue==='2'">
+      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}} (Roadkill: {{wins + "-" + draws + "-" + losses + " " + points + " Points " + position}})</h1>
     </mat-card-header>
     <mat-card-content>
       <div>
@@ -24,7 +31,7 @@
           <input matInput (keyup)="applyFilter($event)">
         </mat-form-field>
         <div class="horiz-scroll">
-          <table mat-table [dataSource]="dataSource" matSort matSortActive="week" matSortDirection="asc" matSortDisableClear>
+          <table mat-table matSort matSortActive="week" matSortDirection="asc" matSortDisableClear [dataSource]="dataSource">
             <!--<ng-container [matColumnDef]="column.name" *ngFor="let column of initColumns">
               <th mat-header-cell *matHeaderCellDef>{{ column.display }}</th>
               <td mat-cell *matCellDef="let element" [ngClass]="'mat-cell-right'">{{ element[column.name] }}</td>

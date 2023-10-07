@@ -6,15 +6,18 @@ import {AppService} from "../app.service";
   providedIn: 'root'
 })
 export class StandingsService {
-  public teamList: Teams[] = [];
+  public teamListD1: Teams[] = [];
+  public teamListD2: Teams[] = [];
+
   constructor(public appService: AppService) {
-    this.getTeamsList();
+    this.getTeamsListD1();
+    this.getTeamsListD2();
   }
 
   public getTeamNameById(id: number): string {
     let teamName = "";
 
-    const found = this.teamList.find(item => item.id === id);
+    const found = this.teamListD1.find(item => item.id === id) || this.teamListD2.find(item => item.id === id);
     if (found) {
       teamName = found.teamName;
     }
@@ -22,12 +25,12 @@ export class StandingsService {
     return teamName;
   }
 
-  public getTeamsList(): Teams[] {
-    this.teamList = [];
+  public getTeamsListD1(): Teams[] {
+    this.teamListD1 = [];
 
     switch (this.appService.selectedSessionValue) {
       case "0":
-        this.teamList.push(
+        this.teamListD1.push(
           {id: 1, division: 1, teamName:"Absinthe Minded"},
           {id: 2, division: 1, teamName:"Agony of Da Feet"},
           {id: 3, division: 1, teamName:"Blue City"},
@@ -40,7 +43,7 @@ export class StandingsService {
         );
         break;
       case '1':
-        this.teamList.push(
+        this.teamListD1.push(
           {id: 1, division: 1, teamName:"Absinthe Minded"},
           {id: 2, division: 1, teamName:"Agony of Da Feet"},
           {id: 3, division: 1, teamName:"Blue City"},
@@ -54,11 +57,31 @@ export class StandingsService {
         );
         break;
       case '2':
-        this.teamList.push(
+        this.teamListD1.push(
           {id: 1, division: 1, teamName:"Absinthe Minded"},
           {id: 2, division: 1, teamName:"Agony of Da Feet"},
           {id: 3, division: 1, teamName:"Blue City"},
-          {id: 4, division: 1, teamName:"Mustang"},
+          {id: 4, division: 1, teamName:"Mustang"}
+        );
+        break;
+
+    }
+
+    return this.teamListD1.sort((a,b) => a.teamName.localeCompare(b.teamName));
+  }
+
+  public getTeamsListD2(): Teams[] {
+    this.teamListD2 = [];
+
+    switch (this.appService.selectedSessionValue) {
+      case "0":
+        this.teamListD2.push();
+        break;
+      case '1':
+        this.teamListD2.push();
+        break;
+      case '2':
+        this.teamListD2.push(
           {id: 5, division: 2, teamName:"Internationals"},
           {id: 6, division: 2, teamName:"Jolly Green Giants"},
           {id: 7, division: 2, teamName:"KMP"},
@@ -71,6 +94,6 @@ export class StandingsService {
 
     }
 
-    return this.teamList.sort((a,b) => a.teamName.localeCompare(b.teamName));
+    return this.teamListD2.sort((a,b) => a.teamName.localeCompare(b.teamName));
   }
 }
