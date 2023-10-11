@@ -113,12 +113,12 @@
   {"homeTeam":"Blue City", "awayTeam":"Mustang", "field":"7B", "gameDate": "09-29-2023", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 8, "awayScore": 4, "session": "2", "week": 1, "status": "", "division": "1"},
   {"homeTeam":"Absinthe Minded", "awayTeam":"Agony of Da Feet", "field":"7B", "gameDate": "09-29-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 2, "awayScore": 3, "session": "2", "week": 1, "status": "", "division": "1"},
 
-  {"homeTeam":"Internationals", "awayTeam":"Rusty Knights", "field":"6A", "gameDate": "10-06-2023", "gameTime": "6:00", "isScoreFinal": true, "homeScore": 1, "awayScore": 0, "session": "2", "week": 2, "status": "", "division": "2"},
+  {"homeTeam":"Internationals", "awayTeam":"Rusty Knights", "field":"6A", "gameDate": "10-06-2023", "gameTime": "6:00", "isScoreFinal": true, "homeScore": 9, "awayScore": 2, "session": "2", "week": 2, "status": "", "division": "2"},
   {"homeTeam":"Roadkill", "awayTeam":"Jolly Green Giants", "field":"6A", "gameDate": "10-06-2023", "gameTime": "7:00", "isScoreFinal": true, "homeScore": 6, "awayScore": 4, "session": "2", "week": 2, "status": "", "division": "2"},
-  {"homeTeam":"Frederick Aces", "awayTeam":"Point of Rocks", "field":"6A", "gameDate": "10-06-2023", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 0, "awayScore": 2, "session": "2", "week": 2, "status": "", "division": "2"},
-  {"homeTeam":"Frederick Aces", "awayTeam":"KMP", "field":"6A", "gameDate": "10-06-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 0, "awayScore": 2, "session": "2", "week": 2, "status": "", "division": "2"},
-  {"homeTeam":"Agony of Da Feet", "awayTeam":"Blue City", "field":"6B", "gameDate": "10-06-2023", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 0, "awayScore": 1, "session": "2", "week": 2, "status": "", "division": "1"},
-  {"homeTeam":"Absinthe Minded", "awayTeam":"Mustang", "field":"6B", "gameDate": "10-06-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 0, "awayScore": 1, "session": "2", "week": 2, "status": "", "division": "1"},
+  {"homeTeam":"Frederick Aces", "awayTeam":"Point of Rocks", "field":"6A", "gameDate": "10-06-2023", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 6, "awayScore": 4, "session": "2", "week": 2, "status": "", "division": "2"},
+  {"homeTeam":"Frederick Aces", "awayTeam":"KMP", "field":"6A", "gameDate": "10-06-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 4, "awayScore": 2, "session": "2", "week": 2, "status": "", "division": "2"},
+  {"homeTeam":"Agony of Da Feet", "awayTeam":"Blue City", "field":"6B", "gameDate": "10-06-2023", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 3, "awayScore": 7, "session": "2", "week": 2, "status": "", "division": "1"},
+  {"homeTeam":"Absinthe Minded", "awayTeam":"Mustang", "field":"6B", "gameDate": "10-06-2023", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 1, "awayScore": 2, "session": "2", "week": 2, "status": "", "division": "1"},
 
   {"homeTeam":"Roadkill", "awayTeam":"Frederick Aces", "field":"7A", "gameDate": "10-13-2023", "gameTime": "6:00", "isScoreFinal": false, "homeScore": 2, "awayScore": 1, "session": "2", "week": 3, "status": "", "division": "2"},
   {"homeTeam":"Point of Rocks", "awayTeam":"KMP", "field":"7A", "gameDate": "10-13-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": 11, "awayScore": 5, "session": "2", "week": 3, "status": "", "division": "2"},
