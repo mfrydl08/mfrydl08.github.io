@@ -2,22 +2,27 @@
 <!--suppress JSUnusedGlobalSymbols -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="main-div">
-  <mat-card class="col-10">
-    <div class="col-6">
-      <form>
-        <mat-form-field appearance="outline" style="color:white">
-          <mat-select [(value)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="setSelectedSession($event.value)">
-            <mat-option *ngFor="let session of appService.sessions" [value]="session.id">
-              {{session.sessionName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-radio-group aria-label="Select an option" (change)="setSelectedDivision($event.value)">
-          <mat-radio-button value="1">Division 1</mat-radio-button>
-          <mat-radio-button value="2" [checked]=true>Division 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </div>
+  <mat-card class="col-12">
+    <form>
+      <mat-form-field appearance="outline" style="color:white">
+        <mat-select class="col-4" [(value)]="appService.selectedSessionValue" name="selectedSession" (selectionChange)="setSelectedSession($event.value)">
+          <mat-option *ngFor="let session of appService.sessions" [value]="session.id">
+            {{session.sessionName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="m-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="1" autocomplete="off" (change)="setSelectedDivision($event)">
+        <label class="btn btn-outline-success" for="btnradio1">Division 1</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="2" autocomplete="off" checked (change)="setSelectedDivision($event)">
+        <label class="btn btn-outline-success" for="btnradio2">Division 2</label>
+      </div>
+<!--        <mat-radio-group aria-label="Select an option" (change)="setSelectedDivision($event.value)">-->
+<!--          <mat-radio-button value="1">Division 1</mat-radio-button>-->
+<!--          <mat-radio-button value="2" [checked]=true>Division 2</mat-radio-button>-->
+<!--        </mat-radio-group>-->
+    </form>
     <mat-card-header style="background-color: darkgreen">
       <h1 class="card-title" style="color:white">Schedule for {{appService.session}}: Division {{selectedDivisionValue}} </h1>
     </mat-card-header>

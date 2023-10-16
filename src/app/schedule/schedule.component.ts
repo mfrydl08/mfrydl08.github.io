@@ -96,10 +96,16 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  public setSelectedDivision(selectedDivisionValue: string) {
-    this.selectedDivisionValue = selectedDivisionValue;
+  public setSelectedDivision(selectedDivisionValue: any) {
+    this.selectedDivisionValue = selectedDivisionValue.target.value;
+    console.log("this.selectedDivisionValue: " + this.selectedDivisionValue);
     this.getGameData();
   }
+
+  // public setSelectedDivision(selectedDivisionValue: string) {
+  //   this.selectedDivisionValue = selectedDivisionValue;
+  //   this.getGameData();
+  // }
 
   public setSelectedSession(selectedSessionValue: string) {
     this.appService.selectedSessionValue = selectedSessionValue;

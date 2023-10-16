@@ -297,10 +297,15 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
     }
   }
 
-  public setSelectedDivision(selectedDivisionValue: string) {
-    this.selectedDivisionValue = selectedDivisionValue;
+  public setSelectedDivision(selectedDivisionValue: any) {
+    this.selectedDivisionValue = selectedDivisionValue.target.value;
     this.initData();
   }
+
+  /*public setSelectedDivision(selectedDivisionValue: string) {
+    this.selectedDivisionValue = selectedDivisionValue;
+    this.initData();
+  }*/
 
   public setSelectedSession(selectedSessionValue: string) {
     this.appService.selectedSessionValue = selectedSessionValue;

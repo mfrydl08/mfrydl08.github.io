@@ -333,12 +333,17 @@ export class StandingsComponent implements AfterViewInit, OnInit {
     }
   }
 
-  public setSelectedDivision(selectedDivisionValue: string) {
-    this.selectedDivisionValue = selectedDivisionValue;
-
+  public setSelectedDivision(selectedDivisionValue: any) {
+    this.selectedDivisionValue = selectedDivisionValue.target.value;
     this.weeklyResultsComponent.ngOnInit();
     this.initData();
   }
+
+ /* public setSelectedDivision(selectedDivisionValue: string) {
+    this.selectedDivisionValue = selectedDivisionValue;
+    this.weeklyResultsComponent.ngOnInit();
+    this.initData();
+  }*/
 
   public setSelectedSession(selectedSessionValue: string) {
     this.appService.selectedSessionValue = selectedSessionValue;
