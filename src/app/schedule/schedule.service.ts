@@ -190,16 +190,16 @@ export class ScheduleService {
       {homeTeam:"Blue City", awayTeam:"Mustang", field:"7B", gameDate: "11-10-2023", gameTime: "8:00", isScoreFinal: true, homeScore: 6, awayScore: 1, session: "2", week: 7, status: "", division: "1"},
       {homeTeam:"Absinthe Minded", awayTeam:"Agony of Da Feet", field:"7B", gameDate: "11-10-2023", gameTime: "9:00", isScoreFinal: true, homeScore: 7, awayScore: 6, session: "2", week: 7, status: "", division: "1"},
 
-      {homeTeam:"Blue City", awayTeam:"Absinthe Minded", field:"7A", gameDate: "11-17-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Semifinal 1", division: "1"},
-      {homeTeam:"Mustang", awayTeam:"Agony of Da Feet", field:"7A", gameDate: "11-17-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Semifinal 2", division: "2"},
-      {homeTeam:"Jolly Green Giants", awayTeam:"Point of Rocks", field:"7B", gameDate: "11-17-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarterfinal 1", division: "2"},
-      {homeTeam:"Roadkill", awayTeam:"Rusty Knights", field:"7B", gameDate: "11-17-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarterfinal 2", division: "2"},
-      {homeTeam:"Internationals", awayTeam:"KMP", field:"7B", gameDate: "11-17-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 8, status: "Quarterfinal 3", division: "2"},
+      {homeTeam:"Blue City", awayTeam:"Absinthe Minded", field:"7A", gameDate: "11-17-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 1, awayScore: 0, session: "2", week: 8, status: "Semifinal 1", division: "1"},
+      {homeTeam:"Mustang", awayTeam:"Agony of Da Feet", field:"7A", gameDate: "11-17-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 1, awayScore: 0, session: "2", week: 8, status: "Semifinal 2", division: "2"},
+      {homeTeam:"Jolly Green Giants", awayTeam:"Point of Rocks", field:"7B", gameDate: "11-17-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 1, session: "2", week: 8, status: "Quarterfinal 1", division: "2"},
+      {homeTeam:"Roadkill", awayTeam:"Rusty Knights", field:"7B", gameDate: "11-17-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 6, awayScore: 4, session: "2", week: 8, status: "Quarterfinal 2", division: "2"},
+      {homeTeam:"Internationals", awayTeam:"KMP", field:"7B", gameDate: "11-17-2023", gameTime: "9:00", isScoreFinal: false, homeScore: 1, awayScore: 0, session: "2", week: 8, status: "Quarterfinal 3", division: "2"},
 
-      {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"TBD", gameDate: "12-01-2023", gameTime: "TBD", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Final", division: "2"},
-      {homeTeam:"Frederick Aces", awayTeam:"Winner QF 1", field:"TBD", gameDate: "12-01-2023", gameTime: "TBD", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Semifinal 1", division: "2"},
-      {homeTeam:"Winner QF 2", awayTeam:"Winner QF 3", field:"TBD", gameDate: "12-01-2023", gameTime: "TBD", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Semifinal 2", division: "2"},
-      {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"TBD", gameDate: "12-01-2023", gameTime: "TBD", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Final", division: "2"},
+      {homeTeam:"Blue City", awayTeam:"Mustang", field:"6B", gameDate: "12-01-2023", gameTime: "6:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Final", division: "2"},
+      {homeTeam:"Frederick Aces", awayTeam:"Point of Rocks", field:"6A", gameDate: "12-01-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Semifinal 1", division: "2"},
+      {homeTeam:"Roadkill", awayTeam:"Internationals", field:"6B", gameDate: "12-01-2023", gameTime: "7:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Semifinal 2", division: "2"},
+      {homeTeam:"Winner SF 1", awayTeam:"Winner SF 2", field:"6A", gameDate: "12-01-2023", gameTime: "8:00", isScoreFinal: false, homeScore: 0, awayScore: 0, session: "2", week: 9, status: "Final", division: "2"},
 
 
     ];
