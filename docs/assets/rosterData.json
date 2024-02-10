@@ -22,5 +22,30 @@
   {"teamName": "Roadkill", "fullName": "Mitchener, David", "firstName": "David", "lastName": "Mitchener", "position": "Midfield/Defender", "number": 11, "session": "1"},
   {"teamName": "Roadkill", "fullName": "Refo, Mike", "firstName": "Mike", "lastName": "Refo", "position": "Midfield/Defender", "number": 14, "session": "1"},
   {"teamName": "Roadkill", "fullName": "Sommer, Tony", "firstName": "Tony", "lastName": "Sommer", "position": "Forward/Midfield", "number": 13, "session": "1"},
-  {"teamName": "Roadkill", "fullName": "Bauer, Keith", "firstName": "Carol", "lastName": "Switzer", "position": "Goalkeeper/Forward/Midfield/Defender", "number": 1, "session": "1"}
+  {"teamName": "Roadkill", "fullName": "Bauer, Keith", "firstName": "Carol", "lastName": "Switzer", "position": "Goalkeeper/Forward/Midfield/Defender", "number": 1, "session": "1"},
+
+  {"teamName": "Roadkill", "fullName": "Cincotta, Tom", "firstName": "Tom", "lastName": "Cincotta", "position": "Goalkeeper", "number": 1, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Columba, Alberto", "firstName": "Alberto", "lastName": "Columba", "position": "Forward/Midfield/Defender/Goalkeeper", "number": 5, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Derbyshire, Jayme", "firstName": "Jayme", "lastName": "Derbyshire", "position": "Forward/Midfield", "number": 3, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Frydl, Mike", "firstName": "Mike", "lastName": "Frydl", "position": "Forward", "number": 8, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Furr, Katy", "firstName": "Katy", "lastName": "Furr", "position": "Forward/Midfield/Defender", "number": 4, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Jeanneret, Andrew", "firstName": "Andrew", "lastName": "Jeanneret", "position": "Forward/Midfield/Defender", "number": 10, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Logan, Brenda", "firstName": "Brenda", "lastName": "Logan", "position": "Midfield/Defender", "number": 8, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Logan, Sean", "firstName": "Sean", "lastName": "Logan", "position": "Defender", "number": 12, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Mitchener, David", "firstName": "David", "lastName": "Mitchener", "position": "Midfield/Defender", "number": 11, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Refo, Mike", "firstName": "Mike", "lastName": "Refo", "position": "Midfield/Defender", "number": 14, "session": "2"},
+  {"teamName": "Roadkill", "fullName": "Sommer, Tony", "firstName": "Tony", "lastName": "Sommer", "position": "Forward/Midfield", "number": 13, "session": "2"},
+
+  {"teamName": "Roadkill", "fullName": "Columba, Alberto", "firstName": "Alberto", "lastName": "Columba", "position": "Forward/Midfield/Defender/Goalkeeper", "number": 4, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Derbyshire, Jayme", "firstName": "Jayme", "lastName": "Derbyshire", "position": "Forward/Midfield", "number": 7, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Frydl, Mike", "firstName": "Mike", "lastName": "Frydl", "position": "Forward", "number": 8, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Furr, Katy", "firstName": "Katy", "lastName": "Furr", "position": "Forward/Midfield/Defender", "number": 2, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Hathaway, Tracy", "firstName": "Tracy", "lastName": "Hathaway", "position": "Midfield/Defender", "number": 4, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Jeanneret, Andrew", "firstName": "Andrew", "lastName": "Jeanneret", "position": "Forward/Midfield/Defender", "number": 10, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Logan, Brenda", "firstName": "Brenda", "lastName": "Logan", "position": "Midfield/Defender", "number": 8, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Logan, Sean", "firstName": "Sean", "lastName": "Logan", "position": "Defender", "number": 12, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Mitchener, David", "firstName": "David", "lastName": "Mitchener", "position": "Midfield/Defender", "number": 11, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Refo, Mike", "firstName": "Mike", "lastName": "Refo", "position": "Midfield/Defender", "number": 19, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Rieland, Scott", "firstName": "Scott", "lastName": "Rieland", "position": "Midfield/Defender", "number": 6, "session": "3"},
+  {"teamName": "Roadkill", "fullName": "Sommer, Tony", "firstName": "Tony", "lastName": "Sommer", "position": "Forward/Midfield", "number": 13, "session": "3"}
 ]
