@@ -13,9 +13,11 @@ export class AppService {
     { id : '5', sessionName: 'Fall 2024'}
   ];
 
-  public session = this.sessions[2].sessionName;
+  public session = this.sessions[3].sessionName;
 
   public selectedSessionValue = '3';
+  // public selectedDivisionValue = '1';
+  public defaultDivisionValue = '1';
 
   public setSelectedSession() {
     const x: number = +this.selectedSessionValue;

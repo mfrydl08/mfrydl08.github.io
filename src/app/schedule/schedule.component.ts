@@ -22,7 +22,7 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
   public games: Game[] = [];
   public teamList: Teams[] = [];
 
-  public selectedDivisionValue = '2';
+  public selectedDivisionValue = this.appService.defaultDivisionValue;
 
   initColumns = [
     { name: 'week', display: 'Week' },
@@ -98,14 +98,8 @@ export class ScheduleComponent implements AfterViewInit, OnInit, OnDestroy {
 
   public setSelectedDivision(selectedDivisionValue: any) {
     this.selectedDivisionValue = selectedDivisionValue.target.value;
-    console.log("this.selectedDivisionValue: " + this.selectedDivisionValue);
     this.getGameData();
   }
-
-  // public setSelectedDivision(selectedDivisionValue: string) {
-  //   this.selectedDivisionValue = selectedDivisionValue;
-  //   this.getGameData();
-  // }
 
   public setSelectedSession(selectedSessionValue: string) {
     this.appService.selectedSessionValue = selectedSessionValue;

@@ -13,10 +13,10 @@
           </mat-select>
         </mat-form-field>
         <div class="m-2 btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="1" autocomplete="off" (change)="setSelectedDivision($event)">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="1" autocomplete="off" checked (change)="setSelectedDivision($event)">
           <label class="btn btn-outline-success" for="btnradio1">Division 1</label>
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="2" autocomplete="off" checked (change)="setSelectedDivision($event)">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="2" autocomplete="off" (change)="setSelectedDivision($event)">
           <label class="btn btn-outline-success" for="btnradio2">Division 2</label>
         </div>
         <!--<mat-radio-group aria-label="Select an option" (change)="setSelectedDivision($event.value)">
@@ -26,10 +26,11 @@
       </form>
     </div>
     <mat-card-header style="background-color: darkgreen" *ngIf="selectedDivisionValue==='1'">
-      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}}</h1>
+      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}} (Roadkill: {{wins + "-" + draws + "-" + losses + " " + points + " Points " + position}})</h1>
+<!--      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}}</h1>-->
     </mat-card-header>
     <mat-card-header style="background-color: darkgreen" *ngIf="selectedDivisionValue==='2'">
-      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}} (Roadkill: {{wins + "-" + draws + "-" + losses + " " + points + " Points " + position}})</h1>
+<!--      <h1 class="card-title" style="color:white">Results for {{appService.session}}: Division {{selectedDivisionValue}} (Roadkill: {{wins + "-" + draws + "-" + losses + " " + points + " Points " + position}})</h1>-->
     </mat-card-header>
     <mat-card-content>
       <div>

@@ -22,7 +22,7 @@ export class ResultsComponent implements AfterViewInit, OnInit, OnDestroy {
   private ROADKILL = "ROADKILL";
 
   public position = "";
-  public selectedDivisionValue = '2';
+  public selectedDivisionValue = this.appService.defaultDivisionValue;
 
   public wins = 0;
   public draws = 0;

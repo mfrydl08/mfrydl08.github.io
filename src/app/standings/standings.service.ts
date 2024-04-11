@@ -66,10 +66,17 @@ export class StandingsService {
         break;
       case '3':
         this.teamListD1.push(
-          {id: 1, division: 1, teamName:"Absinthe Minded"},
-          {id: 2, division: 1, teamName:"Agony of Da Feet"},
-          {id: 3, division: 1, teamName:"Blue City"},
-          {id: 4, division: 1, teamName:"Mustang"}
+          {id: 1, division: 1, teamName:"Agony of Da Feet"},
+          {id: 2, division: 1, teamName:"Blue City"},
+          {id: 3, division: 1, teamName:"Caballos"},
+          {id: 4, division: 1, teamName: "Frederick Aces"},
+          {id: 5, division: 1, teamName:"Internationals"},
+          {id: 6, division: 1, teamName:"Jolly Green Giants"},
+          {id: 7, division: 1, teamName:"KMP"},
+          {id: 8, division: 1, teamName:"PORC Point Of Rocks Crew"},
+          {id: 9, division: 1, teamName:"Roadkill"},
+          {id: 10, division: 1, teamName:"Rusty Knights"},
+          {id: 11, division: 1, teamName:"Utica United"}
         );
         break;
 
@@ -100,15 +107,6 @@ export class StandingsService {
         );
         break;
       case '3':
-        this.teamListD2.push(
-          {id: 5, division: 2, teamName:"Internationals"},
-          {id: 6, division: 2, teamName:"Jolly Green Giants"},
-          {id: 7, division: 2, teamName:"KMP"},
-          {id: 8, division: 2, teamName:"Roadkill"},
-          {id: 9, division: 2, teamName:"Rusty Knights"},
-          {id: 10, division: 2, teamName: "Frederick Aces"},
-          {id: 11, division: 2, teamName: "Point of Rocks"}
-        );
         break;
 
     }

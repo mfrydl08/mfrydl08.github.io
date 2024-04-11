@@ -29,7 +29,7 @@ export class StandingsComponent implements AfterViewInit, OnInit {
   public pointsMap: Map<string, number> = new Map<string, number>();
   public winMap: Map<string, number> = new Map<string, number>();
 
-  public selectedDivisionValue = '2';
+  public selectedDivisionValue = this.appService.defaultDivisionValue;
   public form: string[] = [];
   public games: Game[] = this.scheduleService.getGamesBySelectedSessionValue(this.appService.selectedSessionValue);
   public pageSizes = [10, 20, 50, 100];
