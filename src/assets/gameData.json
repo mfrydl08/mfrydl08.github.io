@@ -164,7 +164,7 @@
   {"homeTeam":"Blue City", "awayTeam":"Mustang", "field":"6B", "gameDate": "12-01-2023", "gameTime": "6:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "session": "2", "week": 9, "status": "Final", "division": "1"},
   {"homeTeam":"Frederick Aces", "awayTeam":"Point of Rocks", "field":"6A", "gameDate": "12-01-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "session": "2", "week": 9, "status": "Semifinal 1", "division": "2"},
   {"homeTeam":"Roadkill", "awayTeam":"Internationals", "field":"6B", "gameDate": "12-01-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "session": "2", "week": 9, "status": "Semifinal 2", "division": "2"},
-  {"homeTeam":"Winner SF 1", "awayTeam":"Winner SF 2", "field":"6A", "gameDate": "12-01-2023", "gameTime": "8:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "session": "2", "week": 9, "status": "Final", "division": "2"},
+  {"homeTeam":"Point of Rocks", "awayTeam":"Roadkill", "field":"6A", "gameDate": "12-01-2023", "gameTime": "8:00", "isScoreFinal": false, "homeScore": null, "awayScore": null, "session": "2", "week": 9, "status": "Final", "division": "2"},
 
   {"homeTeam":"Point of Rocks", "awayTeam":"Jolly Green Giants", "field":"7A", "gameDate": "09-29-2023", "gameTime": "6:00", "isScoreFinal": false, "homeScore": 6, "awayScore": 6, "session": "3", "week": 1, "status": "", "division": "2"},
   {"homeTeam":"Rusty Knights", "awayTeam":"Roadkill", "field":"7A", "gameDate": "09-29-2023", "gameTime": "7:00", "isScoreFinal": false, "homeScore": 5, "awayScore": 6, "session": "3", "week": 1, "status": "", "division": "2"},
