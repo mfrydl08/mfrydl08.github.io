@@ -35,7 +35,7 @@
       <div class="horiz-scroll">
         <table mat-table matSort matSortActive="points" matSortDirection="desc" matSortDisableClear id="standings-table-D1" [dataSource]="dataSource">
           <ng-container matColumnDef="index">
-            <mat-header-cell *matHeaderCellDef> Pos </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
             <mat-cell *matCellDef="let element; let i = index;">{{i+1}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="teamName" sticky>
