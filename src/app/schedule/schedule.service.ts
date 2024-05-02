@@ -226,12 +226,12 @@ export class ScheduleService {
       {homeTeam:"Blue City", awayTeam:"KMP", field:"6A", gameDate: "04-19-2024", gameTime: "9:00", isScoreFinal: true, homeScore: 7, awayScore: 4, session: "3", week: 3, status: "", division: "1"},
       {homeTeam:"Internationals", awayTeam:"Caballos", field:"6B", gameDate: "04-19-2024", gameTime: "9:00", isScoreFinal: true, homeScore: 4, awayScore: 7, session: "3", week: 3, status: "", division: "1"},
 
-      {homeTeam:"Rusty Knights", awayTeam:"PORC Point of Rocks Crew", field:"6A", gameDate: "04-26-2024", gameTime: "7:00", isScoreFinal: false, homeScore: 4, awayScore: 3, session: "3", week: 4, status: "", division: "1"},
-      {homeTeam:"Roadkill", awayTeam:"Jolly Green Giants", field:"6B", gameDate: "04-26-2024", gameTime: "7:00", isScoreFinal: true, homeScore: 4, awayScore: 7, session: "3", week: 4, status: "", division: "1"},
-      {homeTeam:"KMP", awayTeam:"Caballos", field:"6A", gameDate: "04-26-2024", gameTime: "8:00", isScoreFinal: false, homeScore: 6, awayScore: 3, session: "3", week: 4, status: "", division: "1"},
-      {homeTeam:"Utica United", awayTeam:"Agony of Da Feet", field:"6B", gameDate: "04-26-2024", gameTime: "8:00", isScoreFinal: false, homeScore: 5, awayScore: 5, session: "3", week: 4, status: "", division: "1"},
-      {homeTeam:"Caballos", awayTeam:"Blue City", field:"6A", gameDate: "04-26-2024", gameTime: "9:00", isScoreFinal: false, homeScore: 3, awayScore: 0, session: "3", week: 4, status: "", division: "1"},
-      {homeTeam:"Internationals", awayTeam:"Frederick Aces", field:"6B", gameDate: "04-26-2024", gameTime: "9:00", isScoreFinal: false, homeScore: 0, awayScore: 3, session: "3", week: 4, status: "", division: "1"},
+      {homeTeam:"Rusty Knights", awayTeam:"PORC Point of Rocks Crew", field:"6A", gameDate: "04-26-2024", gameTime: "7:00", isScoreFinal: true, homeScore: 4, awayScore: 4, session: "3", week: 4, status: "", division: "1"},
+      {homeTeam:"Roadkill", awayTeam:"Jolly Green Giants", field:"6B", gameDate: "04-26-2024", gameTime: "7:00", isScoreFinal: true, homeScore: 3, awayScore: 7, session: "3", week: 4, status: "", division: "1"},
+      {homeTeam:"KMP", awayTeam:"Caballos", field:"6A", gameDate: "04-26-2024", gameTime: "8:00", isScoreFinal: true, homeScore: 4, awayScore: 7, session: "3", week: 4, status: "", division: "1"},
+      {homeTeam:"Utica United", awayTeam:"Agony of Da Feet", field:"6B", gameDate: "04-26-2024", gameTime: "8:00", isScoreFinal: true, homeScore: 4, awayScore: 7, session: "3", week: 4, status: "", division: "1"},
+      {homeTeam:"Caballos", awayTeam:"Blue City", field:"6A", gameDate: "04-26-2024", gameTime: "9:00", isScoreFinal: true, homeScore: 4, awayScore: 7, session: "3", week: 4, status: "", division: "1"},
+      {homeTeam:"Internationals", awayTeam:"Frederick Aces", field:"6B", gameDate: "04-26-2024", gameTime: "9:00", isScoreFinal: true, homeScore: 4, awayScore: 7, session: "3", week: 4, status: "", division: "1"},
 
       {homeTeam:"Blue City", awayTeam:"PORC Point of Rocks Crew", field:"6A", gameDate: "05-03-2024", gameTime: "7:00", isScoreFinal: false, homeScore: 5, awayScore: 3, session: "3", week: 5, status: "", division: "1"},
       {homeTeam:"Jolly Green Giants", awayTeam:"Utica United", field:"6B", gameDate: "05-03-2024", gameTime: "7:00", isScoreFinal: false, homeScore: 6, awayScore: 1, session: "3", week: 5, status: "", division: "1"},
