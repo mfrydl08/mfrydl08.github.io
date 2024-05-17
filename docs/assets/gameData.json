@@ -202,12 +202,12 @@
   {"homeTeam":"KMP", "awayTeam":"Roadkill", "field":"6A", "gameDate": "05-03-2024", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 8, "awayScore": 2, "session": "3", "week": 5, "status": "", "division": "1"},
   {"homeTeam":"Agony of Da Feet", "awayTeam":"Internationals", "field":"6B", "gameDate": "05-03-2024", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 7, "awayScore": 4, "session": "3", "week": 5, "status": "", "division": "1"},
 
-  {"homeTeam":"Utica United", "awayTeam":"KMP", "field":"6A", "gameDate": "05-10-2024", "gameTime": "7:00", "isScoreFinal": false, "homeScore": 3, "awayScore": 3, "session": "3", "week": 6, "status": "", "division": "1"},
-  {"homeTeam":"Frederick Aces", "awayTeam":"Blue City", "field":"6B", "gameDate": "05-10-2024", "gameTime": "7:00", "isScoreFinal": false, "homeScore": 4, "awayScore": 5, "session": "3", "week": 6, "status": "", "division": "1"},
-  {"homeTeam":"Agony of Da Feet", "awayTeam":"Jolly Green GiantS", "field":"6A", "gameDate": "05-10-2024", "gameTime": "8:00", "isScoreFinal": false, "homeScore": 3, "awayScore": 0, "session": "3", "week": 6, "status": "", "division": "1"},
-  {"homeTeam":"Roadkill", "awayTeam":"Caballos", "field":"6B", "gameDate": "05-10-2024", "gameTime": "8:00", "isScoreFinal": false, "homeScore": 2, "awayScore": 10, "session": "3", "week": 6, "status": "", "division": "1"},
-  {"homeTeam":"PORC Point of Rocks Crew", "awayTeam":"Rusty Knights", "field":"6A", "gameDate": "05-10-2024", "gameTime": "9:00", "isScoreFinal": false, "homeScore": 2, "awayScore": 7, "session": "3", "week": 6, "status": "", "division": "1"},
-  {"homeTeam":"Roadkill", "awayTeam":"Internationals", "field":"6B", "gameDate": "05-10-2024", "gameTime": "9:00", "isScoreFinal": false, "homeScore": 4, "awayScore": 6, "session": "3", "week": 6, "status": "", "division": "1"},
+  {"homeTeam":"Utica United", "awayTeam":"KMP", "field":"6A", "gameDate": "05-10-2024", "gameTime": "7:00", "isScoreFinal": true, "homeScore": 7, "awayScore": 4, "session": "3", "week": 6, "status": "", "division": "1"},
+  {"homeTeam":"Frederick Aces", "awayTeam":"Blue City", "field":"6B", "gameDate": "05-10-2024", "gameTime": "7:00", "isScoreFinal": true, "homeScore": 4, "awayScore": 7, "session": "3", "week": 6, "status": "", "division": "1"},
+  {"homeTeam":"Agony of Da Feet", "awayTeam":"Jolly Green GiantS", "field":"6A", "gameDate": "05-10-2024", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 7, "awayScore": 4, "session": "3", "week": 6, "status": "", "division": "1"},
+  {"homeTeam":"Roadkill", "awayTeam":"Caballos", "field":"6B", "gameDate": "05-10-2024", "gameTime": "8:00", "isScoreFinal": true, "homeScore": 3, "awayScore": 7, "session": "3", "week": 6, "status": "", "division": "1"},
+  {"homeTeam":"PORC Point of Rocks Crew", "awayTeam":"Rusty Knights", "field":"6A", "gameDate": "05-10-2024", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 7, "awayScore": 4, "session": "3", "week": 6, "status": "", "division": "1"},
+  {"homeTeam":"Roadkill", "awayTeam":"Internationals", "field":"6B", "gameDate": "05-10-2024", "gameTime": "9:00", "isScoreFinal": true, "homeScore": 3, "awayScore": 5, "session": "3", "week": 6, "status": "", "division": "1"},
 
   {"homeTeam":"Roadkill", "awayTeam":"PORC Point of Rocks Crew", "field":"6A", "gameDate": "05-17-2024", "gameTime": "7:00", "isScoreFinal": false, "homeScore": 2, "awayScore": 3, "session": "3", "week": 7, "status": "", "division": "1"},
   {"homeTeam":"Rusty Knights", "awayTeam":"Frederick Aces", "field":"6B", "gameDate": "05-17-2024", "gameTime": "7:00", "isScoreFinal": false, "homeScore": 2, "awayScore": 8, "session": "3", "week": 7, "status": "", "division": "1"},
